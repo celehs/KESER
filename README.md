@@ -1,5 +1,4 @@
-Large Scale Code Embedding with Applications to Feature Selection and
-Knowledge Discovery in Electronic Health Records
+Knowledge Extraction via Sparse Embedding Regression (KESER)
 ================
 
 ## Overview
