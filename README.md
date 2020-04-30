@@ -18,8 +18,3 @@ Load the package into R.
 ``` r
 library(embedFS)
 ```
-
-## Documentation
-
-## References
-
