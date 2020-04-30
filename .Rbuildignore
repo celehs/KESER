@@ -1,7 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 
-data-raw
-demo
 embed
 paper
+README.*

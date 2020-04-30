@@ -26,8 +26,21 @@ Load the package into R.
 library(embedFS)
 ```
 
+## Example
+
+```{r}
+library(data.table)
+```
+
 ```{r}
 data <- readRDS(url("https://github.com/celehs/embedFS/raw/master/embed/embed.rds", "rb"))
 str(data)
 ```
 
+```{r}
+embedFS:::feature.sel.fun(
+  data$x.full, data$y.full, 
+  data$x.train, data$y.train, 
+  data$x.valid, data$y.valid, 
+  method = "lasso", alpha = 0.5, cos.cut = 0.1)
+```
