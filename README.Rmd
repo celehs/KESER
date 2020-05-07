@@ -41,13 +41,8 @@ loc.fit.RPDR <- KESER:::loc.feature.selection(
   data$X_train_lst[[1]], 
   data$Y_train_lst[[1]], 
   data$X_valid_lst[[1]], 
-  data$Y_valid_lst[[1]],
-  alpha = 0.5, 
-  lambda_lst = NULL, 
-  up_rate = 10, 
-  drop_rate = 0.5, 
-  cos_cut = 0.1)
-str(loc.fit.RPDR)
+  data$Y_valid_lst[[1]])
+loc.fit.RPDR
 ```
 
 ```{r}
@@ -57,13 +52,8 @@ loc.fit.VA <- KESER:::loc.feature.selection(
   data$X_train_lst[[2]], 
   data$Y_train_lst[[2]], 
   data$X_valid_lst[[2]], 
-  data$Y_valid_lst[[2]],
-  alpha = 0.5, 
-  lambda_lst = NULL, 
-  up_rate = 10, 
-  drop_rate = 0.5, 
-  cos_cut = 0.1)
-str(loc.fit.VA)
+  data$Y_valid_lst[[2]])
+loc.fit.VA
 ```
 
 ```{r, eval=FALSE}
@@ -73,12 +63,6 @@ int.fit.results <- KESER:::int.feature.selection(
   data$X_train_lst[c(1, 2)],
   data$Y_train_lst[c(1, 2)], 
   data$X_valid_lst[c(1, 2)], 
-  data$Y_valid_lst[c(1, 2)],
-  alpha = 0.5, 
-  lambda_single_lst = NULL, 
-  lambda_group_lst = NULL, 
-  up.rate = 10, 
-  drop.rate = 0.5, 
-  cos.cut = 0.1)
-str(int.fit.results)
+  data$Y_valid_lst[c(1, 2)])
+int.fit.results
 ```
