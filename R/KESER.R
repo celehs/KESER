@@ -1,138 +1,320 @@
-cosine.fun <- function(x, y) {
-  crossprod(x, y) / sqrt(crossprod(x) * crossprod(y))
+# Used for adding ridge penalty to the covariates
+
+add_ridge <- function(X_1, Y_1, lambda, alpha = 0.5){
+  n <- nrow(X_1)
+  p <- ncol(X_1)
+  Cov_all <- t(cbind(X_1, Y_1)) %*% cbind(X_1, Y_1)
+  Cov_all <- diag(lambda * alpha * c(rep(1, p), 0)) + Cov_all
+  svd_result <- svd(Cov_all)
+  s_value <- svd_result$d
+  s_mat <- diag(sqrt(s_value))
+  data_all <- svd_result$u %*% s_mat
+  X <- t(data_all[-length(data_all[ ,1]),])
+  Y <- data_all[length(data_all[ ,1]),]
+  return(list(X = X, Y = Y))
 }
 
-lasso.fun <- function(x.A, y.A, x.sam, y.sam, x.sam2, y.sam2, cos.sims, nlambda, alpha, seed = 1234) {
-  set.seed(seed)
-  obj1 <- glmnet::cv.glmnet(
-    x = x.A, y = y.A, alpha = alpha, 
-    intercept = FALSE, standardize = FALSE,
-    penalty.factor = 1 / abs(cos.sims))
-  max.lambda <- obj1$lambda.min * 1e2 
-  min.lambda <- obj1$lambda.min * 1e-6
-  grid.lambda <- seq(from = max.lambda, 
-                     to = min.lambda, 
-                     length.out = nlambda)
-  obj.A <- glmnet::glmnet(
-    x = x.A, y = y.A,
-    alpha = alpha, lambda = grid.lambda, 
-    intercept = FALSE, standardize = FALSE,
-    penalty.factor = 1 / abs(cos.sims))
-  obj.sam <- glmnet::glmnet(
-    x = x.sam, y = y.sam,
-    alpha = alpha, lambda = grid.lambda,
-    intercept = FALSE, standardize = FALSE,
-    penalty.factor = 1 / abs(cos.sims))
-  B.sam <- as.matrix(glmnet::coef.glmnet(obj.sam))[-1, ]
-  B.A <- as.matrix(glmnet::coef.glmnet(obj.A))[-1, ]
-  MSE <- unlist(lapply(1:nlambda, function(ll) {
-    mean((y.sam2 - x.sam2 %*% matrix(B.sam[, ll], ncol = 1))^2)
-  }))
-  B.lasso <- as.matrix(B.A[, which.min(MSE)])
-  B.lasso <- data.frame(rownames(B.lasso), cos.sims, B.lasso)
-  colnames(B.lasso) <- c("variable", "cos.sims", "coefficient")
-  rownames(B.lasso) <- NULL
-  B.lasso[order(-B.lasso[, "cos.sims"]), ]
+# Dropout and up-sample
+
+drop_fun <- function(X, Y, drop_rate = 0.5, up_rate = 10){
+  boot_ind <- sample(1:nrow(X), up_rate * nrow(X), replace = T)
+  Y_new = Y[boot_ind]
+  X_new = X[boot_ind,]
+  cor_mat <- cor(X)
+  p <- ncol(X)
+  drop.gaussian <- mvrnorm(n = nrow(X_new), mu = rep(0, p), Sigma = cor_mat)
+  drop.ind <- ifelse(drop.gaussian > 0, 1, 0)
+  
+  X_new <- drop.ind * X_new + (1 - drop.ind) * (rep(1, nrow(X_new)) %*% t(colMeans(X_new)))
+  return(list(X = X_new, Y = Y_new))
 }
 
-drop.dat.fun <- function(x, y, drop.rate, up.rate = 10) {
-  tmpind <- sample(1:nrow(x), up.rate * nrow(x), replace = TRUE)
-  ynew <- y[tmpind]
-  xnew <- x[tmpind, ] 
-  colnames(xnew) <- colnames(x)
-  col.drop <- 1:ncol(xnew)
-  xnew[,col.drop] <- sapply(col.drop, function(kk) {
-    tmpx <- xnew[, kk] 
-    tmpx[sample(1:length(tmpx), round(drop.rate * length(tmpx)))] <- mean(tmpx) 
-    tmpx
-  })
-  list(ynew = ynew, xnew = xnew)
-}
 
-dropout.fun <- function(x.A, y.A, x.sam, y.sam, x.sam2, y.sam2, 
-                        cos.sims, nlambda, alpha, up.rate, drop.rate, seed = 1234) {
-  set.seed(seed)
-  junk1 <- drop.dat.fun(x.A, y.A, drop.rate, up.rate)
-  xnew.A <- junk1$xnew
-  ynew.A <- junk1$ynew
-  cv.fit1 <- glmnet::cv.glmnet(
-    xnew.A, ynew.A, 
-    family = "gaussian",
-    intercept = FALSE, 
-    alpha = alpha, 
-    standardize = FALSE,
-    penalty.factor = 1 / abs(cos.sims))
-  max.lambda <- cv.fit1$lambda.min * 1e2 
-  min.lambda <- cv.fit1$lambda.min * 1e-6
-  grid.lambda <- seq(
-    from = max.lambda, 
-    to = min.lambda, 
-    length.out = nlambda)
-  ## step 2: training
-  set.seed(seed)
-  junk2.sam <- drop.dat.fun(x.sam, y.sam, drop.rate, up.rate)
-  xnew.sam <- junk2.sam$xnew
-  ynew.sam <- junk2.sam$ynew
-  fit.sam <- glmnet::glmnet(
-    xnew.sam, ynew.sam, 
-    family = "gaussian",
-    intercept = FALSE,
-    alpha = alpha,
-    standardize = FALSE,
-    penalty.factor = 1 / abs(cos.sims), 
-    lambda = grid.lambda)
-  junk2.A <- drop.dat.fun(x.A, y.A, drop.rate, up.rate)
-  xnew.A <- junk2.A$xnew
-  ynew.A <- junk2.A$ynew
-  fit.A <- glmnet::glmnet(
-    xnew.A, ynew.A,
-    family = "gaussian",
-    intercept = FALSE,
-    alpha = alpha,
-    standardize = FALSE,
-    penalty.factor = 1 / abs(cos.sims), 
-    lambda = grid.lambda)
-  B.sam <- as.matrix(glmnet::coef.glmnet(fit.sam))[-1, ]
-  B.A <- as.matrix(glmnet::coef.glmnet(fit.A))[-1, ]
-  ## step 3: validation
-  MSE <- unlist(lapply(1:nlambda, function(ll) { 
-    mean((y.sam2 - x.sam2 %*% matrix(B.sam[, ll], ncol = 1))^2) 
-  }))
-  B.dropout <- as.matrix(B.A[, which.min(MSE)])
-  B.dropout <- data.frame(rownames(B.dropout), cos.sims, B.dropout)
-  colnames(B.dropout) <- c("variable", "cos.sims", "coefficient")
-  rownames(B.dropout) <- NULL
-  B.dropout[order(-B.dropout[, "cos.sims"]), ]
-}
+# Fit local lasso with the validation set to tune
 
-feature.sel.fun <- function(x.A, y.A, x.sam, y.sam, x.sam2, y.sam2, method, alpha, 
-                            nlambda = 500, up.rate = 10, drop.rate = 0.5, cos.cut) {
-  cos.sims <- unlist(lapply(1:ncol(x.A), function(j) cosine.fun(y.A, x.A[, j])))
-  exclude.indx <- which(cos.sims < cos.cut)
-  if (method == "lasso") {
-    res <- lasso.fun(
-      x.A[, -exclude.indx], y.A, 
-      x.sam[, -exclude.indx], y.sam, 
-      x.sam2[,-exclude.indx], y.sam2, 
-      cos.sims[-exclude.indx], nlambda, alpha)
-  } else if (method == "dropout.without.y") {
-    res <- dropout.fun(
-      x.A[,-exclude.indx], y.A, 
-      x.sam[, -exclude.indx], y.sam, 
-      x.sam2[,-exclude.indx], y.sam2, 
-      cos.sims[-exclude.indx], nlambda, alpha, 
-      up.rate, drop.rate)
-  } else if (method == "dropout.with.y") {
-    x.A.new <- cbind(y = y.A, x.A[, -exclude.indx])
-    x.sam.new <- cbind(y = y.sam, x.sam[, -exclude.indx])
-    x.sam2.new <- cbind(y = y.sam2, x.sam2[, -exclude.indx])
-    cos.sims.new <- c(1,cos.sims[-exclude.indx])
-    res <- dropout.fun(
-      x.A.new, y.A, 
-      x.sam.new, y.sam, 
-      x.sam2.new, y.sam2, 
-      cos.sims.new, nlambda, alpha, 
-      up.rate, drop.rate)
+Lasso_select_drop <- function(X, Y, X_valid, Y_valid, X_all, Y_all, lambda_lst,
+                              alpha = 0.5){
+  min.lambda <- NULL
+  min.coef <- NULL
+  min.mse <- Inf
+  
+  fit_result <- glmnet(X, Y, lambda = lambda_lst, intercept = F, alpha = alpha,
+                       standardize = F)
+  
+  for (l in 1:length(lambda_lst)) {
+    lambda <- fit_result$lambda[l]
+    fit_coef <- as.vector(fit_result$beta[,l])
+    print(length(which(fit_coef != 0)))
+    mse <- mean((Y_valid - as.matrix(X_valid) %*% fit_coef)^2)
+    if (mse < min.mse){
+      min.lambda <- lambda
+      min.mse <- mse
+      min.coef <- fit_coef
+    }
+    print(mse)
   }
-  return(res)
+  
+  fit_result_all <- glmnet(X_all, Y_all, lambda = min.lambda, intercept = F,
+                           alpha = alpha, standardize = F)
+  min.coef <- as.vector(fit_result_all$beta)
+  
+  return(list(min.lambda = min.lambda, min.coef = min.coef, min.mse = min.mse))
 }
+
+
+# Fit integrative group lasso with the validation set to tune
+
+Combine_fit_drop <- function(X_lst, Y_lst, X_lst_valid, Y_lst_valid, common_indx, 
+                             lambda_M_lst, lambda_coef_lst, lambda_g_lst, alpha = 0.5){
+  M <- length(Y_lst)
+  options(warn = -1)
+  
+  p_lst <- c()
+  for (m in 1:M) {
+    p_lst <- c(p_lst, length(X_lst[[m]][1, ]))
+  }
+  
+  ############# Creat group index #############
+  
+  indx_lst <- c(1:length(X_lst[[1]][1, ]))
+  
+  for (m in 2:M){ 
+    indx_m <- 1:(p_lst[m]) + sum(p_lst[1:(m - 1)])
+    indx_m[common_indx[[m]]] <- c(1:p_lst[1])[common_indx[[1]]]
+    indx_lst <- c(indx_lst, indx_m)
+  }
+  
+  for (t in 2:length(indx_lst)){
+    if (length(which(indx_lst == indx_lst[t])) == 1){
+      indx_lst[t] <- max(indx_lst[1:(t - 1)]) + 1
+    }
+  }
+  
+  ############# Add ridge penalty and bind X together for as a matrix #############
+  
+  X_1 <- X_lst[[1]]
+  Y_1 <- Y_lst[[1]]
+  
+  data_ridge <- add_ridge(X_1, Y_1, lambda_M_lst[1], alpha = alpha)
+  
+  X_all <- data_ridge$X
+  Y_all <- data_ridge$Y
+  X_all_valid <- X_lst_valid[[1]]
+  Y_all_valid <- Y_lst_valid[[1]]
+  
+  for (m in 2:M){
+    X_m <- X_lst[[m]]
+    Y_m <- Y_lst[[m]]
+    data_ridge <- add_ridge(X_m, Y_m, lambda_M_lst[m], alpha = alpha)
+    X_all <- bdiag(X_all, data_ridge$X)
+    Y_all <- c(Y_all, data_ridge$Y)
+    X_all_valid <- bdiag(X_all_valid, X_lst_valid[[m]])
+    Y_all_valid <- c(Y_all_valid, Y_lst_valid[[m]])
+  }
+  
+  lambda_M_lst <- lambda_M_lst / nrow(X_all)
+  lambda <- mean(lambda_M_lst)
+  group_id <- 1:length(unique(indx_lst))
+  
+  # tune with SSE
+  min.lambda <- NULL
+  min.coef <- NULL
+  min.sse <- Inf
+  
+  penalty_factor <- c()
+  group_ind_vec <- c()
+  indx_convert <- c()
+  
+  ############# Creat group index and penalty factor to fit for gglasso() #############
+  
+  for (t in 1:length(group_id)){
+    if (length(which(indx_lst == group_id[t])) == 2){
+      penalty_factor <- c(penalty_factor, 3)
+      group_ind_vec <- c(group_ind_vec, c(group_id[t], group_id[t]))
+    }else{
+      if (group_id[t] <= p_lst[1]){
+        penalty_factor <- c(penalty_factor, 1)
+      }else{
+        penalty_factor <- c(penalty_factor, 2)
+      }
+      group_ind_vec <- c(group_ind_vec, group_id[t])
+    }
+    indx_convert <- c(indx_convert, which(indx_lst == group_id[t]))
+  }
+  X_all <- X_all[,indx_convert]
+  X_all_valid <- X_all_valid[,indx_convert]
+  
+  for (lambda_coef in lambda_coef_lst) {
+    for (lambda_g in lambda_g_lst){
+      
+      penalty_fac_lam <- penalty_factor
+      penalty_fac_lam[which(penalty_fac_lam == 1)] <- lambda_M_lst[1] / lambda
+      penalty_fac_lam[which(penalty_fac_lam == 2)] <- lambda_M_lst[2] / lambda
+      penalty_fac_lam[which(penalty_fac_lam == 3)] <- lambda_g
+      penalty_fac_lam <- lambda_coef * penalty_fac_lam
+      
+      fit_result <- gglasso(x = as.matrix(X_all), y = Y_all, group = group_ind_vec, 
+                            lambda = lambda, pf = penalty_fac_lam, intercept = F)
+      fit_coef <- fit_result$beta
+      
+      sse <- sum((Y_all_valid - X_all_valid %*% fit_coef)^2)
+      print(sse)
+      print(length(which(fit_coef != 0)))
+      
+      if (sse < min.sse){
+        min.lambda <- c(lambda_coef, lambda_g)
+        min.sse <- sse
+        min.coef <- fit_coef
+      }
+      
+    }
+  }
+  
+  ############# bind back to form beta according to the original index #############
+  
+  coef_final <- rep(NA, length(min.coef))
+  for (k in 1:length(indx_convert)) {
+    coef_final[indx_convert[k]] <- min.coef[k]
+  }
+  
+  beta_lst <- vector('list', M)
+  pos.cut <- 1
+  for (m in 1:M) {
+    pos.end <- pos.cut + p_lst[m] - 1
+    beta_lst[[m]] <- coef_final[pos.cut:pos.end]
+    pos.cut <- pos.end + 1
+  }
+  
+  return(list(min.lambda = min.lambda, min.beta = beta_lst, min.sse = sse))
+}
+
+
+# Main function for local feature selection
+
+loc.feature.selection <- function(X_full, Y_full, X_train, Y_train, X_valid, Y_valid,
+                                  alpha = 0.5, lambda_lst = NULL, up_rate = 10, 
+                                  drop_rate = 0.5, cos_cut = 0.1){
+  ################ cut by cosine ################
+  
+  cos_lst <- unlist(lapply(c(1:ncol(X_full)),function(j) {
+    crossprod(Y_full, X_full[,j]) / sqrt(crossprod(Y_full) *crossprod(X_full[,j]))}))
+  local_use_set <- which(abs(cos_lst) >= cos_cut)
+  if (length(local_use_set) <= 1){
+    return(local_use_set)
+  }
+  
+  X_full <- X_full[,local_use_set]
+  X_train <- X_train[,local_use_set]
+  X_valid <- X_valid[,local_use_set]
+  
+  ################ up-sample and dropout ################
+  
+  drop_m_full <- drop_fun(X_full, Y_full, drop_rate = drop_rate, up_rate = up_rate)
+  X_full <- drop_m_full$X
+  Y_full <- drop_m_full$Y
+  
+  drop_m_train <- drop_fun(X_train, Y_train, drop_rate = drop_rate, up_rate = up_rate)
+  X_train <- drop_m_train$X
+  Y_train <- drop_m_train$Y
+  
+  ################ Specify lambda_lst if it is NULL ################
+  
+  p1 <- length(X_full)
+  n1 <- length(X_full)
+  if (is.null(lambda_lst)){
+    lambda_lst = 0.3 * c(c(1:400) * 0.0003, c(41:400) * 0.003, 
+                         c(41:1500) * 0.03) * sd(Y_train) * sqrt(log(p1) / n1)
+  }
+  
+  ################ Run CV-lasso ################
+  
+  fit.local <- Lasso_select_drop(X_train, Y_train, X_valid, Y_valid, X_full, Y_full,
+                                 lambda_lst = lambda_lst, alpha = alpha)
+  beta_loc <- fit.local$min.coef
+  beta_loc <- as.data.frame(beta_loc)
+  rownames(beta_loc) <- colnames(X_full)
+  return(list(min.lambda = fit.local$min.lambda, min.beta = beta_loc))
+}
+
+# Main function for integrative feature selection
+
+int.feature.selection <- function(X_full_lst, Y_full_lst, X_train_lst,
+                                  Y_train_lst, X_valid_lst, Y_valid_lst,
+                                  alpha = 0.5, lambda_single_lst = NULL, lambda_group_lst = NULL, 
+                                  up.rate = 10, drop.rate = 0.5, cos.cut = 0.1){
+  
+  ########## Find the set of covariates shared by the two studies ##########
+  
+  common_set <- intersect(colnames(X_full_lst[[1]]), colnames(X_full_lst[[2]]))
+  common_indx <- vector('list', 2)
+  for (variable in common_set) {
+    common_indx[[1]] <- c(common_indx[[1]], which(colnames(X_full_lst[[1]]) == variable))
+    common_indx[[2]] <- c(common_indx[[2]], which(colnames(X_full_lst[[2]]) == variable))
+  }
+  
+  
+  ######### dropout and up-sample ############
+  
+  p1 <- length(X_full_lst[[1]][1,])
+  p2 <- length(X_full_lst[[2]][1,])
+  n1 <- length(X_full_lst[[1]][,1])
+  n2 <- length(X_full_lst[[2]][,1])
+  
+  for (m in 1:2) {
+    drop_m_full <- drop_fun(X_full_lst[[m]], Y_full_lst[[m]], drop_rate = 0.5, up_rate = 10)
+    X_full_lst[[m]] <- drop_m_full$X
+    Y_full_lst[[m]] <- drop_m_full$Y
+    drop_m_train <- drop_fun(X_train_lst[[m]], Y_train_lst[[m]], drop_rate = 0.5, up_rate = 10)
+    X_train_lst[[m]] <- drop_m_train$X
+    Y_train_lst[[m]] <- drop_m_train$Y
+  }
+  
+  ######### Fit two local regression to specify the proportion of lambda ###########
+  ######### Aim of this is to safe the time from tuning too many parameters ########
+  
+  fit.local1 <- Lasso_select_drop(X_train_lst[[1]], Y_train_lst[[1]], X_valid_lst[[1]], 
+                                  Y_valid_lst[[1]], X_full_lst[[1]], Y_full_lst[[1]],
+                                  lambda_lst = 0.3 * c(c(1:400) * 0.0003, c(41:400) * 0.003, c(41:1500) * 0.03) *
+                                    sd(Y_train_lst[[1]]) * sqrt(log(p1) / n1), alpha = alpha)
+  fit.local2 <- Lasso_select_drop(X_train_lst[[2]], Y_train_lst[[2]], X_valid_lst[[2]],
+                                  Y_valid_lst[[2]], X_full_lst[[2]], Y_full_lst[[2]], 
+                                  lambda_lst = 0.4 * c(c(1:400) * 0.001, c(81:200) * 0.005, c(51:1800) * 0.02) *
+                                    sd(Y_train_lst[[2]]) * sqrt(log(p2) / n2), alpha = alpha)
+  if (is.null(lambda_single_lst)){
+    lambda_single_lst <- 0.0005 * c(1:200)
+  }
+  if (is.null(lambda_group_lst)){
+    lambda_group_lst <- 0.75 * c(c(5:25) * 0.02, c(7:300) * 0.08)
+  }
+  
+  ######### Tuning parameter ###########
+  
+  fit.grp <- Combine_fit_drop(X_train_lst, Y_train_lst, X_valid_lst, Y_valid_lst, common_indx, 
+                              lambda_M_lst = 4 / (sd(Y_train_lst[[1]]) + sd(Y_train_lst[[2]])) * 
+                                c(length(Y_train_lst[[1]]) * fit.local1$min.lambda, 
+                                  length(Y_train_lst[[2]]) * fit.local2$min.lambda),
+                              lambda_coef_lst = lambda_single_lst,
+                              lambda_g_lst = lambda_group_lst)
+  
+  ######### Train with the tuned parameters ###########
+  
+  fit.grp.full <- Combine_fit_drop(X_full_lst, Y_full_lst, X_valid_lst, Y_valid_lst, common_indx, 
+                                   lambda_M_lst = 4 / (sd(Y_train_lst[[1]]) + sd(Y_train_lst[[2]])) * 
+                                     c(length(Y_train_lst[[1]]) * fit.local1$min.lambda, 
+                                       length(Y_train_lst[[2]]) * fit.local2$min.lambda),
+                                   lambda_coef_lst = fit.grp$min.lambda[1],
+                                   lambda_g_lst = fit.grp$min.lambda[2])
+  
+  beta_lst <- fit.grp.full$min.beta
+  
+  for (m in 1:2){
+    beta_lst[[m]] <- as.data.frame(beta_lst[[m]])
+    rownames(beta_lst[[m]]) <- colnames(X_full_lst[[m]])
+  }
+  return(list(min.lambda = fit.grp$min.lambda, min.beta = beta_lst))
+  
+}
+
+
+
+
