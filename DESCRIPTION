@@ -6,6 +6,7 @@ Authors@R: c(
     person("Molei", "Liu", role = "aut"),
     person("Tianxi", "Cai", role = "aut"))
 Description: Implements learning algorithm that uses large scale code embeddings to facilitate effective feature selection and knowledge discovery with EHR data.
+URL: https://celehs.github.io/KESER, https://github.com/celehs/KESER
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
