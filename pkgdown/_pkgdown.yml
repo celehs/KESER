@@ -1,0 +1,13 @@
+url: https://celehs.github.io/KESER/
+
+template:
+  params:
+    bootswatch: spacelab
+
+navbar:
+  type: inverse
+  left:
+    - text: "Home"
+      href: index.html      
+    - text: "Reference"
+      href: reference/index.html
