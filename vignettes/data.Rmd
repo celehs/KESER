@@ -1,0 +1,18 @@
+---
+title: "Input Data"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+```{r}
+file <- "https://github.com/celehs/KESER/raw/master/rdata/depression.rds"
+data <- readRDS(url(file, "rb"))
+str(data)
+```

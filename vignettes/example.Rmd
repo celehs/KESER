@@ -1,0 +1,40 @@
+---
+title: "Example"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+```{r, include=FALSE}
+file <- "https://github.com/celehs/KESER/raw/master/rdata/depression.rds"
+data <- readRDS(url(file, "rb"))
+# str(data)
+```
+
+```{r}
+system.time(loc.fit.RPDR <- KESER:::loc.feature.selection(
+  data$X_full_lst[[1]], 
+  data$Y_full_lst[[1]],
+  data$X_train_lst[[1]], 
+  data$Y_train_lst[[1]], 
+  data$X_valid_lst[[1]], 
+  data$Y_valid_lst[[1]]))
+loc.fit.RPDR
+```
+
+```{r}
+system.time(loc.fit.VA <- KESER:::loc.feature.selection(
+  data$X_full_lst[[2]], 
+  data$Y_full_lst[[2]],
+  data$X_train_lst[[2]], 
+  data$Y_train_lst[[2]], 
+  data$X_valid_lst[[2]], 
+  data$Y_valid_lst[[2]]))
+loc.fit.VA
+```

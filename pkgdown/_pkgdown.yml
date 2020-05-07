@@ -9,5 +9,9 @@ navbar:
   left:
     - text: "Home"
       href: index.html      
+    - text: "Data"
+      href: articles/data.html      
+    - text: "Example"
+      href: articles/example.html        
     - text: "Reference"
       href: reference/index.html
