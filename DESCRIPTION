@@ -1,5 +1,5 @@
-Package: embedFS
-Title: Large Scale Code Embedding with Applications to Feature Selection and Knowledge Discovery in Electronic Health Records
+Package: KESER
+Title: Knowledge Extraction via Sparse Embedding Regression (KESER)
 Version: 0.1.0
 Authors@R: 
     person(given = "Chuan",

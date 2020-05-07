@@ -17,30 +17,68 @@ Install development version from GitHub.
 
 ```{r, eval=FALSE}
 # install.packages("remotes")
-remotes::install_github("celehs/embedFS")
+remotes::install_github("celehs/KESER")
 ```
 
 Load the package into R.
 
-```{r}
-library(embedFS)
+```{r, eval=FALSE}
+library(KESER)
+library(MASS)
+library(glmnet)
+library(gglasso)
 ```
 
 ## Example
 
 ```{r}
-library(data.table)
-```
-
-```{r}
-data <- readRDS(url("https://github.com/celehs/embedFS/raw/master/embed/embed.rds", "rb"))
+file <- "https://github.com/celehs/KESER/raw/master/rdata/depression.rds"
+data <- readRDS(url(file, "rb"))
 str(data)
 ```
 
-```{r}
-embedFS:::feature.sel.fun(
-  data$x.full, data$y.full, 
-  data$x.train, data$y.train, 
-  data$x.valid, data$y.valid, 
-  method = "lasso", alpha = 0.5, cos.cut = 0.1)
+```{r, eval=FALSE}
+loc.fit.RPDR <- loc.feature.selection(
+  data$X_full_lst[[1]], 
+  data$Y_full_lst[[1]],
+  data$X_train_lst[[1]], 
+  data$Y_train_lst[[1]], 
+  data$X_valid_lst[[1]], 
+  data$Y_valid_lst[[1]],
+  alpha = 0.5, 
+  lambda_lst = NULL, 
+  up_rate = 10, 
+  drop_rate = 0.5, 
+  cos_cut = 0.1)
+```
+
+```{r, eval=FALSE}
+loc.fit.VA <- loc.feature.selection(
+  data$X_full_lst[[2]], 
+  data$Y_full_lst[[2]],
+  data$X_train_lst[[2]], 
+  data$Y_train_lst[[2]], 
+  data$X_valid_lst[[2]], 
+  data$Y_valid_lst[[2]],
+  alpha = 0.5, 
+  lambda_lst = NULL, 
+  up_rate = 10, 
+  drop_rate = 0.5, 
+  cos_cut = 0.1)
+```
+
+```{r, eval=FALSE}
+int.fit.results <- int.feature.selection(
+  data$X_full_lst[c(1, 2)], 
+  data$Y_full_lst[c(1, 2)], 
+  data$X_train_lst[c(1, 2)],
+  data$Y_train_lst[c(1, 2)], 
+  data$X_valid_lst[c(1, 2)], 
+  data$Y_valid_lst[c(1, 2)],
+  alpha = 0.5, 
+  lambda_single_lst = NULL, 
+  lambda_group_lst = NULL, 
+  up.rate = 10, 
+  drop.rate = 0.5, 
+  cos.cut = 0.1)
 ```
