@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Knowledge Extraction via Sparse Embedding Regression (KESER) • KESER</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/spacelab/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
@@ -20,7 +20,7 @@
 </head>
 <body data-spy="scroll" data-target="#toc">
     <div class="container template-home">
-      <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
@@ -38,10 +38,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
+  <a href="index.html">Home</a>
 </li>
 <li>
   <a href="reference/index.html">Reference</a>
@@ -159,402 +156,392 @@
   <span class="no">data</span>$<span class="no">X_train_lst</span><span class="kw">[[</span><span class="fl">1</span>]],
   <span class="no">data</span>$<span class="no">Y_train_lst</span><span class="kw">[[</span><span class="fl">1</span>]],
   <span class="no">data</span>$<span class="no">X_valid_lst</span><span class="kw">[[</span><span class="fl">1</span>]],
-  <span class="no">data</span>$<span class="no">Y_valid_lst</span><span class="kw">[[</span><span class="fl">1</span>]],
-  <span class="kw">alpha</span> <span class="kw">=</span> <span class="fl">0.5</span>,
-  <span class="kw">lambda_lst</span> <span class="kw">=</span> <span class="kw">NULL</span>,
-  <span class="kw">up_rate</span> <span class="kw">=</span> <span class="fl">10</span>,
-  <span class="kw">drop_rate</span> <span class="kw">=</span> <span class="fl">0.5</span>,
-  <span class="kw">cos_cut</span> <span class="kw">=</span> <span class="fl">0.1</span>)
+  <span class="no">data</span>$<span class="no">Y_valid_lst</span><span class="kw">[[</span><span class="fl">1</span>]])
 <span class="no">loc.fit.RPDR</span></pre></div>
 <div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co">## $min.lambda</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">## [1] 0.0001071411</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">## [1] 0.0001132844</span></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">## </span></a>
 <a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">## $min.beta</span></a>
 <a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">##                    beta_loc</span></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">## CCS:130        0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">## CCS:182        9.118878e-03</span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">## CCS:200        1.507009e-02</span></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">## CCS:218        1.247537e-01</span></a>
-<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">## CCS:219        0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">## CCS:227        6.962068e-03</span></a>
-<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">## CCS:228        2.894027e-02</span></a>
-<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">## CCS:232        1.992915e-02</span></a>
-<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">## CCS:235        0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">## CCS:237        1.876834e-02</span></a>
-<a class="sourceLine" id="cb6-16" data-line-number="16"><span class="co">## LOINC:10976-9  1.170331e-03</span></a>
-<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co">## LOINC:10992-6  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-18" data-line-number="18"><span class="co">## LOINC:10998-3  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-19" data-line-number="19"><span class="co">## LOINC:11004-9  3.271430e-03</span></a>
-<a class="sourceLine" id="cb6-20" data-line-number="20"><span class="co">## LOINC:12342-2  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-21" data-line-number="21"><span class="co">## LOINC:12375-2  3.558342e-03</span></a>
-<a class="sourceLine" id="cb6-22" data-line-number="22"><span class="co">## LOINC:12377-8  1.651108e-02</span></a>
-<a class="sourceLine" id="cb6-23" data-line-number="23"><span class="co">## LOINC:13453-6  2.327905e-02</span></a>
-<a class="sourceLine" id="cb6-24" data-line-number="24"><span class="co">## LOINC:13557-4  1.201175e-02</span></a>
-<a class="sourceLine" id="cb6-25" data-line-number="25"><span class="co">## LOINC:13569-9  2.462760e-03</span></a>
-<a class="sourceLine" id="cb6-26" data-line-number="26"><span class="co">## LOINC:13572-3  1.144150e-02</span></a>
-<a class="sourceLine" id="cb6-27" data-line-number="27"><span class="co">## LOINC:13577-2  2.875489e-02</span></a>
-<a class="sourceLine" id="cb6-28" data-line-number="28"><span class="co">## LOINC:13579-8  1.422830e-02</span></a>
-<a class="sourceLine" id="cb6-29" data-line-number="29"><span class="co">## LOINC:13588-9  2.689809e-02</span></a>
-<a class="sourceLine" id="cb6-30" data-line-number="30"><span class="co">## LOINC:13622-6  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-31" data-line-number="31"><span class="co">## LOINC:14313-1  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-32" data-line-number="32"><span class="co">## LOINC:14314-9  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-33" data-line-number="33"><span class="co">## LOINC:14316-4  2.326196e-03</span></a>
-<a class="sourceLine" id="cb6-34" data-line-number="34"><span class="co">## LOINC:14334-7  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-35" data-line-number="35"><span class="co">## LOINC:14336-2  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-36" data-line-number="36"><span class="co">## LOINC:14624-1  6.638542e-03</span></a>
-<a class="sourceLine" id="cb6-37" data-line-number="37"><span class="co">## LOINC:16199-2  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-38" data-line-number="38"><span class="co">## LOINC:16254-5  1.138447e-02</span></a>
-<a class="sourceLine" id="cb6-39" data-line-number="39"><span class="co">## LOINC:16360-0  1.793286e-02</span></a>
-<a class="sourceLine" id="cb6-40" data-line-number="40"><span class="co">## LOINC:16369-1  1.590186e-03</span></a>
-<a class="sourceLine" id="cb6-41" data-line-number="41"><span class="co">## LOINC:17384-9  1.297290e-02</span></a>
-<a class="sourceLine" id="cb6-42" data-line-number="42"><span class="co">## LOINC:17738-6  3.794868e-03</span></a>
-<a class="sourceLine" id="cb6-43" data-line-number="43"><span class="co">## LOINC:17856-6  5.975564e-04</span></a>
-<a class="sourceLine" id="cb6-44" data-line-number="44"><span class="co">## LOINC:19289-9  7.192598e-03</span></a>
-<a class="sourceLine" id="cb6-45" data-line-number="45"><span class="co">## LOINC:19550-3  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-46" data-line-number="46"><span class="co">## LOINC:19642-8  1.072776e-02</span></a>
-<a class="sourceLine" id="cb6-47" data-line-number="47"><span class="co">## LOINC:2086-7   1.914992e-04</span></a>
-<a class="sourceLine" id="cb6-48" data-line-number="48"><span class="co">## LOINC:2090-9   1.008735e-02</span></a>
-<a class="sourceLine" id="cb6-49" data-line-number="49"><span class="co">## LOINC:2093-3   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-50" data-line-number="50"><span class="co">## LOINC:2106-3   7.179614e-03</span></a>
-<a class="sourceLine" id="cb6-51" data-line-number="51"><span class="co">## LOINC:2161-8   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-52" data-line-number="52"><span class="co">## LOINC:2571-8   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-53" data-line-number="53"><span class="co">## LOINC:28059-4  1.219777e-02</span></a>
-<a class="sourceLine" id="cb6-54" data-line-number="54"><span class="co">## LOINC:2963-7   5.472724e-03</span></a>
-<a class="sourceLine" id="cb6-55" data-line-number="55"><span class="co">## LOINC:3016-3   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-56" data-line-number="56"><span class="co">## LOINC:3298-7   1.954903e-03</span></a>
-<a class="sourceLine" id="cb6-57" data-line-number="57"><span class="co">## LOINC:33060-5  1.646563e-03</span></a>
-<a class="sourceLine" id="cb6-58" data-line-number="58"><span class="co">## LOINC:3312-6   8.096914e-03</span></a>
-<a class="sourceLine" id="cb6-59" data-line-number="59"><span class="co">## LOINC:3335-7   4.973916e-02</span></a>
-<a class="sourceLine" id="cb6-60" data-line-number="60"><span class="co">## LOINC:3389-4   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-61" data-line-number="61"><span class="co">## LOINC:3413-2   8.734250e-03</span></a>
-<a class="sourceLine" id="cb6-62" data-line-number="62"><span class="co">## LOINC:3414-0   8.538277e-04</span></a>
-<a class="sourceLine" id="cb6-63" data-line-number="63"><span class="co">## LOINC:3491-8   7.520803e-02</span></a>
-<a class="sourceLine" id="cb6-64" data-line-number="64"><span class="co">## LOINC:3494-2   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-65" data-line-number="65"><span class="co">## LOINC:3505-5   1.093494e-02</span></a>
-<a class="sourceLine" id="cb6-66" data-line-number="66"><span class="co">## LOINC:3531-1   7.157057e-02</span></a>
-<a class="sourceLine" id="cb6-67" data-line-number="67"><span class="co">## LOINC:3536-0   8.578803e-02</span></a>
-<a class="sourceLine" id="cb6-68" data-line-number="68"><span class="co">## LOINC:35467-0  1.619135e-02</span></a>
-<a class="sourceLine" id="cb6-69" data-line-number="69"><span class="co">## LOINC:3548-5   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-70" data-line-number="70"><span class="co">## LOINC:35597-4  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-71" data-line-number="71"><span class="co">## LOINC:35608-9  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-72" data-line-number="72"><span class="co">## LOINC:35610-5  1.739771e-02</span></a>
-<a class="sourceLine" id="cb6-73" data-line-number="73"><span class="co">## LOINC:35614-7  2.114928e-02</span></a>
-<a class="sourceLine" id="cb6-74" data-line-number="74"><span class="co">## LOINC:35616-2  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-75" data-line-number="75"><span class="co">## LOINC:35624-6  1.037461e-02</span></a>
-<a class="sourceLine" id="cb6-76" data-line-number="76"><span class="co">## LOINC:35627-9  1.360211e-02</span></a>
-<a class="sourceLine" id="cb6-77" data-line-number="77"><span class="co">## LOINC:35629-5  1.789414e-02</span></a>
-<a class="sourceLine" id="cb6-78" data-line-number="78"><span class="co">## LOINC:35635-2  9.255728e-03</span></a>
-<a class="sourceLine" id="cb6-79" data-line-number="79"><span class="co">## LOINC:3679-8   9.980305e-03</span></a>
-<a class="sourceLine" id="cb6-80" data-line-number="80"><span class="co">## LOINC:3682-2   9.694837e-03</span></a>
-<a class="sourceLine" id="cb6-81" data-line-number="81"><span class="co">## LOINC:3690-5   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-82" data-line-number="82"><span class="co">## LOINC:3778-8   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-83" data-line-number="83"><span class="co">## LOINC:3826-5   1.040522e-02</span></a>
-<a class="sourceLine" id="cb6-84" data-line-number="84"><span class="co">## LOINC:4073-3   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-85" data-line-number="85"><span class="co">## LOINC:55349-5  4.600759e-02</span></a>
-<a class="sourceLine" id="cb6-86" data-line-number="86"><span class="co">## LOINC:57300-6  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-87" data-line-number="87"><span class="co">## LOINC:57301-4  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-88" data-line-number="88"><span class="co">## LOINC:57304-8  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-89" data-line-number="89"><span class="co">## LOINC:59593-4  1.240990e-02</span></a>
-<a class="sourceLine" id="cb6-90" data-line-number="90"><span class="co">## LOINC:72377-5  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-91" data-line-number="91"><span class="co">## LOINC:72378-3  1.778627e-02</span></a>
-<a class="sourceLine" id="cb6-92" data-line-number="92"><span class="co">## LOINC:72380-9  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-93" data-line-number="93"><span class="co">## LOINC:72381-7  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-94" data-line-number="94"><span class="co">## LOINC:72385-8  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-95" data-line-number="95"><span class="co">## LOINC:72388-2  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-96" data-line-number="96"><span class="co">## LOINC:72610-9  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-97" data-line-number="97"><span class="co">## LOINC:72733-9  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-98" data-line-number="98"><span class="co">## LOINC:72735-4  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-99" data-line-number="99"><span class="co">## LOINC:72737-0  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-100" data-line-number="100"><span class="co">## LOINC:72746-1  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-101" data-line-number="101"><span class="co">## LOINC:72750-3  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-102" data-line-number="102"><span class="co">## LOINC:72752-9  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-103" data-line-number="103"><span class="co">## LOINC:72753-7  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-104" data-line-number="104"><span class="co">## LOINC:72755-2  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-105" data-line-number="105"><span class="co">## LOINC:72758-6  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-106" data-line-number="106"><span class="co">## LOINC:72762-8  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-107" data-line-number="107"><span class="co">## LOINC:72766-9  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-108" data-line-number="108"><span class="co">## LOINC:9627-1   9.315951e-02</span></a>
-<a class="sourceLine" id="cb6-109" data-line-number="109"><span class="co">## LOINC:9830-1   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-110" data-line-number="110"><span class="co">## LOINC:X7003-7  1.948251e-02</span></a>
-<a class="sourceLine" id="cb6-111" data-line-number="111"><span class="co">## LOINC:X7004-5  5.736655e-03</span></a>
-<a class="sourceLine" id="cb6-112" data-line-number="112"><span class="co">## LOINC:X7005-2  1.672872e-02</span></a>
-<a class="sourceLine" id="cb6-113" data-line-number="113"><span class="co">## LOINC:X7006-0  1.236705e-02</span></a>
-<a class="sourceLine" id="cb6-114" data-line-number="114"><span class="co">## LOINC:X7008-6  1.508117e-02</span></a>
-<a class="sourceLine" id="cb6-115" data-line-number="115"><span class="co">## LOINC:X7011-0  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-116" data-line-number="116"><span class="co">## LOINC:X7013-6  5.617813e-04</span></a>
-<a class="sourceLine" id="cb6-117" data-line-number="117"><span class="co">## PheCode:070.3  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-118" data-line-number="118"><span class="co">## PheCode:216.1  1.469736e-02</span></a>
-<a class="sourceLine" id="cb6-119" data-line-number="119"><span class="co">## PheCode:244.4  1.780190e-02</span></a>
-<a class="sourceLine" id="cb6-120" data-line-number="120"><span class="co">## PheCode:260.7  6.667344e-02</span></a>
-<a class="sourceLine" id="cb6-121" data-line-number="121"><span class="co">## PheCode:261.2  1.818546e-03</span></a>
-<a class="sourceLine" id="cb6-122" data-line-number="122"><span class="co">## PheCode:261.4  1.215271e-02</span></a>
-<a class="sourceLine" id="cb6-123" data-line-number="123"><span class="co">## PheCode:272.1  1.520657e-02</span></a>
-<a class="sourceLine" id="cb6-124" data-line-number="124"><span class="co">## PheCode:278.1  2.043968e-02</span></a>
-<a class="sourceLine" id="cb6-125" data-line-number="125"><span class="co">## PheCode:278.4  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-126" data-line-number="126"><span class="co">## PheCode:290.1  1.763742e-03</span></a>
-<a class="sourceLine" id="cb6-127" data-line-number="127"><span class="co">## PheCode:290.3  1.376299e-02</span></a>
-<a class="sourceLine" id="cb6-128" data-line-number="128"><span class="co">## PheCode:291.1  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-129" data-line-number="129"><span class="co">## PheCode:291.4  2.091568e-02</span></a>
-<a class="sourceLine" id="cb6-130" data-line-number="130"><span class="co">## PheCode:292.2  2.013359e-02</span></a>
-<a class="sourceLine" id="cb6-131" data-line-number="131"><span class="co">## PheCode:292.3  4.493799e-03</span></a>
-<a class="sourceLine" id="cb6-132" data-line-number="132"><span class="co">## PheCode:292.6  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-133" data-line-number="133"><span class="co">## PheCode:295.1  3.717135e-03</span></a>
-<a class="sourceLine" id="cb6-134" data-line-number="134"><span class="co">## PheCode:295.2  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-135" data-line-number="135"><span class="co">## PheCode:295.3  1.696695e-02</span></a>
-<a class="sourceLine" id="cb6-136" data-line-number="136"><span class="co">## PheCode:296.1  3.994920e-02</span></a>
-<a class="sourceLine" id="cb6-137" data-line-number="137"><span class="co">## PheCode:297.1  2.241828e-02</span></a>
-<a class="sourceLine" id="cb6-138" data-line-number="138"><span class="co">## PheCode:297.2  3.725950e-02</span></a>
-<a class="sourceLine" id="cb6-139" data-line-number="139"><span class="co">## PheCode:300.1  1.240805e-01</span></a>
-<a class="sourceLine" id="cb6-140" data-line-number="140"><span class="co">## PheCode:300.3  2.938707e-02</span></a>
-<a class="sourceLine" id="cb6-141" data-line-number="141"><span class="co">## PheCode:300.4  6.711811e-03</span></a>
-<a class="sourceLine" id="cb6-142" data-line-number="142"><span class="co">## PheCode:300.8  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-143" data-line-number="143"><span class="co">## PheCode:300.9  2.873284e-02</span></a>
-<a class="sourceLine" id="cb6-144" data-line-number="144"><span class="co">## PheCode:301.1  3.812513e-02</span></a>
-<a class="sourceLine" id="cb6-145" data-line-number="145"><span class="co">## PheCode:301.2  2.069729e-02</span></a>
-<a class="sourceLine" id="cb6-146" data-line-number="146"><span class="co">## PheCode:302.1  2.154070e-02</span></a>
-<a class="sourceLine" id="cb6-147" data-line-number="147"><span class="co">## PheCode:303.1  3.834288e-02</span></a>
-<a class="sourceLine" id="cb6-148" data-line-number="148"><span class="co">## PheCode:303.3  2.066053e-02</span></a>
-<a class="sourceLine" id="cb6-149" data-line-number="149"><span class="co">## PheCode:303.4  8.897183e-04</span></a>
-<a class="sourceLine" id="cb6-150" data-line-number="150"><span class="co">## PheCode:304    0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-151" data-line-number="151"><span class="co">## PheCode:305.2  1.723019e-02</span></a>
-<a class="sourceLine" id="cb6-152" data-line-number="152"><span class="co">## PheCode:306.1  2.195735e-02</span></a>
-<a class="sourceLine" id="cb6-153" data-line-number="153"><span class="co">## PheCode:312.3  1.459469e-02</span></a>
-<a class="sourceLine" id="cb6-154" data-line-number="154"><span class="co">## PheCode:313.1  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-155" data-line-number="155"><span class="co">## PheCode:313.2  1.910009e-02</span></a>
-<a class="sourceLine" id="cb6-156" data-line-number="156"><span class="co">## PheCode:313.3  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-157" data-line-number="157"><span class="co">## PheCode:315.1  1.217129e-02</span></a>
-<a class="sourceLine" id="cb6-158" data-line-number="158"><span class="co">## PheCode:315.2  2.577382e-03</span></a>
-<a class="sourceLine" id="cb6-159" data-line-number="159"><span class="co">## PheCode:317.1  4.127932e-02</span></a>
-<a class="sourceLine" id="cb6-160" data-line-number="160"><span class="co">## PheCode:318    2.440483e-02</span></a>
-<a class="sourceLine" id="cb6-161" data-line-number="161"><span class="co">## PheCode:327.1  2.149075e-03</span></a>
-<a class="sourceLine" id="cb6-162" data-line-number="162"><span class="co">## PheCode:327.3  2.342746e-02</span></a>
-<a class="sourceLine" id="cb6-163" data-line-number="163"><span class="co">## PheCode:327.4  2.037999e-02</span></a>
-<a class="sourceLine" id="cb6-164" data-line-number="164"><span class="co">## PheCode:327.5  1.732772e-02</span></a>
-<a class="sourceLine" id="cb6-165" data-line-number="165"><span class="co">## PheCode:327.6  2.055620e-02</span></a>
-<a class="sourceLine" id="cb6-166" data-line-number="166"><span class="co">## PheCode:327.7  7.761577e-03</span></a>
-<a class="sourceLine" id="cb6-167" data-line-number="167"><span class="co">## PheCode:333.3  2.595835e-02</span></a>
-<a class="sourceLine" id="cb6-168" data-line-number="168"><span class="co">## PheCode:338.2  1.531591e-03</span></a>
-<a class="sourceLine" id="cb6-169" data-line-number="169"><span class="co">## PheCode:339    0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-170" data-line-number="170"><span class="co">## PheCode:347    3.416991e-02</span></a>
-<a class="sourceLine" id="cb6-171" data-line-number="171"><span class="co">## PheCode:355.1  9.164922e-03</span></a>
-<a class="sourceLine" id="cb6-172" data-line-number="172"><span class="co">## PheCode:386.9  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-173" data-line-number="173"><span class="co">## PheCode:401.1  1.311346e-02</span></a>
-<a class="sourceLine" id="cb6-174" data-line-number="174"><span class="co">## PheCode:530.1  4.266909e-02</span></a>
-<a class="sourceLine" id="cb6-175" data-line-number="175"><span class="co">## PheCode:564.1  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-176" data-line-number="176"><span class="co">## PheCode:599.4  1.375472e-02</span></a>
-<a class="sourceLine" id="cb6-177" data-line-number="177"><span class="co">## PheCode:612.1  3.015903e-02</span></a>
-<a class="sourceLine" id="cb6-178" data-line-number="178"><span class="co">## PheCode:614.5  8.652341e-03</span></a>
-<a class="sourceLine" id="cb6-179" data-line-number="179"><span class="co">## PheCode:626.1  1.328509e-02</span></a>
-<a class="sourceLine" id="cb6-180" data-line-number="180"><span class="co">## PheCode:626.4  4.511332e-02</span></a>
-<a class="sourceLine" id="cb6-181" data-line-number="181"><span class="co">## PheCode:706.1  2.568493e-02</span></a>
-<a class="sourceLine" id="cb6-182" data-line-number="182"><span class="co">## PheCode:726.1  2.071081e-04</span></a>
-<a class="sourceLine" id="cb6-183" data-line-number="183"><span class="co">## PheCode:729.1  2.020789e-02</span></a>
-<a class="sourceLine" id="cb6-184" data-line-number="184"><span class="co">## PheCode:740.3  5.030400e-03</span></a>
-<a class="sourceLine" id="cb6-185" data-line-number="185"><span class="co">## PheCode:745    2.154687e-02</span></a>
-<a class="sourceLine" id="cb6-186" data-line-number="186"><span class="co">## PheCode:760    1.044542e-02</span></a>
-<a class="sourceLine" id="cb6-187" data-line-number="187"><span class="co">## PheCode:761    7.243791e-03</span></a>
-<a class="sourceLine" id="cb6-188" data-line-number="188"><span class="co">## PheCode:764    5.661302e-03</span></a>
-<a class="sourceLine" id="cb6-189" data-line-number="189"><span class="co">## PheCode:770    0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-190" data-line-number="190"><span class="co">## PheCode:941    1.195246e-02</span></a>
-<a class="sourceLine" id="cb6-191" data-line-number="191"><span class="co">## PheCode:965.3  8.354597e-02</span></a>
-<a class="sourceLine" id="cb6-192" data-line-number="192"><span class="co">## PheCode:966    1.759772e-02</span></a>
-<a class="sourceLine" id="cb6-193" data-line-number="193"><span class="co">## PheCode:969    1.079089e-02</span></a>
-<a class="sourceLine" id="cb6-194" data-line-number="194"><span class="co">## PheCode:971    6.825927e-02</span></a>
-<a class="sourceLine" id="cb6-195" data-line-number="195"><span class="co">## PheCode:972.6  4.155159e-02</span></a>
-<a class="sourceLine" id="cb6-196" data-line-number="196"><span class="co">## PheCode:981    4.993992e-02</span></a>
-<a class="sourceLine" id="cb6-197" data-line-number="197"><span class="co">## PheCode:989    3.553609e-02</span></a>
-<a class="sourceLine" id="cb6-198" data-line-number="198"><span class="co">## RXNORM:10154   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-199" data-line-number="199"><span class="co">## RXNORM:1040028 8.156639e-04</span></a>
-<a class="sourceLine" id="cb6-200" data-line-number="200"><span class="co">## RXNORM:10454   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-201" data-line-number="201"><span class="co">## RXNORM:10502   6.261028e-02</span></a>
-<a class="sourceLine" id="cb6-202" data-line-number="202"><span class="co">## RXNORM:10582   5.128509e-03</span></a>
-<a class="sourceLine" id="cb6-203" data-line-number="203"><span class="co">## RXNORM:10689   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-204" data-line-number="204"><span class="co">## RXNORM:106928  2.066400e-02</span></a>
-<a class="sourceLine" id="cb6-205" data-line-number="205"><span class="co">## RXNORM:10734   5.457785e-02</span></a>
-<a class="sourceLine" id="cb6-206" data-line-number="206"><span class="co">## RXNORM:10737   1.088315e-02</span></a>
-<a class="sourceLine" id="cb6-207" data-line-number="207"><span class="co">## RXNORM:10759   2.197065e-02</span></a>
-<a class="sourceLine" id="cb6-208" data-line-number="208"><span class="co">## RXNORM:10800   1.501945e-02</span></a>
-<a class="sourceLine" id="cb6-209" data-line-number="209"><span class="co">## RXNORM:10814   1.034805e-02</span></a>
-<a class="sourceLine" id="cb6-210" data-line-number="210"><span class="co">## RXNORM:1086769 6.902795e-02</span></a>
-<a class="sourceLine" id="cb6-211" data-line-number="211"><span class="co">## RXNORM:11118   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-212" data-line-number="212"><span class="co">## RXNORM:115698  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-213" data-line-number="213"><span class="co">## RXNORM:1307404 9.713030e-03</span></a>
-<a class="sourceLine" id="cb6-214" data-line-number="214"><span class="co">## RXNORM:141366  4.525153e-02</span></a>
-<a class="sourceLine" id="cb6-215" data-line-number="215"><span class="co">## RXNORM:1424    0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-216" data-line-number="216"><span class="co">## RXNORM:1455099 1.113051e-01</span></a>
-<a class="sourceLine" id="cb6-217" data-line-number="217"><span class="co">## RXNORM:14584   3.102325e-02</span></a>
-<a class="sourceLine" id="cb6-218" data-line-number="218"><span class="co">## RXNORM:15996   1.714540e-02</span></a>
-<a class="sourceLine" id="cb6-219" data-line-number="219"><span class="co">## RXNORM:1819    1.646304e-02</span></a>
-<a class="sourceLine" id="cb6-220" data-line-number="220"><span class="co">## RXNORM:1827    0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-221" data-line-number="221"><span class="co">## RXNORM:187832  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-222" data-line-number="222"><span class="co">## RXNORM:214130  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-223" data-line-number="223"><span class="co">## RXNORM:214153  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-224" data-line-number="224"><span class="co">## RXNORM:214558  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-225" data-line-number="225"><span class="co">## RXNORM:214559  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-226" data-line-number="226"><span class="co">## RXNORM:215830  1.019279e-02</span></a>
-<a class="sourceLine" id="cb6-227" data-line-number="227"><span class="co">## RXNORM:21949   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-228" data-line-number="228"><span class="co">## RXNORM:2353    2.888853e-03</span></a>
-<a class="sourceLine" id="cb6-229" data-line-number="229"><span class="co">## RXNORM:2356    1.026637e-02</span></a>
-<a class="sourceLine" id="cb6-230" data-line-number="230"><span class="co">## RXNORM:236782  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-231" data-line-number="231"><span class="co">## RXNORM:2418    9.976369e-03</span></a>
-<a class="sourceLine" id="cb6-232" data-line-number="232"><span class="co">## RXNORM:253146  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-233" data-line-number="233"><span class="co">## RXNORM:25480   3.327957e-02</span></a>
-<a class="sourceLine" id="cb6-234" data-line-number="234"><span class="co">## RXNORM:2556    4.371764e-03</span></a>
-<a class="sourceLine" id="cb6-235" data-line-number="235"><span class="co">## RXNORM:2597    2.474809e-02</span></a>
-<a class="sourceLine" id="cb6-236" data-line-number="236"><span class="co">## RXNORM:2598    2.848168e-02</span></a>
-<a class="sourceLine" id="cb6-237" data-line-number="237"><span class="co">## RXNORM:2599    0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-238" data-line-number="238"><span class="co">## RXNORM:2626    7.134790e-03</span></a>
-<a class="sourceLine" id="cb6-239" data-line-number="239"><span class="co">## RXNORM:28439   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-240" data-line-number="240"><span class="co">## RXNORM:29046   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-241" data-line-number="241"><span class="co">## RXNORM:30125   6.813891e-03</span></a>
-<a class="sourceLine" id="cb6-242" data-line-number="242"><span class="co">## RXNORM:31565   3.640839e-02</span></a>
-<a class="sourceLine" id="cb6-243" data-line-number="243"><span class="co">## RXNORM:31765   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-244" data-line-number="244"><span class="co">## RXNORM:321988  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-245" data-line-number="245"><span class="co">## RXNORM:3247    1.231725e-02</span></a>
-<a class="sourceLine" id="cb6-246" data-line-number="246"><span class="co">## RXNORM:32624   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-247" data-line-number="247"><span class="co">## RXNORM:3288    2.270167e-02</span></a>
-<a class="sourceLine" id="cb6-248" data-line-number="248"><span class="co">## RXNORM:32937   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-249" data-line-number="249"><span class="co">## RXNORM:352364  2.000650e-02</span></a>
-<a class="sourceLine" id="cb6-250" data-line-number="250"><span class="co">## RXNORM:352372  2.225532e-02</span></a>
-<a class="sourceLine" id="cb6-251" data-line-number="251"><span class="co">## RXNORM:352377  1.055383e-02</span></a>
-<a class="sourceLine" id="cb6-252" data-line-number="252"><span class="co">## RXNORM:3554    4.638737e-02</span></a>
-<a class="sourceLine" id="cb6-253" data-line-number="253"><span class="co">## RXNORM:35636   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-254" data-line-number="254"><span class="co">## RXNORM:36108   2.072155e-02</span></a>
-<a class="sourceLine" id="cb6-255" data-line-number="255"><span class="co">## RXNORM:3638    0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-256" data-line-number="256"><span class="co">## RXNORM:36437   1.879994e-02</span></a>
-<a class="sourceLine" id="cb6-257" data-line-number="257"><span class="co">## RXNORM:37418   7.152028e-03</span></a>
-<a class="sourceLine" id="cb6-258" data-line-number="258"><span class="co">## RXNORM:38400   1.611989e-02</span></a>
-<a class="sourceLine" id="cb6-259" data-line-number="259"><span class="co">## RXNORM:38404   2.188897e-03</span></a>
-<a class="sourceLine" id="cb6-260" data-line-number="260"><span class="co">## RXNORM:384410  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-261" data-line-number="261"><span class="co">## RXNORM:392556  4.268099e-02</span></a>
-<a class="sourceLine" id="cb6-262" data-line-number="262"><span class="co">## RXNORM:39786   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-263" data-line-number="263"><span class="co">## RXNORM:39993   5.771712e-05</span></a>
-<a class="sourceLine" id="cb6-264" data-line-number="264"><span class="co">## RXNORM:40114   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-265" data-line-number="265"><span class="co">## RXNORM:4018    0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-266" data-line-number="266"><span class="co">## RXNORM:407884  4.211443e-02</span></a>
-<a class="sourceLine" id="cb6-267" data-line-number="267"><span class="co">## RXNORM:41126   2.313319e-02</span></a>
-<a class="sourceLine" id="cb6-268" data-line-number="268"><span class="co">## RXNORM:4141    9.750729e-03</span></a>
-<a class="sourceLine" id="cb6-269" data-line-number="269"><span class="co">## RXNORM:42347   2.519095e-02</span></a>
-<a class="sourceLine" id="cb6-270" data-line-number="270"><span class="co">## RXNORM:42355   1.753268e-02</span></a>
-<a class="sourceLine" id="cb6-271" data-line-number="271"><span class="co">## RXNORM:4257    3.947297e-02</span></a>
-<a class="sourceLine" id="cb6-272" data-line-number="272"><span class="co">## RXNORM:435     0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-273" data-line-number="273"><span class="co">## RXNORM:4493    0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-274" data-line-number="274"><span class="co">## RXNORM:461016  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-275" data-line-number="275"><span class="co">## RXNORM:46241   3.552323e-03</span></a>
-<a class="sourceLine" id="cb6-276" data-line-number="276"><span class="co">## RXNORM:4637    3.748759e-02</span></a>
-<a class="sourceLine" id="cb6-277" data-line-number="277"><span class="co">## RXNORM:466584  7.453530e-03</span></a>
-<a class="sourceLine" id="cb6-278" data-line-number="278"><span class="co">## RXNORM:51272   6.565383e-03</span></a>
-<a class="sourceLine" id="cb6-279" data-line-number="279"><span class="co">## RXNORM:5553    0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-280" data-line-number="280"><span class="co">## RXNORM:5640    0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-281" data-line-number="281"><span class="co">## RXNORM:5691    0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-282" data-line-number="282"><span class="co">## RXNORM:57258   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-283" data-line-number="283"><span class="co">## RXNORM:588250  5.405311e-02</span></a>
-<a class="sourceLine" id="cb6-284" data-line-number="284"><span class="co">## RXNORM:596     0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-285" data-line-number="285"><span class="co">## RXNORM:61381   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-286" data-line-number="286"><span class="co">## RXNORM:641465  3.616506e-02</span></a>
-<a class="sourceLine" id="cb6-287" data-line-number="287"><span class="co">## RXNORM:6448    0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-288" data-line-number="288"><span class="co">## RXNORM:6470    2.905331e-02</span></a>
-<a class="sourceLine" id="cb6-289" data-line-number="289"><span class="co">## RXNORM:6475    2.333304e-02</span></a>
-<a class="sourceLine" id="cb6-290" data-line-number="290"><span class="co">## RXNORM:6711    0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-291" data-line-number="291"><span class="co">## RXNORM:6719    3.164038e-03</span></a>
-<a class="sourceLine" id="cb6-292" data-line-number="292"><span class="co">## RXNORM:679314  0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-293" data-line-number="293"><span class="co">## RXNORM:6847    5.227437e-02</span></a>
-<a class="sourceLine" id="cb6-294" data-line-number="294"><span class="co">## RXNORM:689842  3.337527e-02</span></a>
-<a class="sourceLine" id="cb6-295" data-line-number="295"><span class="co">## RXNORM:6901    0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-296" data-line-number="296"><span class="co">## RXNORM:700810  2.460951e-03</span></a>
-<a class="sourceLine" id="cb6-297" data-line-number="297"><span class="co">## RXNORM:704     1.422153e-02</span></a>
-<a class="sourceLine" id="cb6-298" data-line-number="298"><span class="co">## RXNORM:7243    8.004079e-03</span></a>
-<a class="sourceLine" id="cb6-299" data-line-number="299"><span class="co">## RXNORM:725     1.713181e-02</span></a>
-<a class="sourceLine" id="cb6-300" data-line-number="300"><span class="co">## RXNORM:7258    0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-301" data-line-number="301"><span class="co">## RXNORM:72625   8.736980e-03</span></a>
-<a class="sourceLine" id="cb6-302" data-line-number="302"><span class="co">## RXNORM:734064  1.827186e-02</span></a>
-<a class="sourceLine" id="cb6-303" data-line-number="303"><span class="co">## RXNORM:7407    0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-304" data-line-number="304"><span class="co">## RXNORM:74667   9.819323e-04</span></a>
-<a class="sourceLine" id="cb6-305" data-line-number="305"><span class="co">## RXNORM:7531    7.493195e-03</span></a>
-<a class="sourceLine" id="cb6-306" data-line-number="306"><span class="co">## RXNORM:7646    0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-307" data-line-number="307"><span class="co">## RXNORM:7716    2.238820e-02</span></a>
-<a class="sourceLine" id="cb6-308" data-line-number="308"><span class="co">## RXNORM:784649  5.359355e-02</span></a>
-<a class="sourceLine" id="cb6-309" data-line-number="309"><span class="co">## RXNORM:8076    0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-310" data-line-number="310"><span class="co">## RXNORM:8124    7.215506e-02</span></a>
-<a class="sourceLine" id="cb6-311" data-line-number="311"><span class="co">## RXNORM:82819   5.200006e-03</span></a>
-<a class="sourceLine" id="cb6-312" data-line-number="312"><span class="co">## RXNORM:840781  3.180701e-03</span></a>
-<a class="sourceLine" id="cb6-313" data-line-number="313"><span class="co">## RXNORM:8629    0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-314" data-line-number="314"><span class="co">## RXNORM:8787    0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-315" data-line-number="315"><span class="co">## RXNORM:89013   1.553731e-02</span></a>
-<a class="sourceLine" id="cb6-316" data-line-number="316"><span class="co">## RXNORM:89905   0.000000e+00</span></a>
-<a class="sourceLine" id="cb6-317" data-line-number="317"><span class="co">## RXNORM:9639    6.627309e-02</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">## CCS:130        0.0000000000</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">## CCS:182        0.0093776305</span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">## CCS:200        0.0155565834</span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">## CCS:218        0.1423653539</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">## CCS:219        0.0000000000</span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">## CCS:227        0.0000000000</span></a>
+<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">## CCS:228        0.0306154970</span></a>
+<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">## CCS:232        0.0097538845</span></a>
+<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">## CCS:235        0.0000000000</span></a>
+<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">## CCS:237        0.0000000000</span></a>
+<a class="sourceLine" id="cb6-16" data-line-number="16"><span class="co">## LOINC:10976-9  0.0064612156</span></a>
+<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co">## LOINC:10992-6  0.0086351982</span></a>
+<a class="sourceLine" id="cb6-18" data-line-number="18"><span class="co">## LOINC:10998-3  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-19" data-line-number="19"><span class="co">## LOINC:11004-9  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-20" data-line-number="20"><span class="co">## LOINC:12342-2  0.0043689182</span></a>
+<a class="sourceLine" id="cb6-21" data-line-number="21"><span class="co">## LOINC:12375-2  0.0151232991</span></a>
+<a class="sourceLine" id="cb6-22" data-line-number="22"><span class="co">## LOINC:12377-8  0.0030236309</span></a>
+<a class="sourceLine" id="cb6-23" data-line-number="23"><span class="co">## LOINC:13453-6  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-24" data-line-number="24"><span class="co">## LOINC:13557-4  0.0090208330</span></a>
+<a class="sourceLine" id="cb6-25" data-line-number="25"><span class="co">## LOINC:13569-9  0.0028745926</span></a>
+<a class="sourceLine" id="cb6-26" data-line-number="26"><span class="co">## LOINC:13572-3  0.0108815462</span></a>
+<a class="sourceLine" id="cb6-27" data-line-number="27"><span class="co">## LOINC:13577-2  0.0253587053</span></a>
+<a class="sourceLine" id="cb6-28" data-line-number="28"><span class="co">## LOINC:13579-8  0.0094828647</span></a>
+<a class="sourceLine" id="cb6-29" data-line-number="29"><span class="co">## LOINC:13588-9  0.0308397620</span></a>
+<a class="sourceLine" id="cb6-30" data-line-number="30"><span class="co">## LOINC:13622-6  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-31" data-line-number="31"><span class="co">## LOINC:14313-1  0.0171110880</span></a>
+<a class="sourceLine" id="cb6-32" data-line-number="32"><span class="co">## LOINC:14314-9  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-33" data-line-number="33"><span class="co">## LOINC:14316-4  0.0239166866</span></a>
+<a class="sourceLine" id="cb6-34" data-line-number="34"><span class="co">## LOINC:14334-7  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-35" data-line-number="35"><span class="co">## LOINC:14336-2  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-36" data-line-number="36"><span class="co">## LOINC:14624-1  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-37" data-line-number="37"><span class="co">## LOINC:16199-2  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-38" data-line-number="38"><span class="co">## LOINC:16254-5  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-39" data-line-number="39"><span class="co">## LOINC:16360-0  0.0126583031</span></a>
+<a class="sourceLine" id="cb6-40" data-line-number="40"><span class="co">## LOINC:16369-1  0.0050875392</span></a>
+<a class="sourceLine" id="cb6-41" data-line-number="41"><span class="co">## LOINC:17384-9  0.0311315397</span></a>
+<a class="sourceLine" id="cb6-42" data-line-number="42"><span class="co">## LOINC:17738-6  0.0269400846</span></a>
+<a class="sourceLine" id="cb6-43" data-line-number="43"><span class="co">## LOINC:17856-6  0.0061903776</span></a>
+<a class="sourceLine" id="cb6-44" data-line-number="44"><span class="co">## LOINC:19289-9  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-45" data-line-number="45"><span class="co">## LOINC:19550-3  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-46" data-line-number="46"><span class="co">## LOINC:19642-8  0.0202421912</span></a>
+<a class="sourceLine" id="cb6-47" data-line-number="47"><span class="co">## LOINC:2086-7   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-48" data-line-number="48"><span class="co">## LOINC:2090-9   0.0192005086</span></a>
+<a class="sourceLine" id="cb6-49" data-line-number="49"><span class="co">## LOINC:2093-3   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-50" data-line-number="50"><span class="co">## LOINC:2106-3   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-51" data-line-number="51"><span class="co">## LOINC:2161-8   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-52" data-line-number="52"><span class="co">## LOINC:2571-8   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-53" data-line-number="53"><span class="co">## LOINC:28059-4  0.0177195748</span></a>
+<a class="sourceLine" id="cb6-54" data-line-number="54"><span class="co">## LOINC:2963-7   0.0114293773</span></a>
+<a class="sourceLine" id="cb6-55" data-line-number="55"><span class="co">## LOINC:3016-3   0.0298656761</span></a>
+<a class="sourceLine" id="cb6-56" data-line-number="56"><span class="co">## LOINC:3298-7   0.0040561654</span></a>
+<a class="sourceLine" id="cb6-57" data-line-number="57"><span class="co">## LOINC:33060-5  0.0033030617</span></a>
+<a class="sourceLine" id="cb6-58" data-line-number="58"><span class="co">## LOINC:3312-6   0.0017559846</span></a>
+<a class="sourceLine" id="cb6-59" data-line-number="59"><span class="co">## LOINC:3335-7   0.0510696912</span></a>
+<a class="sourceLine" id="cb6-60" data-line-number="60"><span class="co">## LOINC:3389-4   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-61" data-line-number="61"><span class="co">## LOINC:3413-2   0.0099068528</span></a>
+<a class="sourceLine" id="cb6-62" data-line-number="62"><span class="co">## LOINC:3414-0   0.0059681145</span></a>
+<a class="sourceLine" id="cb6-63" data-line-number="63"><span class="co">## LOINC:3491-8   0.0702412436</span></a>
+<a class="sourceLine" id="cb6-64" data-line-number="64"><span class="co">## LOINC:3494-2   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-65" data-line-number="65"><span class="co">## LOINC:3505-5   0.0038541542</span></a>
+<a class="sourceLine" id="cb6-66" data-line-number="66"><span class="co">## LOINC:3531-1   0.0576053271</span></a>
+<a class="sourceLine" id="cb6-67" data-line-number="67"><span class="co">## LOINC:3536-0   0.0817384548</span></a>
+<a class="sourceLine" id="cb6-68" data-line-number="68"><span class="co">## LOINC:35467-0  0.0265648750</span></a>
+<a class="sourceLine" id="cb6-69" data-line-number="69"><span class="co">## LOINC:3548-5   0.0026713744</span></a>
+<a class="sourceLine" id="cb6-70" data-line-number="70"><span class="co">## LOINC:35597-4  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-71" data-line-number="71"><span class="co">## LOINC:35608-9  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-72" data-line-number="72"><span class="co">## LOINC:35610-5  0.0170290599</span></a>
+<a class="sourceLine" id="cb6-73" data-line-number="73"><span class="co">## LOINC:35614-7  0.0195622041</span></a>
+<a class="sourceLine" id="cb6-74" data-line-number="74"><span class="co">## LOINC:35616-2  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-75" data-line-number="75"><span class="co">## LOINC:35624-6  0.0133279700</span></a>
+<a class="sourceLine" id="cb6-76" data-line-number="76"><span class="co">## LOINC:35627-9  0.0176803407</span></a>
+<a class="sourceLine" id="cb6-77" data-line-number="77"><span class="co">## LOINC:35629-5  0.0176263183</span></a>
+<a class="sourceLine" id="cb6-78" data-line-number="78"><span class="co">## LOINC:35635-2  0.0092828665</span></a>
+<a class="sourceLine" id="cb6-79" data-line-number="79"><span class="co">## LOINC:3679-8   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-80" data-line-number="80"><span class="co">## LOINC:3682-2   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-81" data-line-number="81"><span class="co">## LOINC:3690-5   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-82" data-line-number="82"><span class="co">## LOINC:3778-8   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-83" data-line-number="83"><span class="co">## LOINC:3826-5   0.0037729786</span></a>
+<a class="sourceLine" id="cb6-84" data-line-number="84"><span class="co">## LOINC:4073-3   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-85" data-line-number="85"><span class="co">## LOINC:55349-5  0.0350107362</span></a>
+<a class="sourceLine" id="cb6-86" data-line-number="86"><span class="co">## LOINC:57300-6  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-87" data-line-number="87"><span class="co">## LOINC:57301-4  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-88" data-line-number="88"><span class="co">## LOINC:57304-8  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-89" data-line-number="89"><span class="co">## LOINC:59593-4  0.0182912414</span></a>
+<a class="sourceLine" id="cb6-90" data-line-number="90"><span class="co">## LOINC:72377-5  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-91" data-line-number="91"><span class="co">## LOINC:72378-3  0.0075314596</span></a>
+<a class="sourceLine" id="cb6-92" data-line-number="92"><span class="co">## LOINC:72380-9  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-93" data-line-number="93"><span class="co">## LOINC:72381-7  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-94" data-line-number="94"><span class="co">## LOINC:72385-8  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-95" data-line-number="95"><span class="co">## LOINC:72388-2  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-96" data-line-number="96"><span class="co">## LOINC:72610-9  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-97" data-line-number="97"><span class="co">## LOINC:72733-9  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-98" data-line-number="98"><span class="co">## LOINC:72735-4  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-99" data-line-number="99"><span class="co">## LOINC:72737-0  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-100" data-line-number="100"><span class="co">## LOINC:72746-1  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-101" data-line-number="101"><span class="co">## LOINC:72750-3  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-102" data-line-number="102"><span class="co">## LOINC:72752-9  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-103" data-line-number="103"><span class="co">## LOINC:72753-7  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-104" data-line-number="104"><span class="co">## LOINC:72755-2  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-105" data-line-number="105"><span class="co">## LOINC:72758-6  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-106" data-line-number="106"><span class="co">## LOINC:72762-8  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-107" data-line-number="107"><span class="co">## LOINC:72766-9  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-108" data-line-number="108"><span class="co">## LOINC:9627-1   0.0833377799</span></a>
+<a class="sourceLine" id="cb6-109" data-line-number="109"><span class="co">## LOINC:9830-1   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-110" data-line-number="110"><span class="co">## LOINC:X7003-7  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-111" data-line-number="111"><span class="co">## LOINC:X7004-5  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-112" data-line-number="112"><span class="co">## LOINC:X7005-2  0.0001309102</span></a>
+<a class="sourceLine" id="cb6-113" data-line-number="113"><span class="co">## LOINC:X7006-0  0.0032793334</span></a>
+<a class="sourceLine" id="cb6-114" data-line-number="114"><span class="co">## LOINC:X7008-6  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-115" data-line-number="115"><span class="co">## LOINC:X7011-0  0.0071470019</span></a>
+<a class="sourceLine" id="cb6-116" data-line-number="116"><span class="co">## LOINC:X7013-6  0.0026297971</span></a>
+<a class="sourceLine" id="cb6-117" data-line-number="117"><span class="co">## PheCode:070.3  0.0118349963</span></a>
+<a class="sourceLine" id="cb6-118" data-line-number="118"><span class="co">## PheCode:216.1  0.0129464028</span></a>
+<a class="sourceLine" id="cb6-119" data-line-number="119"><span class="co">## PheCode:244.4  0.0331812273</span></a>
+<a class="sourceLine" id="cb6-120" data-line-number="120"><span class="co">## PheCode:260.7  0.0572866011</span></a>
+<a class="sourceLine" id="cb6-121" data-line-number="121"><span class="co">## PheCode:261.2  0.0254976179</span></a>
+<a class="sourceLine" id="cb6-122" data-line-number="122"><span class="co">## PheCode:261.4  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-123" data-line-number="123"><span class="co">## PheCode:272.1  0.0111392826</span></a>
+<a class="sourceLine" id="cb6-124" data-line-number="124"><span class="co">## PheCode:278.1  0.0187899442</span></a>
+<a class="sourceLine" id="cb6-125" data-line-number="125"><span class="co">## PheCode:278.4  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-126" data-line-number="126"><span class="co">## PheCode:290.1  0.0056417453</span></a>
+<a class="sourceLine" id="cb6-127" data-line-number="127"><span class="co">## PheCode:290.3  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-128" data-line-number="128"><span class="co">## PheCode:291.1  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-129" data-line-number="129"><span class="co">## PheCode:291.4  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-130" data-line-number="130"><span class="co">## PheCode:292.2  0.0216390392</span></a>
+<a class="sourceLine" id="cb6-131" data-line-number="131"><span class="co">## PheCode:292.3  0.0001468069</span></a>
+<a class="sourceLine" id="cb6-132" data-line-number="132"><span class="co">## PheCode:292.6  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-133" data-line-number="133"><span class="co">## PheCode:295.1  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-134" data-line-number="134"><span class="co">## PheCode:295.2  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-135" data-line-number="135"><span class="co">## PheCode:295.3  0.0169130024</span></a>
+<a class="sourceLine" id="cb6-136" data-line-number="136"><span class="co">## PheCode:296.1  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-137" data-line-number="137"><span class="co">## PheCode:297.1  0.0140569688</span></a>
+<a class="sourceLine" id="cb6-138" data-line-number="138"><span class="co">## PheCode:297.2  0.0326477460</span></a>
+<a class="sourceLine" id="cb6-139" data-line-number="139"><span class="co">## PheCode:300.1  0.1248501476</span></a>
+<a class="sourceLine" id="cb6-140" data-line-number="140"><span class="co">## PheCode:300.3  0.0299818835</span></a>
+<a class="sourceLine" id="cb6-141" data-line-number="141"><span class="co">## PheCode:300.4  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-142" data-line-number="142"><span class="co">## PheCode:300.8  0.0001645519</span></a>
+<a class="sourceLine" id="cb6-143" data-line-number="143"><span class="co">## PheCode:300.9  0.0289366982</span></a>
+<a class="sourceLine" id="cb6-144" data-line-number="144"><span class="co">## PheCode:301.1  0.0310003007</span></a>
+<a class="sourceLine" id="cb6-145" data-line-number="145"><span class="co">## PheCode:301.2  0.0145350993</span></a>
+<a class="sourceLine" id="cb6-146" data-line-number="146"><span class="co">## PheCode:302.1  0.0278988559</span></a>
+<a class="sourceLine" id="cb6-147" data-line-number="147"><span class="co">## PheCode:303.1  0.0385475895</span></a>
+<a class="sourceLine" id="cb6-148" data-line-number="148"><span class="co">## PheCode:303.3  0.0259782279</span></a>
+<a class="sourceLine" id="cb6-149" data-line-number="149"><span class="co">## PheCode:303.4  0.0000731728</span></a>
+<a class="sourceLine" id="cb6-150" data-line-number="150"><span class="co">## PheCode:304    0.0000000000</span></a>
+<a class="sourceLine" id="cb6-151" data-line-number="151"><span class="co">## PheCode:305.2  0.0121628405</span></a>
+<a class="sourceLine" id="cb6-152" data-line-number="152"><span class="co">## PheCode:306.1  0.0256151448</span></a>
+<a class="sourceLine" id="cb6-153" data-line-number="153"><span class="co">## PheCode:312.3  0.0185718123</span></a>
+<a class="sourceLine" id="cb6-154" data-line-number="154"><span class="co">## PheCode:313.1  0.0078784287</span></a>
+<a class="sourceLine" id="cb6-155" data-line-number="155"><span class="co">## PheCode:313.2  0.0123391097</span></a>
+<a class="sourceLine" id="cb6-156" data-line-number="156"><span class="co">## PheCode:313.3  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-157" data-line-number="157"><span class="co">## PheCode:315.1  0.0125095475</span></a>
+<a class="sourceLine" id="cb6-158" data-line-number="158"><span class="co">## PheCode:315.2  0.0008700431</span></a>
+<a class="sourceLine" id="cb6-159" data-line-number="159"><span class="co">## PheCode:317.1  0.0225608538</span></a>
+<a class="sourceLine" id="cb6-160" data-line-number="160"><span class="co">## PheCode:318    0.0344722488</span></a>
+<a class="sourceLine" id="cb6-161" data-line-number="161"><span class="co">## PheCode:327.1  0.0023944781</span></a>
+<a class="sourceLine" id="cb6-162" data-line-number="162"><span class="co">## PheCode:327.3  0.0198159504</span></a>
+<a class="sourceLine" id="cb6-163" data-line-number="163"><span class="co">## PheCode:327.4  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-164" data-line-number="164"><span class="co">## PheCode:327.5  0.0228318725</span></a>
+<a class="sourceLine" id="cb6-165" data-line-number="165"><span class="co">## PheCode:327.6  0.0121298330</span></a>
+<a class="sourceLine" id="cb6-166" data-line-number="166"><span class="co">## PheCode:327.7  0.0025455567</span></a>
+<a class="sourceLine" id="cb6-167" data-line-number="167"><span class="co">## PheCode:333.3  0.0220082692</span></a>
+<a class="sourceLine" id="cb6-168" data-line-number="168"><span class="co">## PheCode:338.2  0.0156622386</span></a>
+<a class="sourceLine" id="cb6-169" data-line-number="169"><span class="co">## PheCode:339    0.0069108556</span></a>
+<a class="sourceLine" id="cb6-170" data-line-number="170"><span class="co">## PheCode:347    0.0366274347</span></a>
+<a class="sourceLine" id="cb6-171" data-line-number="171"><span class="co">## PheCode:355.1  0.0117393801</span></a>
+<a class="sourceLine" id="cb6-172" data-line-number="172"><span class="co">## PheCode:386.9  0.0013491791</span></a>
+<a class="sourceLine" id="cb6-173" data-line-number="173"><span class="co">## PheCode:401.1  0.0044282302</span></a>
+<a class="sourceLine" id="cb6-174" data-line-number="174"><span class="co">## PheCode:530.1  0.0229170624</span></a>
+<a class="sourceLine" id="cb6-175" data-line-number="175"><span class="co">## PheCode:564.1  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-176" data-line-number="176"><span class="co">## PheCode:599.4  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-177" data-line-number="177"><span class="co">## PheCode:612.1  0.0355479995</span></a>
+<a class="sourceLine" id="cb6-178" data-line-number="178"><span class="co">## PheCode:614.5  0.0069870361</span></a>
+<a class="sourceLine" id="cb6-179" data-line-number="179"><span class="co">## PheCode:626.1  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-180" data-line-number="180"><span class="co">## PheCode:626.4  0.0466164069</span></a>
+<a class="sourceLine" id="cb6-181" data-line-number="181"><span class="co">## PheCode:706.1  0.0215826105</span></a>
+<a class="sourceLine" id="cb6-182" data-line-number="182"><span class="co">## PheCode:726.1  0.0114521931</span></a>
+<a class="sourceLine" id="cb6-183" data-line-number="183"><span class="co">## PheCode:729.1  0.0161418640</span></a>
+<a class="sourceLine" id="cb6-184" data-line-number="184"><span class="co">## PheCode:740.3  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-185" data-line-number="185"><span class="co">## PheCode:745    0.0488856888</span></a>
+<a class="sourceLine" id="cb6-186" data-line-number="186"><span class="co">## PheCode:760    0.0151062410</span></a>
+<a class="sourceLine" id="cb6-187" data-line-number="187"><span class="co">## PheCode:761    0.0102947351</span></a>
+<a class="sourceLine" id="cb6-188" data-line-number="188"><span class="co">## PheCode:764    0.0016622364</span></a>
+<a class="sourceLine" id="cb6-189" data-line-number="189"><span class="co">## PheCode:770    0.0183420792</span></a>
+<a class="sourceLine" id="cb6-190" data-line-number="190"><span class="co">## PheCode:941    0.0063454218</span></a>
+<a class="sourceLine" id="cb6-191" data-line-number="191"><span class="co">## PheCode:965.3  0.0881806504</span></a>
+<a class="sourceLine" id="cb6-192" data-line-number="192"><span class="co">## PheCode:966    0.0108281238</span></a>
+<a class="sourceLine" id="cb6-193" data-line-number="193"><span class="co">## PheCode:969    0.0018129309</span></a>
+<a class="sourceLine" id="cb6-194" data-line-number="194"><span class="co">## PheCode:971    0.0668153780</span></a>
+<a class="sourceLine" id="cb6-195" data-line-number="195"><span class="co">## PheCode:972.6  0.0427451792</span></a>
+<a class="sourceLine" id="cb6-196" data-line-number="196"><span class="co">## PheCode:981    0.0454696405</span></a>
+<a class="sourceLine" id="cb6-197" data-line-number="197"><span class="co">## PheCode:989    0.0293173207</span></a>
+<a class="sourceLine" id="cb6-198" data-line-number="198"><span class="co">## RXNORM:10154   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-199" data-line-number="199"><span class="co">## RXNORM:1040028 0.0084494417</span></a>
+<a class="sourceLine" id="cb6-200" data-line-number="200"><span class="co">## RXNORM:10454   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-201" data-line-number="201"><span class="co">## RXNORM:10502   0.0603031023</span></a>
+<a class="sourceLine" id="cb6-202" data-line-number="202"><span class="co">## RXNORM:10582   0.0034164490</span></a>
+<a class="sourceLine" id="cb6-203" data-line-number="203"><span class="co">## RXNORM:10689   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-204" data-line-number="204"><span class="co">## RXNORM:106928  0.0249020439</span></a>
+<a class="sourceLine" id="cb6-205" data-line-number="205"><span class="co">## RXNORM:10734   0.0660843345</span></a>
+<a class="sourceLine" id="cb6-206" data-line-number="206"><span class="co">## RXNORM:10737   0.0165522992</span></a>
+<a class="sourceLine" id="cb6-207" data-line-number="207"><span class="co">## RXNORM:10759   0.0066278904</span></a>
+<a class="sourceLine" id="cb6-208" data-line-number="208"><span class="co">## RXNORM:10800   0.0160856097</span></a>
+<a class="sourceLine" id="cb6-209" data-line-number="209"><span class="co">## RXNORM:10814   0.0114233123</span></a>
+<a class="sourceLine" id="cb6-210" data-line-number="210"><span class="co">## RXNORM:1086769 0.0630074544</span></a>
+<a class="sourceLine" id="cb6-211" data-line-number="211"><span class="co">## RXNORM:11118   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-212" data-line-number="212"><span class="co">## RXNORM:115698  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-213" data-line-number="213"><span class="co">## RXNORM:1307404 0.0102148051</span></a>
+<a class="sourceLine" id="cb6-214" data-line-number="214"><span class="co">## RXNORM:141366  0.0437857429</span></a>
+<a class="sourceLine" id="cb6-215" data-line-number="215"><span class="co">## RXNORM:1424    0.0000000000</span></a>
+<a class="sourceLine" id="cb6-216" data-line-number="216"><span class="co">## RXNORM:1455099 0.0948548264</span></a>
+<a class="sourceLine" id="cb6-217" data-line-number="217"><span class="co">## RXNORM:14584   0.0277535842</span></a>
+<a class="sourceLine" id="cb6-218" data-line-number="218"><span class="co">## RXNORM:15996   0.0218918990</span></a>
+<a class="sourceLine" id="cb6-219" data-line-number="219"><span class="co">## RXNORM:1819    0.0000000000</span></a>
+<a class="sourceLine" id="cb6-220" data-line-number="220"><span class="co">## RXNORM:1827    0.0000000000</span></a>
+<a class="sourceLine" id="cb6-221" data-line-number="221"><span class="co">## RXNORM:187832  0.0017688335</span></a>
+<a class="sourceLine" id="cb6-222" data-line-number="222"><span class="co">## RXNORM:214130  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-223" data-line-number="223"><span class="co">## RXNORM:214153  0.0023629069</span></a>
+<a class="sourceLine" id="cb6-224" data-line-number="224"><span class="co">## RXNORM:214558  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-225" data-line-number="225"><span class="co">## RXNORM:214559  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-226" data-line-number="226"><span class="co">## RXNORM:215830  0.0050160267</span></a>
+<a class="sourceLine" id="cb6-227" data-line-number="227"><span class="co">## RXNORM:21949   0.0064523165</span></a>
+<a class="sourceLine" id="cb6-228" data-line-number="228"><span class="co">## RXNORM:2353    0.0038486144</span></a>
+<a class="sourceLine" id="cb6-229" data-line-number="229"><span class="co">## RXNORM:2356    0.0000000000</span></a>
+<a class="sourceLine" id="cb6-230" data-line-number="230"><span class="co">## RXNORM:236782  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-231" data-line-number="231"><span class="co">## RXNORM:2418    0.0152792748</span></a>
+<a class="sourceLine" id="cb6-232" data-line-number="232"><span class="co">## RXNORM:253146  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-233" data-line-number="233"><span class="co">## RXNORM:25480   0.0316579817</span></a>
+<a class="sourceLine" id="cb6-234" data-line-number="234"><span class="co">## RXNORM:2556    0.0055727812</span></a>
+<a class="sourceLine" id="cb6-235" data-line-number="235"><span class="co">## RXNORM:2597    0.0234693293</span></a>
+<a class="sourceLine" id="cb6-236" data-line-number="236"><span class="co">## RXNORM:2598    0.0383147828</span></a>
+<a class="sourceLine" id="cb6-237" data-line-number="237"><span class="co">## RXNORM:2599    0.0000000000</span></a>
+<a class="sourceLine" id="cb6-238" data-line-number="238"><span class="co">## RXNORM:2626    0.0000000000</span></a>
+<a class="sourceLine" id="cb6-239" data-line-number="239"><span class="co">## RXNORM:28439   0.0177891400</span></a>
+<a class="sourceLine" id="cb6-240" data-line-number="240"><span class="co">## RXNORM:29046   0.0040076324</span></a>
+<a class="sourceLine" id="cb6-241" data-line-number="241"><span class="co">## RXNORM:30125   0.0126405789</span></a>
+<a class="sourceLine" id="cb6-242" data-line-number="242"><span class="co">## RXNORM:31565   0.0343640283</span></a>
+<a class="sourceLine" id="cb6-243" data-line-number="243"><span class="co">## RXNORM:31765   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-244" data-line-number="244"><span class="co">## RXNORM:321988  0.0040858356</span></a>
+<a class="sourceLine" id="cb6-245" data-line-number="245"><span class="co">## RXNORM:3247    0.0185763321</span></a>
+<a class="sourceLine" id="cb6-246" data-line-number="246"><span class="co">## RXNORM:32624   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-247" data-line-number="247"><span class="co">## RXNORM:3288    0.0232965226</span></a>
+<a class="sourceLine" id="cb6-248" data-line-number="248"><span class="co">## RXNORM:32937   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-249" data-line-number="249"><span class="co">## RXNORM:352364  0.0070272388</span></a>
+<a class="sourceLine" id="cb6-250" data-line-number="250"><span class="co">## RXNORM:352372  0.0146429409</span></a>
+<a class="sourceLine" id="cb6-251" data-line-number="251"><span class="co">## RXNORM:352377  0.0164581563</span></a>
+<a class="sourceLine" id="cb6-252" data-line-number="252"><span class="co">## RXNORM:3554    0.0445034308</span></a>
+<a class="sourceLine" id="cb6-253" data-line-number="253"><span class="co">## RXNORM:35636   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-254" data-line-number="254"><span class="co">## RXNORM:36108   0.0062621932</span></a>
+<a class="sourceLine" id="cb6-255" data-line-number="255"><span class="co">## RXNORM:3638    0.0000000000</span></a>
+<a class="sourceLine" id="cb6-256" data-line-number="256"><span class="co">## RXNORM:36437   0.0149008715</span></a>
+<a class="sourceLine" id="cb6-257" data-line-number="257"><span class="co">## RXNORM:37418   0.0161969786</span></a>
+<a class="sourceLine" id="cb6-258" data-line-number="258"><span class="co">## RXNORM:38400   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-259" data-line-number="259"><span class="co">## RXNORM:38404   0.0069074324</span></a>
+<a class="sourceLine" id="cb6-260" data-line-number="260"><span class="co">## RXNORM:384410  0.0022808106</span></a>
+<a class="sourceLine" id="cb6-261" data-line-number="261"><span class="co">## RXNORM:392556  0.0431797939</span></a>
+<a class="sourceLine" id="cb6-262" data-line-number="262"><span class="co">## RXNORM:39786   0.0008113016</span></a>
+<a class="sourceLine" id="cb6-263" data-line-number="263"><span class="co">## RXNORM:39993   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-264" data-line-number="264"><span class="co">## RXNORM:40114   0.0040618868</span></a>
+<a class="sourceLine" id="cb6-265" data-line-number="265"><span class="co">## RXNORM:4018    0.0244438196</span></a>
+<a class="sourceLine" id="cb6-266" data-line-number="266"><span class="co">## RXNORM:407884  0.0456149502</span></a>
+<a class="sourceLine" id="cb6-267" data-line-number="267"><span class="co">## RXNORM:41126   0.0087948321</span></a>
+<a class="sourceLine" id="cb6-268" data-line-number="268"><span class="co">## RXNORM:4141    0.0116093590</span></a>
+<a class="sourceLine" id="cb6-269" data-line-number="269"><span class="co">## RXNORM:42347   0.0350226901</span></a>
+<a class="sourceLine" id="cb6-270" data-line-number="270"><span class="co">## RXNORM:42355   0.0158274451</span></a>
+<a class="sourceLine" id="cb6-271" data-line-number="271"><span class="co">## RXNORM:4257    0.0380772519</span></a>
+<a class="sourceLine" id="cb6-272" data-line-number="272"><span class="co">## RXNORM:435     0.0098183244</span></a>
+<a class="sourceLine" id="cb6-273" data-line-number="273"><span class="co">## RXNORM:4493    0.0000000000</span></a>
+<a class="sourceLine" id="cb6-274" data-line-number="274"><span class="co">## RXNORM:461016  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-275" data-line-number="275"><span class="co">## RXNORM:46241   0.0021595177</span></a>
+<a class="sourceLine" id="cb6-276" data-line-number="276"><span class="co">## RXNORM:4637    0.0285148707</span></a>
+<a class="sourceLine" id="cb6-277" data-line-number="277"><span class="co">## RXNORM:466584  0.0091515019</span></a>
+<a class="sourceLine" id="cb6-278" data-line-number="278"><span class="co">## RXNORM:51272   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-279" data-line-number="279"><span class="co">## RXNORM:5553    0.0000000000</span></a>
+<a class="sourceLine" id="cb6-280" data-line-number="280"><span class="co">## RXNORM:5640    0.0261730779</span></a>
+<a class="sourceLine" id="cb6-281" data-line-number="281"><span class="co">## RXNORM:5691    0.0021118152</span></a>
+<a class="sourceLine" id="cb6-282" data-line-number="282"><span class="co">## RXNORM:57258   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-283" data-line-number="283"><span class="co">## RXNORM:588250  0.0545800354</span></a>
+<a class="sourceLine" id="cb6-284" data-line-number="284"><span class="co">## RXNORM:596     0.0000000000</span></a>
+<a class="sourceLine" id="cb6-285" data-line-number="285"><span class="co">## RXNORM:61381   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-286" data-line-number="286"><span class="co">## RXNORM:641465  0.0272867847</span></a>
+<a class="sourceLine" id="cb6-287" data-line-number="287"><span class="co">## RXNORM:6448    0.0000000000</span></a>
+<a class="sourceLine" id="cb6-288" data-line-number="288"><span class="co">## RXNORM:6470    0.0259504369</span></a>
+<a class="sourceLine" id="cb6-289" data-line-number="289"><span class="co">## RXNORM:6475    0.0321709459</span></a>
+<a class="sourceLine" id="cb6-290" data-line-number="290"><span class="co">## RXNORM:6711    0.0000000000</span></a>
+<a class="sourceLine" id="cb6-291" data-line-number="291"><span class="co">## RXNORM:6719    0.0000000000</span></a>
+<a class="sourceLine" id="cb6-292" data-line-number="292"><span class="co">## RXNORM:679314  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-293" data-line-number="293"><span class="co">## RXNORM:6847    0.0530266079</span></a>
+<a class="sourceLine" id="cb6-294" data-line-number="294"><span class="co">## RXNORM:689842  0.0208722407</span></a>
+<a class="sourceLine" id="cb6-295" data-line-number="295"><span class="co">## RXNORM:6901    0.0000000000</span></a>
+<a class="sourceLine" id="cb6-296" data-line-number="296"><span class="co">## RXNORM:700810  0.0094820290</span></a>
+<a class="sourceLine" id="cb6-297" data-line-number="297"><span class="co">## RXNORM:704     0.0000000000</span></a>
+<a class="sourceLine" id="cb6-298" data-line-number="298"><span class="co">## RXNORM:7243    0.0094651270</span></a>
+<a class="sourceLine" id="cb6-299" data-line-number="299"><span class="co">## RXNORM:725     0.0082348962</span></a>
+<a class="sourceLine" id="cb6-300" data-line-number="300"><span class="co">## RXNORM:7258    0.0029498555</span></a>
+<a class="sourceLine" id="cb6-301" data-line-number="301"><span class="co">## RXNORM:72625   0.0307905234</span></a>
+<a class="sourceLine" id="cb6-302" data-line-number="302"><span class="co">## RXNORM:734064  0.0256516110</span></a>
+<a class="sourceLine" id="cb6-303" data-line-number="303"><span class="co">## RXNORM:7407    0.0000000000</span></a>
+<a class="sourceLine" id="cb6-304" data-line-number="304"><span class="co">## RXNORM:74667   0.0101888916</span></a>
+<a class="sourceLine" id="cb6-305" data-line-number="305"><span class="co">## RXNORM:7531    0.0121302015</span></a>
+<a class="sourceLine" id="cb6-306" data-line-number="306"><span class="co">## RXNORM:7646    0.0019997690</span></a>
+<a class="sourceLine" id="cb6-307" data-line-number="307"><span class="co">## RXNORM:7716    0.0159454103</span></a>
+<a class="sourceLine" id="cb6-308" data-line-number="308"><span class="co">## RXNORM:784649  0.0551612957</span></a>
+<a class="sourceLine" id="cb6-309" data-line-number="309"><span class="co">## RXNORM:8076    0.0000000000</span></a>
+<a class="sourceLine" id="cb6-310" data-line-number="310"><span class="co">## RXNORM:8124    0.0680015637</span></a>
+<a class="sourceLine" id="cb6-311" data-line-number="311"><span class="co">## RXNORM:82819   0.0104021890</span></a>
+<a class="sourceLine" id="cb6-312" data-line-number="312"><span class="co">## RXNORM:840781  0.0000000000</span></a>
+<a class="sourceLine" id="cb6-313" data-line-number="313"><span class="co">## RXNORM:8629    0.0106217618</span></a>
+<a class="sourceLine" id="cb6-314" data-line-number="314"><span class="co">## RXNORM:8787    0.0000000000</span></a>
+<a class="sourceLine" id="cb6-315" data-line-number="315"><span class="co">## RXNORM:89013   0.0000000000</span></a>
+<a class="sourceLine" id="cb6-316" data-line-number="316"><span class="co">## RXNORM:89905   0.0118723306</span></a>
+<a class="sourceLine" id="cb6-317" data-line-number="317"><span class="co">## RXNORM:9639    0.0583145955</span></a></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="r"><span class="no">loc.fit.VA</span> <span class="kw">&lt;-</span> <span class="kw pkg">KESER</span><span class="kw ns">:::</span><span class="fu">loc.feature.selection</span>(
   <span class="no">data</span>$<span class="no">X_full_lst</span><span class="kw">[[</span><span class="fl">2</span>]],
   <span class="no">data</span>$<span class="no">Y_full_lst</span><span class="kw">[[</span><span class="fl">2</span>]],
   <span class="no">data</span>$<span class="no">X_train_lst</span><span class="kw">[[</span><span class="fl">2</span>]],
   <span class="no">data</span>$<span class="no">Y_train_lst</span><span class="kw">[[</span><span class="fl">2</span>]],
   <span class="no">data</span>$<span class="no">X_valid_lst</span><span class="kw">[[</span><span class="fl">2</span>]],
-  <span class="no">data</span>$<span class="no">Y_valid_lst</span><span class="kw">[[</span><span class="fl">2</span>]],
-  <span class="kw">alpha</span> <span class="kw">=</span> <span class="fl">0.5</span>,
-  <span class="kw">lambda_lst</span> <span class="kw">=</span> <span class="kw">NULL</span>,
-  <span class="kw">up_rate</span> <span class="kw">=</span> <span class="fl">10</span>,
-  <span class="kw">drop_rate</span> <span class="kw">=</span> <span class="fl">0.5</span>,
-  <span class="kw">cos_cut</span> <span class="kw">=</span> <span class="fl">0.1</span>)
+  <span class="no">data</span>$<span class="no">Y_valid_lst</span><span class="kw">[[</span><span class="fl">2</span>]])
 <span class="no">loc.fit.VA</span></pre></div>
 <div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co">## $min.lambda</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">## [1] 0.0001474714</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">## [1] 0.0001472806</span></a>
 <a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">## </span></a>
 <a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">## $min.beta</span></a>
 <a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">##                            beta_loc</span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">## CCS:130                1.321625e-02</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">## CCS:130                1.722047e-02</span></a>
 <a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">## CCS:131                0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co">## CCS:156                0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-9" data-line-number="9"><span class="co">## CCS:163                0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="co">## CCS:182                0.000000e+00</span></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="co">## CCS:182                5.312638e-03</span></a>
 <a class="sourceLine" id="cb8-11" data-line-number="11"><span class="co">## CCS:198                0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="co">## CCS:206                3.229242e-03</span></a>
+<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="co">## CCS:206                0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-13" data-line-number="13"><span class="co">## CCS:213                0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-14" data-line-number="14"><span class="co">## CCS:215                0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-15" data-line-number="15"><span class="co">## CCS:218                4.682850e-02</span></a>
-<a class="sourceLine" id="cb8-16" data-line-number="16"><span class="co">## CCS:219                1.396093e-02</span></a>
-<a class="sourceLine" id="cb8-17" data-line-number="17"><span class="co">## CCS:220                9.452808e-03</span></a>
+<a class="sourceLine" id="cb8-15" data-line-number="15"><span class="co">## CCS:218                5.942577e-02</span></a>
+<a class="sourceLine" id="cb8-16" data-line-number="16"><span class="co">## CCS:219                2.889276e-02</span></a>
+<a class="sourceLine" id="cb8-17" data-line-number="17"><span class="co">## CCS:220                7.159851e-04</span></a>
 <a class="sourceLine" id="cb8-18" data-line-number="18"><span class="co">## CCS:226                0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-19" data-line-number="19"><span class="co">## CCS:227                6.762654e-03</span></a>
-<a class="sourceLine" id="cb8-20" data-line-number="20"><span class="co">## CCS:228                6.118519e-03</span></a>
+<a class="sourceLine" id="cb8-19" data-line-number="19"><span class="co">## CCS:227                8.681960e-03</span></a>
+<a class="sourceLine" id="cb8-20" data-line-number="20"><span class="co">## CCS:228                3.168230e-03</span></a>
 <a class="sourceLine" id="cb8-21" data-line-number="21"><span class="co">## CCS:233                0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-22" data-line-number="22"><span class="co">## CCS:234                2.846809e-03</span></a>
-<a class="sourceLine" id="cb8-23" data-line-number="23"><span class="co">## CCS:235                5.467723e-03</span></a>
-<a class="sourceLine" id="cb8-24" data-line-number="24"><span class="co">## CCS:237                2.614492e-02</span></a>
-<a class="sourceLine" id="cb8-25" data-line-number="25"><span class="co">## LOINC:10998-3          2.825259e-03</span></a>
+<a class="sourceLine" id="cb8-22" data-line-number="22"><span class="co">## CCS:234                0.000000e+00</span></a>
+<a class="sourceLine" id="cb8-23" data-line-number="23"><span class="co">## CCS:235                1.418458e-02</span></a>
+<a class="sourceLine" id="cb8-24" data-line-number="24"><span class="co">## CCS:237                1.738904e-02</span></a>
+<a class="sourceLine" id="cb8-25" data-line-number="25"><span class="co">## LOINC:10998-3          4.847828e-03</span></a>
 <a class="sourceLine" id="cb8-26" data-line-number="26"><span class="co">## LOINC:12382-8          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-27" data-line-number="27"><span class="co">## LOINC:16201-6          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-28" data-line-number="28"><span class="co">## LOINC:16228-9          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-29" data-line-number="29"><span class="co">## LOINC:16249-5          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-30" data-line-number="30"><span class="co">## LOINC:18282-4          9.131668e-03</span></a>
+<a class="sourceLine" id="cb8-30" data-line-number="30"><span class="co">## LOINC:18282-4          2.601681e-03</span></a>
 <a class="sourceLine" id="cb8-31" data-line-number="31"><span class="co">## LOINC:19080-1          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-32" data-line-number="32"><span class="co">## LOINC:19141-1          0.000000e+00</span></a>
+<a class="sourceLine" id="cb8-32" data-line-number="32"><span class="co">## LOINC:19141-1          4.908666e-04</span></a>
 <a class="sourceLine" id="cb8-33" data-line-number="33"><span class="co">## LOINC:19312-8          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-34" data-line-number="34"><span class="co">## LOINC:19328-4          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-35" data-line-number="35"><span class="co">## LOINC:19388-8          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-36" data-line-number="36"><span class="co">## LOINC:19483-7          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-37" data-line-number="37"><span class="co">## LOINC:19659-2          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-38" data-line-number="38"><span class="co">## LOINC:20507-0          7.750223e-04</span></a>
-<a class="sourceLine" id="cb8-39" data-line-number="39"><span class="co">## LOINC:2106-3           1.511619e-02</span></a>
+<a class="sourceLine" id="cb8-38" data-line-number="38"><span class="co">## LOINC:20507-0          0.000000e+00</span></a>
+<a class="sourceLine" id="cb8-39" data-line-number="39"><span class="co">## LOINC:2106-3           1.267411e-02</span></a>
 <a class="sourceLine" id="cb8-40" data-line-number="40"><span class="co">## LOINC:2110-5           0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-41" data-line-number="41"><span class="co">## LOINC:21441-1          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-42" data-line-number="42"><span class="co">## LOINC:24111-7          5.778192e-03</span></a>
-<a class="sourceLine" id="cb8-43" data-line-number="43"><span class="co">## LOINC:3016-3           0.000000e+00</span></a>
+<a class="sourceLine" id="cb8-42" data-line-number="42"><span class="co">## LOINC:24111-7          2.614205e-03</span></a>
+<a class="sourceLine" id="cb8-43" data-line-number="43"><span class="co">## LOINC:3016-3           3.548111e-03</span></a>
 <a class="sourceLine" id="cb8-44" data-line-number="44"><span class="co">## LOINC:30167-1          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-45" data-line-number="45"><span class="co">## LOINC:3349-8           7.565602e-03</span></a>
-<a class="sourceLine" id="cb8-46" data-line-number="46"><span class="co">## LOINC:3390-2           7.237893e-03</span></a>
-<a class="sourceLine" id="cb8-47" data-line-number="47"><span class="co">## LOINC:3397-7           1.368986e-02</span></a>
-<a class="sourceLine" id="cb8-48" data-line-number="48"><span class="co">## LOINC:3414-0           0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-49" data-line-number="49"><span class="co">## LOINC:3436-3           0.000000e+00</span></a>
+<a class="sourceLine" id="cb8-45" data-line-number="45"><span class="co">## LOINC:3349-8           1.367734e-02</span></a>
+<a class="sourceLine" id="cb8-46" data-line-number="46"><span class="co">## LOINC:3390-2           1.472196e-02</span></a>
+<a class="sourceLine" id="cb8-47" data-line-number="47"><span class="co">## LOINC:3397-7           1.835625e-02</span></a>
+<a class="sourceLine" id="cb8-48" data-line-number="48"><span class="co">## LOINC:3414-0           2.695793e-03</span></a>
+<a class="sourceLine" id="cb8-49" data-line-number="49"><span class="co">## LOINC:3436-3           3.317517e-03</span></a>
 <a class="sourceLine" id="cb8-50" data-line-number="50"><span class="co">## LOINC:3507-1           0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-51" data-line-number="51"><span class="co">## LOINC:3725-9           0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-52" data-line-number="52"><span class="co">## LOINC:3773-9           1.334861e-02</span></a>
-<a class="sourceLine" id="cb8-53" data-line-number="53"><span class="co">## LOINC:3879-4           6.246110e-03</span></a>
-<a class="sourceLine" id="cb8-54" data-line-number="54"><span class="co">## LOINC:43304-5          1.210764e-02</span></a>
+<a class="sourceLine" id="cb8-52" data-line-number="52"><span class="co">## LOINC:3773-9           1.037253e-02</span></a>
+<a class="sourceLine" id="cb8-53" data-line-number="53"><span class="co">## LOINC:3879-4           1.476357e-02</span></a>
+<a class="sourceLine" id="cb8-54" data-line-number="54"><span class="co">## LOINC:43304-5          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-55" data-line-number="55"><span class="co">## LOINC:47000-5          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-56" data-line-number="56"><span class="co">## LOINC:48345-3          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-57" data-line-number="57"><span class="co">## LOINC:5643-2           9.736849e-04</span></a>
-<a class="sourceLine" id="cb8-58" data-line-number="58"><span class="co">## LOINC:5644-0           2.897979e-03</span></a>
-<a class="sourceLine" id="cb8-59" data-line-number="59"><span class="co">## LOINC:5645-7           1.055860e-02</span></a>
+<a class="sourceLine" id="cb8-57" data-line-number="57"><span class="co">## LOINC:5643-2           0.000000e+00</span></a>
+<a class="sourceLine" id="cb8-58" data-line-number="58"><span class="co">## LOINC:5644-0           0.000000e+00</span></a>
+<a class="sourceLine" id="cb8-59" data-line-number="59"><span class="co">## LOINC:5645-7           1.184403e-02</span></a>
 <a class="sourceLine" id="cb8-60" data-line-number="60"><span class="co">## LOINC:56888-1          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-61" data-line-number="61"><span class="co">## LOINC:58375-7          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-62" data-line-number="62"><span class="co">## LOINC:58424-3          0.000000e+00</span></a>
@@ -567,21 +554,21 @@
 <a class="sourceLine" id="cb8-69" data-line-number="69"><span class="co">## Other lab:1000000049   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-70" data-line-number="70"><span class="co">## Other lab:1000000388   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-71" data-line-number="71"><span class="co">## Other lab:1000000417   0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-72" data-line-number="72"><span class="co">## Other lab:1000001688   1.141000e-04</span></a>
+<a class="sourceLine" id="cb8-72" data-line-number="72"><span class="co">## Other lab:1000001688   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-73" data-line-number="73"><span class="co">## Other lab:1000001695   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-74" data-line-number="74"><span class="co">## Other lab:1000001744   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-75" data-line-number="75"><span class="co">## Other lab:1000001992   0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-76" data-line-number="76"><span class="co">## Other lab:1000018437   0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-77" data-line-number="77"><span class="co">## Other lab:1000019158   1.097573e-02</span></a>
+<a class="sourceLine" id="cb8-76" data-line-number="76"><span class="co">## Other lab:1000018437   1.683810e-04</span></a>
+<a class="sourceLine" id="cb8-77" data-line-number="77"><span class="co">## Other lab:1000019158   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-78" data-line-number="78"><span class="co">## Other lab:1000019243   0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-79" data-line-number="79"><span class="co">## Other lab:1000025222   5.806543e-03</span></a>
+<a class="sourceLine" id="cb8-79" data-line-number="79"><span class="co">## Other lab:1000025222   6.131030e-03</span></a>
 <a class="sourceLine" id="cb8-80" data-line-number="80"><span class="co">## Other lab:1000036461   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-81" data-line-number="81"><span class="co">## Other lab:1000038032   0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-82" data-line-number="82"><span class="co">## Other lab:1000041034   2.571620e-06</span></a>
+<a class="sourceLine" id="cb8-82" data-line-number="82"><span class="co">## Other lab:1000041034   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-83" data-line-number="83"><span class="co">## Other lab:1000046222   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-84" data-line-number="84"><span class="co">## Other lab:1000046538   0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-85" data-line-number="85"><span class="co">## Other lab:1000047671   3.175436e-04</span></a>
-<a class="sourceLine" id="cb8-86" data-line-number="86"><span class="co">## Other lab:1000048582   2.267424e-03</span></a>
+<a class="sourceLine" id="cb8-85" data-line-number="85"><span class="co">## Other lab:1000047671   0.000000e+00</span></a>
+<a class="sourceLine" id="cb8-86" data-line-number="86"><span class="co">## Other lab:1000048582   9.242825e-03</span></a>
 <a class="sourceLine" id="cb8-87" data-line-number="87"><span class="co">## Other lab:1000049900   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-88" data-line-number="88"><span class="co">## Other lab:1000056092   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-89" data-line-number="89"><span class="co">## Other lab:1000058214   0.000000e+00</span></a>
@@ -597,28 +584,28 @@
 <a class="sourceLine" id="cb8-99" data-line-number="99"><span class="co">## Other lab:1000082178   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-100" data-line-number="100"><span class="co">## Other lab:1000082797   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-101" data-line-number="101"><span class="co">## Other lab:1000083088   0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-102" data-line-number="102"><span class="co">## Other lab:1000084062   6.330333e-03</span></a>
+<a class="sourceLine" id="cb8-102" data-line-number="102"><span class="co">## Other lab:1000084062   6.663306e-03</span></a>
 <a class="sourceLine" id="cb8-103" data-line-number="103"><span class="co">## Other lab:1000085773   0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-104" data-line-number="104"><span class="co">## Other lab:1000085866   2.951761e-03</span></a>
+<a class="sourceLine" id="cb8-104" data-line-number="104"><span class="co">## Other lab:1000085866   2.057595e-03</span></a>
 <a class="sourceLine" id="cb8-105" data-line-number="105"><span class="co">## Other lab:1000088563   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-106" data-line-number="106"><span class="co">## Other lab:1000088684   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-107" data-line-number="107"><span class="co">## Other lab:1000091075   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-108" data-line-number="108"><span class="co">## Other lab:1000091818   0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-109" data-line-number="109"><span class="co">## Other lab:1000092853   8.450843e-03</span></a>
-<a class="sourceLine" id="cb8-110" data-line-number="110"><span class="co">## Other lab:1000093146   7.118662e-03</span></a>
-<a class="sourceLine" id="cb8-111" data-line-number="111"><span class="co">## Other lab:1000093307   3.782361e-03</span></a>
-<a class="sourceLine" id="cb8-112" data-line-number="112"><span class="co">## Other lab:1000097490   4.932874e-03</span></a>
-<a class="sourceLine" id="cb8-113" data-line-number="113"><span class="co">## Other lab:1000097905   1.069277e-03</span></a>
+<a class="sourceLine" id="cb8-109" data-line-number="109"><span class="co">## Other lab:1000092853   6.370332e-03</span></a>
+<a class="sourceLine" id="cb8-110" data-line-number="110"><span class="co">## Other lab:1000093146   6.985261e-03</span></a>
+<a class="sourceLine" id="cb8-111" data-line-number="111"><span class="co">## Other lab:1000093307   3.383752e-03</span></a>
+<a class="sourceLine" id="cb8-112" data-line-number="112"><span class="co">## Other lab:1000097490   8.396150e-03</span></a>
+<a class="sourceLine" id="cb8-113" data-line-number="113"><span class="co">## Other lab:1000097905   1.348874e-03</span></a>
 <a class="sourceLine" id="cb8-114" data-line-number="114"><span class="co">## Other lab:1000100487   0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-115" data-line-number="115"><span class="co">## Other lab:1000105807   1.074315e-02</span></a>
+<a class="sourceLine" id="cb8-115" data-line-number="115"><span class="co">## Other lab:1000105807   1.089940e-02</span></a>
 <a class="sourceLine" id="cb8-116" data-line-number="116"><span class="co">## Other lab:1000110086   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-117" data-line-number="117"><span class="co">## Other lab:1000113359   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-118" data-line-number="118"><span class="co">## Other lab:1000113370   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-119" data-line-number="119"><span class="co">## Other lab:1000113374   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-120" data-line-number="120"><span class="co">## Other lab:1000123632   0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-121" data-line-number="121"><span class="co">## Other lab:1000123683   0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-122" data-line-number="122"><span class="co">## Other lab:1000125738   0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-123" data-line-number="123"><span class="co">## Other lab:1000127464   3.210756e-03</span></a>
+<a class="sourceLine" id="cb8-121" data-line-number="121"><span class="co">## Other lab:1000123683   3.271021e-03</span></a>
+<a class="sourceLine" id="cb8-122" data-line-number="122"><span class="co">## Other lab:1000125738   2.371914e-03</span></a>
+<a class="sourceLine" id="cb8-123" data-line-number="123"><span class="co">## Other lab:1000127464   1.620177e-03</span></a>
 <a class="sourceLine" id="cb8-124" data-line-number="124"><span class="co">## Other lab:1000130132   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-125" data-line-number="125"><span class="co">## Other lab:1000138393   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-126" data-line-number="126"><span class="co">## Other lab:1200001045   0.000000e+00</span></a>
@@ -651,18 +638,18 @@
 <a class="sourceLine" id="cb8-153" data-line-number="153"><span class="co">## Other lab:1200098375   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-154" data-line-number="154"><span class="co">## Other lab:1200100409   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-155" data-line-number="155"><span class="co">## Other lab:1200108410   0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-156" data-line-number="156"><span class="co">## Other lab:1200109766   0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-157" data-line-number="157"><span class="co">## Other lab:1200109768   0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-158" data-line-number="158"><span class="co">## Other lab:1200111243   7.458794e-05</span></a>
-<a class="sourceLine" id="cb8-159" data-line-number="159"><span class="co">## Other lab:1200111254   7.126957e-05</span></a>
-<a class="sourceLine" id="cb8-160" data-line-number="160"><span class="co">## Other lab:1200111256   7.087071e-05</span></a>
+<a class="sourceLine" id="cb8-156" data-line-number="156"><span class="co">## Other lab:1200109766   3.800994e-03</span></a>
+<a class="sourceLine" id="cb8-157" data-line-number="157"><span class="co">## Other lab:1200109768   3.801714e-03</span></a>
+<a class="sourceLine" id="cb8-158" data-line-number="158"><span class="co">## Other lab:1200111243   5.412018e-04</span></a>
+<a class="sourceLine" id="cb8-159" data-line-number="159"><span class="co">## Other lab:1200111254   5.404470e-04</span></a>
+<a class="sourceLine" id="cb8-160" data-line-number="160"><span class="co">## Other lab:1200111256   5.381425e-04</span></a>
 <a class="sourceLine" id="cb8-161" data-line-number="161"><span class="co">## Other lab:1200115145   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-162" data-line-number="162"><span class="co">## Other lab:1200118041   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-163" data-line-number="163"><span class="co">## Other lab:1200118042   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-164" data-line-number="164"><span class="co">## Other lab:1200118043   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-165" data-line-number="165"><span class="co">## Other lab:1200118044   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-166" data-line-number="166"><span class="co">## Other lab:1200119549   0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-167" data-line-number="167"><span class="co">## Other lab:1200122176   0.000000e+00</span></a>
+<a class="sourceLine" id="cb8-167" data-line-number="167"><span class="co">## Other lab:1200122176   3.967392e-04</span></a>
 <a class="sourceLine" id="cb8-168" data-line-number="168"><span class="co">## Other lab:1200123413   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-169" data-line-number="169"><span class="co">## Other lab:1200124637   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-170" data-line-number="170"><span class="co">## Other lab:1200128620   0.000000e+00</span></a>
@@ -746,7 +733,7 @@
 <a class="sourceLine" id="cb8-248" data-line-number="248"><span class="co">## Other lab:1400071829   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-249" data-line-number="249"><span class="co">## Other lab:1400078944   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-250" data-line-number="250"><span class="co">## Other lab:1400564654   0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-251" data-line-number="251"><span class="co">## Other lab:1400570592   1.436884e-03</span></a>
+<a class="sourceLine" id="cb8-251" data-line-number="251"><span class="co">## Other lab:1400570592   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-252" data-line-number="252"><span class="co">## Other lab:1400575908   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-253" data-line-number="253"><span class="co">## Other lab:1400575945   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-254" data-line-number="254"><span class="co">## Other lab:1400581237   0.000000e+00</span></a>
@@ -757,11 +744,11 @@
 <a class="sourceLine" id="cb8-259" data-line-number="259"><span class="co">## Other lab:1400591060   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-260" data-line-number="260"><span class="co">## Other lab:1400591078   0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-261" data-line-number="261"><span class="co">## Other lab:800010466    0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-262" data-line-number="262"><span class="co">## Other lab:800010497    5.410193e-03</span></a>
-<a class="sourceLine" id="cb8-263" data-line-number="263"><span class="co">## Other lab:800010898    5.399208e-03</span></a>
+<a class="sourceLine" id="cb8-262" data-line-number="262"><span class="co">## Other lab:800010497    2.335765e-03</span></a>
+<a class="sourceLine" id="cb8-263" data-line-number="263"><span class="co">## Other lab:800010898    2.437739e-03</span></a>
 <a class="sourceLine" id="cb8-264" data-line-number="264"><span class="co">## Other lab:800017435    0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-265" data-line-number="265"><span class="co">## Other lab:800023376    0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-266" data-line-number="266"><span class="co">## Other lab:800044440    0.000000e+00</span></a>
+<a class="sourceLine" id="cb8-266" data-line-number="266"><span class="co">## Other lab:800044440    2.525804e-04</span></a>
 <a class="sourceLine" id="cb8-267" data-line-number="267"><span class="co">## Other lab:800048990    0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-268" data-line-number="268"><span class="co">## Other lab:800051837    0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-269" data-line-number="269"><span class="co">## Other lab:800058968    0.000000e+00</span></a>
@@ -769,76 +756,76 @@
 <a class="sourceLine" id="cb8-271" data-line-number="271"><span class="co">## Other lab:800086436    0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-272" data-line-number="272"><span class="co">## Other lab:800221984    0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-273" data-line-number="273"><span class="co">## Other lab:800224219    0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-274" data-line-number="274"><span class="co">## Other lab:800224995    0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-275" data-line-number="275"><span class="co">## Other lab:800230878    5.338242e-03</span></a>
+<a class="sourceLine" id="cb8-274" data-line-number="274"><span class="co">## Other lab:800224995    6.432344e-04</span></a>
+<a class="sourceLine" id="cb8-275" data-line-number="275"><span class="co">## Other lab:800230878    5.073905e-03</span></a>
 <a class="sourceLine" id="cb8-276" data-line-number="276"><span class="co">## Other lab:800250413    0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-277" data-line-number="277"><span class="co">## PheCode:070.3          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-278" data-line-number="278"><span class="co">## PheCode:1004           0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-279" data-line-number="279"><span class="co">## PheCode:1009           0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-280" data-line-number="280"><span class="co">## PheCode:1010.1         0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-281" data-line-number="281"><span class="co">## PheCode:1010.5         0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-282" data-line-number="282"><span class="co">## PheCode:1010.6         1.860085e-03</span></a>
-<a class="sourceLine" id="cb8-283" data-line-number="283"><span class="co">## PheCode:1010.7         9.449425e-03</span></a>
+<a class="sourceLine" id="cb8-282" data-line-number="282"><span class="co">## PheCode:1010.6         0.000000e+00</span></a>
+<a class="sourceLine" id="cb8-283" data-line-number="283"><span class="co">## PheCode:1010.7         1.337397e-02</span></a>
 <a class="sourceLine" id="cb8-284" data-line-number="284"><span class="co">## PheCode:1015           0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-285" data-line-number="285"><span class="co">## PheCode:180.3          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-286" data-line-number="286"><span class="co">## PheCode:218.1          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-287" data-line-number="287"><span class="co">## PheCode:218.2          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-288" data-line-number="288"><span class="co">## PheCode:221            0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-289" data-line-number="289"><span class="co">## PheCode:256.4          9.554780e-04</span></a>
-<a class="sourceLine" id="cb8-290" data-line-number="290"><span class="co">## PheCode:257.1          9.225266e-04</span></a>
+<a class="sourceLine" id="cb8-289" data-line-number="289"><span class="co">## PheCode:256.4          0.000000e+00</span></a>
+<a class="sourceLine" id="cb8-290" data-line-number="290"><span class="co">## PheCode:257.1          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-291" data-line-number="291"><span class="co">## PheCode:261.4          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-292" data-line-number="292"><span class="co">## PheCode:272.1          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-293" data-line-number="293"><span class="co">## PheCode:278.1          2.380025e-03</span></a>
+<a class="sourceLine" id="cb8-293" data-line-number="293"><span class="co">## PheCode:278.1          8.103065e-03</span></a>
 <a class="sourceLine" id="cb8-294" data-line-number="294"><span class="co">## PheCode:290.3          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-295" data-line-number="295"><span class="co">## PheCode:291.1          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-296" data-line-number="296"><span class="co">## PheCode:292.2          0.000000e+00</span></a>
+<a class="sourceLine" id="cb8-296" data-line-number="296"><span class="co">## PheCode:292.2          1.710585e-03</span></a>
 <a class="sourceLine" id="cb8-297" data-line-number="297"><span class="co">## PheCode:292.3          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-298" data-line-number="298"><span class="co">## PheCode:292.6          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-299" data-line-number="299"><span class="co">## PheCode:295.1          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-300" data-line-number="300"><span class="co">## PheCode:295.2          3.368752e-04</span></a>
-<a class="sourceLine" id="cb8-301" data-line-number="301"><span class="co">## PheCode:295.3          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-302" data-line-number="302"><span class="co">## PheCode:296.1          2.419922e-02</span></a>
-<a class="sourceLine" id="cb8-303" data-line-number="303"><span class="co">## PheCode:297.1          2.359977e-02</span></a>
-<a class="sourceLine" id="cb8-304" data-line-number="304"><span class="co">## PheCode:297.2          8.873283e-03</span></a>
-<a class="sourceLine" id="cb8-305" data-line-number="305"><span class="co">## PheCode:300.1          6.163459e-02</span></a>
-<a class="sourceLine" id="cb8-306" data-line-number="306"><span class="co">## PheCode:300.3          1.647675e-02</span></a>
-<a class="sourceLine" id="cb8-307" data-line-number="307"><span class="co">## PheCode:300.4          5.353415e-03</span></a>
-<a class="sourceLine" id="cb8-308" data-line-number="308"><span class="co">## PheCode:300.8          6.709464e-04</span></a>
-<a class="sourceLine" id="cb8-309" data-line-number="309"><span class="co">## PheCode:300.9          7.030751e-02</span></a>
-<a class="sourceLine" id="cb8-310" data-line-number="310"><span class="co">## PheCode:301.1          3.696106e-03</span></a>
-<a class="sourceLine" id="cb8-311" data-line-number="311"><span class="co">## PheCode:301.2          3.089757e-02</span></a>
-<a class="sourceLine" id="cb8-312" data-line-number="312"><span class="co">## PheCode:302.1          1.281642e-03</span></a>
-<a class="sourceLine" id="cb8-313" data-line-number="313"><span class="co">## PheCode:303.1          3.225484e-03</span></a>
+<a class="sourceLine" id="cb8-300" data-line-number="300"><span class="co">## PheCode:295.2          2.483996e-03</span></a>
+<a class="sourceLine" id="cb8-301" data-line-number="301"><span class="co">## PheCode:295.3          6.073255e-03</span></a>
+<a class="sourceLine" id="cb8-302" data-line-number="302"><span class="co">## PheCode:296.1          2.287831e-02</span></a>
+<a class="sourceLine" id="cb8-303" data-line-number="303"><span class="co">## PheCode:297.1          2.238436e-02</span></a>
+<a class="sourceLine" id="cb8-304" data-line-number="304"><span class="co">## PheCode:297.2          1.082504e-02</span></a>
+<a class="sourceLine" id="cb8-305" data-line-number="305"><span class="co">## PheCode:300.1          6.917438e-02</span></a>
+<a class="sourceLine" id="cb8-306" data-line-number="306"><span class="co">## PheCode:300.3          1.836552e-02</span></a>
+<a class="sourceLine" id="cb8-307" data-line-number="307"><span class="co">## PheCode:300.4          1.256582e-02</span></a>
+<a class="sourceLine" id="cb8-308" data-line-number="308"><span class="co">## PheCode:300.8          0.000000e+00</span></a>
+<a class="sourceLine" id="cb8-309" data-line-number="309"><span class="co">## PheCode:300.9          6.985363e-02</span></a>
+<a class="sourceLine" id="cb8-310" data-line-number="310"><span class="co">## PheCode:301.1          5.704452e-03</span></a>
+<a class="sourceLine" id="cb8-311" data-line-number="311"><span class="co">## PheCode:301.2          2.862736e-02</span></a>
+<a class="sourceLine" id="cb8-312" data-line-number="312"><span class="co">## PheCode:302.1          0.000000e+00</span></a>
+<a class="sourceLine" id="cb8-313" data-line-number="313"><span class="co">## PheCode:303.1          7.607394e-03</span></a>
 <a class="sourceLine" id="cb8-314" data-line-number="314"><span class="co">## PheCode:303.3          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-315" data-line-number="315"><span class="co">## PheCode:303.4          2.515343e-03</span></a>
-<a class="sourceLine" id="cb8-316" data-line-number="316"><span class="co">## PheCode:304            1.304643e-02</span></a>
-<a class="sourceLine" id="cb8-317" data-line-number="317"><span class="co">## PheCode:305.2          6.077147e-03</span></a>
+<a class="sourceLine" id="cb8-315" data-line-number="315"><span class="co">## PheCode:303.4          7.628065e-03</span></a>
+<a class="sourceLine" id="cb8-316" data-line-number="316"><span class="co">## PheCode:304            1.976715e-02</span></a>
+<a class="sourceLine" id="cb8-317" data-line-number="317"><span class="co">## PheCode:305.2          1.170542e-02</span></a>
 <a class="sourceLine" id="cb8-318" data-line-number="318"><span class="co">## PheCode:306.9          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-319" data-line-number="319"><span class="co">## PheCode:312.3          3.089974e-03</span></a>
-<a class="sourceLine" id="cb8-320" data-line-number="320"><span class="co">## PheCode:313.1          1.953288e-02</span></a>
+<a class="sourceLine" id="cb8-319" data-line-number="319"><span class="co">## PheCode:312.3          3.331430e-03</span></a>
+<a class="sourceLine" id="cb8-320" data-line-number="320"><span class="co">## PheCode:313.1          1.033383e-02</span></a>
 <a class="sourceLine" id="cb8-321" data-line-number="321"><span class="co">## PheCode:313.2          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-322" data-line-number="322"><span class="co">## PheCode:313.3          2.217773e-03</span></a>
-<a class="sourceLine" id="cb8-323" data-line-number="323"><span class="co">## PheCode:315.1          3.687581e-03</span></a>
-<a class="sourceLine" id="cb8-324" data-line-number="324"><span class="co">## PheCode:317.1          2.033468e-02</span></a>
-<a class="sourceLine" id="cb8-325" data-line-number="325"><span class="co">## PheCode:318            8.527640e-03</span></a>
+<a class="sourceLine" id="cb8-322" data-line-number="322"><span class="co">## PheCode:313.3          2.635002e-03</span></a>
+<a class="sourceLine" id="cb8-323" data-line-number="323"><span class="co">## PheCode:315.1          4.659575e-03</span></a>
+<a class="sourceLine" id="cb8-324" data-line-number="324"><span class="co">## PheCode:317.1          2.053389e-02</span></a>
+<a class="sourceLine" id="cb8-325" data-line-number="325"><span class="co">## PheCode:318            7.163522e-03</span></a>
 <a class="sourceLine" id="cb8-326" data-line-number="326"><span class="co">## PheCode:327.1          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-327" data-line-number="327"><span class="co">## PheCode:327.3          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-328" data-line-number="328"><span class="co">## PheCode:327.4          1.885366e-02</span></a>
+<a class="sourceLine" id="cb8-328" data-line-number="328"><span class="co">## PheCode:327.4          7.426090e-03</span></a>
 <a class="sourceLine" id="cb8-329" data-line-number="329"><span class="co">## PheCode:327.5          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-330" data-line-number="330"><span class="co">## PheCode:327.6          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-331" data-line-number="331"><span class="co">## PheCode:327.7          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-332" data-line-number="332"><span class="co">## PheCode:338.2          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-333" data-line-number="333"><span class="co">## PheCode:339            9.158888e-03</span></a>
-<a class="sourceLine" id="cb8-334" data-line-number="334"><span class="co">## PheCode:340.1          3.991654e-04</span></a>
-<a class="sourceLine" id="cb8-335" data-line-number="335"><span class="co">## PheCode:347            0.000000e+00</span></a>
+<a class="sourceLine" id="cb8-332" data-line-number="332"><span class="co">## PheCode:338.2          2.505748e-03</span></a>
+<a class="sourceLine" id="cb8-333" data-line-number="333"><span class="co">## PheCode:339            5.641220e-03</span></a>
+<a class="sourceLine" id="cb8-334" data-line-number="334"><span class="co">## PheCode:340.1          0.000000e+00</span></a>
+<a class="sourceLine" id="cb8-335" data-line-number="335"><span class="co">## PheCode:347            1.551986e-03</span></a>
 <a class="sourceLine" id="cb8-336" data-line-number="336"><span class="co">## PheCode:351            0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-337" data-line-number="337"><span class="co">## PheCode:355.1          3.711845e-03</span></a>
+<a class="sourceLine" id="cb8-337" data-line-number="337"><span class="co">## PheCode:355.1          1.132328e-02</span></a>
 <a class="sourceLine" id="cb8-338" data-line-number="338"><span class="co">## PheCode:367.1          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-339" data-line-number="339"><span class="co">## PheCode:367.4          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-340" data-line-number="340"><span class="co">## PheCode:389.4          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-341" data-line-number="341"><span class="co">## PheCode:401.1          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-342" data-line-number="342"><span class="co">## PheCode:476            0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-343" data-line-number="343"><span class="co">## PheCode:521.1          0.000000e+00</span></a>
+<a class="sourceLine" id="cb8-343" data-line-number="343"><span class="co">## PheCode:521.1          1.821689e-03</span></a>
 <a class="sourceLine" id="cb8-344" data-line-number="344"><span class="co">## PheCode:522.1          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-345" data-line-number="345"><span class="co">## PheCode:523.3          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-346" data-line-number="346"><span class="co">## PheCode:525.1          0.000000e+00</span></a>
@@ -851,15 +838,15 @@
 <a class="sourceLine" id="cb8-353" data-line-number="353"><span class="co">## PheCode:614.5          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-354" data-line-number="354"><span class="co">## PheCode:615            0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-355" data-line-number="355"><span class="co">## PheCode:620.1          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-356" data-line-number="356"><span class="co">## PheCode:625.1          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-357" data-line-number="357"><span class="co">## PheCode:626.1          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-358" data-line-number="358"><span class="co">## PheCode:626.2          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-359" data-line-number="359"><span class="co">## PheCode:626.4          0.000000e+00</span></a>
+<a class="sourceLine" id="cb8-356" data-line-number="356"><span class="co">## PheCode:625.1          1.011031e-04</span></a>
+<a class="sourceLine" id="cb8-357" data-line-number="357"><span class="co">## PheCode:626.1          1.046692e-02</span></a>
+<a class="sourceLine" id="cb8-358" data-line-number="358"><span class="co">## PheCode:626.2          1.996486e-04</span></a>
+<a class="sourceLine" id="cb8-359" data-line-number="359"><span class="co">## PheCode:626.4          4.359983e-05</span></a>
 <a class="sourceLine" id="cb8-360" data-line-number="360"><span class="co">## PheCode:626.8          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-361" data-line-number="361"><span class="co">## PheCode:627.2          0.000000e+00</span></a>
+<a class="sourceLine" id="cb8-361" data-line-number="361"><span class="co">## PheCode:627.2          2.036864e-03</span></a>
 <a class="sourceLine" id="cb8-362" data-line-number="362"><span class="co">## PheCode:627.5          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-363" data-line-number="363"><span class="co">## PheCode:634.3          4.439159e-04</span></a>
-<a class="sourceLine" id="cb8-364" data-line-number="364"><span class="co">## PheCode:638            1.656948e-03</span></a>
+<a class="sourceLine" id="cb8-363" data-line-number="363"><span class="co">## PheCode:634.3          1.210041e-03</span></a>
+<a class="sourceLine" id="cb8-364" data-line-number="364"><span class="co">## PheCode:638            0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-365" data-line-number="365"><span class="co">## PheCode:704.2          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-366" data-line-number="366"><span class="co">## PheCode:706.1          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-367" data-line-number="367"><span class="co">## PheCode:721.1          0.000000e+00</span></a>
@@ -867,15 +854,15 @@
 <a class="sourceLine" id="cb8-369" data-line-number="369"><span class="co">## PheCode:722.6          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-370" data-line-number="370"><span class="co">## PheCode:726.1          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-371" data-line-number="371"><span class="co">## PheCode:728.7          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-372" data-line-number="372"><span class="co">## PheCode:729.1          0.000000e+00</span></a>
+<a class="sourceLine" id="cb8-372" data-line-number="372"><span class="co">## PheCode:729.1          1.569690e-03</span></a>
 <a class="sourceLine" id="cb8-373" data-line-number="373"><span class="co">## PheCode:740.1          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-374" data-line-number="374"><span class="co">## PheCode:745            3.165047e-02</span></a>
-<a class="sourceLine" id="cb8-375" data-line-number="375"><span class="co">## PheCode:760            3.881647e-02</span></a>
-<a class="sourceLine" id="cb8-376" data-line-number="376"><span class="co">## PheCode:761            8.080907e-03</span></a>
+<a class="sourceLine" id="cb8-374" data-line-number="374"><span class="co">## PheCode:745            2.390502e-02</span></a>
+<a class="sourceLine" id="cb8-375" data-line-number="375"><span class="co">## PheCode:760            2.891040e-02</span></a>
+<a class="sourceLine" id="cb8-376" data-line-number="376"><span class="co">## PheCode:761            8.847370e-03</span></a>
 <a class="sourceLine" id="cb8-377" data-line-number="377"><span class="co">## PheCode:763            0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-378" data-line-number="378"><span class="co">## PheCode:765            0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-379" data-line-number="379"><span class="co">## PheCode:769            0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-380" data-line-number="380"><span class="co">## PheCode:770            9.159293e-03</span></a>
+<a class="sourceLine" id="cb8-380" data-line-number="380"><span class="co">## PheCode:770            1.753514e-03</span></a>
 <a class="sourceLine" id="cb8-381" data-line-number="381"><span class="co">## PheCode:773            0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-382" data-line-number="382"><span class="co">## PheCode:792.1          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-383" data-line-number="383"><span class="co">## PheCode:817            0.000000e+00</span></a>
@@ -884,67 +871,67 @@
 <a class="sourceLine" id="cb8-386" data-line-number="386"><span class="co">## PheCode:979            0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-387" data-line-number="387"><span class="co">## PheCode:981            0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-388" data-line-number="388"><span class="co">## RXNORM:1000104         0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-389" data-line-number="389"><span class="co">## RXNORM:10379           2.660856e-03</span></a>
+<a class="sourceLine" id="cb8-389" data-line-number="389"><span class="co">## RXNORM:10379           0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-390" data-line-number="390"><span class="co">## RXNORM:1040028         0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-391" data-line-number="391"><span class="co">## RXNORM:10454           0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-392" data-line-number="392"><span class="co">## RXNORM:10689           0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-393" data-line-number="393"><span class="co">## RXNORM:10734           5.251719e-03</span></a>
+<a class="sourceLine" id="cb8-393" data-line-number="393"><span class="co">## RXNORM:10734           9.929130e-03</span></a>
 <a class="sourceLine" id="cb8-394" data-line-number="394"><span class="co">## RXNORM:10737           0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-395" data-line-number="395"><span class="co">## RXNORM:10814           2.973726e-04</span></a>
-<a class="sourceLine" id="cb8-396" data-line-number="396"><span class="co">## RXNORM:10834           1.279031e-02</span></a>
-<a class="sourceLine" id="cb8-397" data-line-number="397"><span class="co">## RXNORM:1086769         2.372680e-03</span></a>
+<a class="sourceLine" id="cb8-395" data-line-number="395"><span class="co">## RXNORM:10814           3.006168e-03</span></a>
+<a class="sourceLine" id="cb8-396" data-line-number="396"><span class="co">## RXNORM:10834           1.376456e-02</span></a>
+<a class="sourceLine" id="cb8-397" data-line-number="397"><span class="co">## RXNORM:1086769         1.347214e-03</span></a>
 <a class="sourceLine" id="cb8-398" data-line-number="398"><span class="co">## RXNORM:135775          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-399" data-line-number="399"><span class="co">## RXNORM:136411          3.372528e-03</span></a>
+<a class="sourceLine" id="cb8-399" data-line-number="399"><span class="co">## RXNORM:136411          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-400" data-line-number="400"><span class="co">## RXNORM:141366          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-401" data-line-number="401"><span class="co">## RXNORM:1455099         3.761083e-03</span></a>
-<a class="sourceLine" id="cb8-402" data-line-number="402"><span class="co">## RXNORM:1547099         7.432425e-04</span></a>
+<a class="sourceLine" id="cb8-401" data-line-number="401"><span class="co">## RXNORM:1455099         8.292061e-03</span></a>
+<a class="sourceLine" id="cb8-402" data-line-number="402"><span class="co">## RXNORM:1547099         6.436504e-03</span></a>
 <a class="sourceLine" id="cb8-403" data-line-number="403"><span class="co">## RXNORM:1551467         0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-404" data-line-number="404"><span class="co">## RXNORM:1592257         8.347447e-04</span></a>
+<a class="sourceLine" id="cb8-404" data-line-number="404"><span class="co">## RXNORM:1592257         4.882486e-04</span></a>
 <a class="sourceLine" id="cb8-405" data-line-number="405"><span class="co">## RXNORM:1819            0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-406" data-line-number="406"><span class="co">## RXNORM:1827            0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-407" data-line-number="407"><span class="co">## RXNORM:20610           0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-408" data-line-number="408"><span class="co">## RXNORM:214130          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-409" data-line-number="409"><span class="co">## RXNORM:214551          4.626803e-03</span></a>
+<a class="sourceLine" id="cb8-409" data-line-number="409"><span class="co">## RXNORM:214551          4.760957e-03</span></a>
 <a class="sourceLine" id="cb8-410" data-line-number="410"><span class="co">## RXNORM:214558          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-411" data-line-number="411"><span class="co">## RXNORM:214559          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-412" data-line-number="412"><span class="co">## RXNORM:21949           1.407822e-03</span></a>
-<a class="sourceLine" id="cb8-413" data-line-number="413"><span class="co">## RXNORM:228783          5.758502e-03</span></a>
+<a class="sourceLine" id="cb8-412" data-line-number="412"><span class="co">## RXNORM:21949           2.601697e-03</span></a>
+<a class="sourceLine" id="cb8-413" data-line-number="413"><span class="co">## RXNORM:228783          5.807082e-03</span></a>
 <a class="sourceLine" id="cb8-414" data-line-number="414"><span class="co">## RXNORM:231049          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-415" data-line-number="415"><span class="co">## RXNORM:235355          2.019444e-04</span></a>
+<a class="sourceLine" id="cb8-415" data-line-number="415"><span class="co">## RXNORM:235355          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-416" data-line-number="416"><span class="co">## RXNORM:24605           0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-417" data-line-number="417"><span class="co">## RXNORM:253146          0.000000e+00</span></a>
+<a class="sourceLine" id="cb8-417" data-line-number="417"><span class="co">## RXNORM:253146          2.186513e-03</span></a>
 <a class="sourceLine" id="cb8-418" data-line-number="418"><span class="co">## RXNORM:2596            0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-419" data-line-number="419"><span class="co">## RXNORM:2598            0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-420" data-line-number="420"><span class="co">## RXNORM:279645          3.816779e-03</span></a>
+<a class="sourceLine" id="cb8-420" data-line-number="420"><span class="co">## RXNORM:279645          4.618404e-03</span></a>
 <a class="sourceLine" id="cb8-421" data-line-number="421"><span class="co">## RXNORM:28439           0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-422" data-line-number="422"><span class="co">## RXNORM:321988          0.000000e+00</span></a>
+<a class="sourceLine" id="cb8-422" data-line-number="422"><span class="co">## RXNORM:321988          2.279781e-04</span></a>
 <a class="sourceLine" id="cb8-423" data-line-number="423"><span class="co">## RXNORM:324044          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-424" data-line-number="424"><span class="co">## RXNORM:3288            5.923796e-03</span></a>
+<a class="sourceLine" id="cb8-424" data-line-number="424"><span class="co">## RXNORM:3288            5.213537e-03</span></a>
 <a class="sourceLine" id="cb8-425" data-line-number="425"><span class="co">## RXNORM:3361            0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-426" data-line-number="426"><span class="co">## RXNORM:352364          2.693180e-03</span></a>
+<a class="sourceLine" id="cb8-426" data-line-number="426"><span class="co">## RXNORM:352364          1.272048e-02</span></a>
 <a class="sourceLine" id="cb8-427" data-line-number="427"><span class="co">## RXNORM:352376          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-428" data-line-number="428"><span class="co">## RXNORM:352377          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-429" data-line-number="429"><span class="co">## RXNORM:3554            6.645037e-03</span></a>
+<a class="sourceLine" id="cb8-429" data-line-number="429"><span class="co">## RXNORM:3554            8.819248e-03</span></a>
 <a class="sourceLine" id="cb8-430" data-line-number="430"><span class="co">## RXNORM:35617           0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-431" data-line-number="431"><span class="co">## RXNORM:3638            0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-432" data-line-number="432"><span class="co">## RXNORM:37075           0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-433" data-line-number="433"><span class="co">## RXNORM:37418           1.035730e-02</span></a>
+<a class="sourceLine" id="cb8-433" data-line-number="433"><span class="co">## RXNORM:37418           1.925823e-02</span></a>
 <a class="sourceLine" id="cb8-434" data-line-number="434"><span class="co">## RXNORM:38400           0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-435" data-line-number="435"><span class="co">## RXNORM:38404           0.000000e+00</span></a>
+<a class="sourceLine" id="cb8-435" data-line-number="435"><span class="co">## RXNORM:38404           2.722013e-03</span></a>
 <a class="sourceLine" id="cb8-436" data-line-number="436"><span class="co">## RXNORM:384410          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-437" data-line-number="437"><span class="co">## RXNORM:39786           2.579664e-03</span></a>
-<a class="sourceLine" id="cb8-438" data-line-number="438"><span class="co">## RXNORM:39993           4.218533e-03</span></a>
-<a class="sourceLine" id="cb8-439" data-line-number="439"><span class="co">## RXNORM:4083            0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-440" data-line-number="440"><span class="co">## RXNORM:41493           0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-441" data-line-number="441"><span class="co">## RXNORM:42347           5.313305e-03</span></a>
+<a class="sourceLine" id="cb8-437" data-line-number="437"><span class="co">## RXNORM:39786           4.151243e-04</span></a>
+<a class="sourceLine" id="cb8-438" data-line-number="438"><span class="co">## RXNORM:39993           7.577740e-03</span></a>
+<a class="sourceLine" id="cb8-439" data-line-number="439"><span class="co">## RXNORM:4083            1.866488e-03</span></a>
+<a class="sourceLine" id="cb8-440" data-line-number="440"><span class="co">## RXNORM:41493           4.428264e-03</span></a>
+<a class="sourceLine" id="cb8-441" data-line-number="441"><span class="co">## RXNORM:42347           5.406534e-03</span></a>
 <a class="sourceLine" id="cb8-442" data-line-number="442"><span class="co">## RXNORM:4493            0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-443" data-line-number="443"><span class="co">## RXNORM:461016          1.180390e-03</span></a>
+<a class="sourceLine" id="cb8-443" data-line-number="443"><span class="co">## RXNORM:461016          1.262688e-03</span></a>
 <a class="sourceLine" id="cb8-444" data-line-number="444"><span class="co">## RXNORM:466584          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-445" data-line-number="445"><span class="co">## RXNORM:51272           0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-446" data-line-number="446"><span class="co">## RXNORM:5553            2.852361e-03</span></a>
-<a class="sourceLine" id="cb8-447" data-line-number="447"><span class="co">## RXNORM:5640            7.263910e-03</span></a>
+<a class="sourceLine" id="cb8-446" data-line-number="446"><span class="co">## RXNORM:5553            2.406310e-03</span></a>
+<a class="sourceLine" id="cb8-447" data-line-number="447"><span class="co">## RXNORM:5640            9.412051e-03</span></a>
 <a class="sourceLine" id="cb8-448" data-line-number="448"><span class="co">## RXNORM:569             0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-449" data-line-number="449"><span class="co">## RXNORM:588003          5.309734e-03</span></a>
+<a class="sourceLine" id="cb8-449" data-line-number="449"><span class="co">## RXNORM:588003          5.673596e-03</span></a>
 <a class="sourceLine" id="cb8-450" data-line-number="450"><span class="co">## RXNORM:588250          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-451" data-line-number="451"><span class="co">## RXNORM:6373            0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-452" data-line-number="452"><span class="co">## RXNORM:6711            0.000000e+00</span></a>
@@ -952,18 +939,18 @@
 <a class="sourceLine" id="cb8-454" data-line-number="454"><span class="co">## RXNORM:6901            0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-455" data-line-number="455"><span class="co">## RXNORM:700810          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-456" data-line-number="456"><span class="co">## RXNORM:7242            0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-457" data-line-number="457"><span class="co">## RXNORM:7243            3.998225e-03</span></a>
+<a class="sourceLine" id="cb8-457" data-line-number="457"><span class="co">## RXNORM:7243            1.009622e-02</span></a>
 <a class="sourceLine" id="cb8-458" data-line-number="458"><span class="co">## RXNORM:7258            0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-459" data-line-number="459"><span class="co">## RXNORM:72625           0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-460" data-line-number="460"><span class="co">## RXNORM:734064          5.264942e-04</span></a>
+<a class="sourceLine" id="cb8-460" data-line-number="460"><span class="co">## RXNORM:734064          3.189582e-03</span></a>
 <a class="sourceLine" id="cb8-461" data-line-number="461"><span class="co">## RXNORM:7407            0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-462" data-line-number="462"><span class="co">## RXNORM:7514            0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-463" data-line-number="463"><span class="co">## RXNORM:82819           9.099915e-03</span></a>
+<a class="sourceLine" id="cb8-463" data-line-number="463"><span class="co">## RXNORM:82819           2.052263e-03</span></a>
 <a class="sourceLine" id="cb8-464" data-line-number="464"><span class="co">## RXNORM:840781          0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-465" data-line-number="465"><span class="co">## RXNORM:8629            7.934588e-03</span></a>
+<a class="sourceLine" id="cb8-465" data-line-number="465"><span class="co">## RXNORM:8629            7.540374e-03</span></a>
 <a class="sourceLine" id="cb8-466" data-line-number="466"><span class="co">## RXNORM:88014           0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-467" data-line-number="467"><span class="co">## RXNORM:89013           0.000000e+00</span></a>
-<a class="sourceLine" id="cb8-468" data-line-number="468"><span class="co">## RXNORM:9899            5.918006e-03</span></a>
+<a class="sourceLine" id="cb8-468" data-line-number="468"><span class="co">## RXNORM:9899            6.557962e-03</span></a>
 <a class="sourceLine" id="cb8-469" data-line-number="469"><span class="co">## ShortName:A1C          0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-470" data-line-number="470"><span class="co">## ShortName:HCV - RNA VL 0.000000e+00</span></a>
 <a class="sourceLine" id="cb8-471" data-line-number="471"><span class="co">## ShortName:HDLC         0.000000e+00</span></a>
@@ -976,14 +963,8 @@
   <span class="no">data</span>$<span class="no">X_train_lst</span>[<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>, <span class="fl">2</span>)],
   <span class="no">data</span>$<span class="no">Y_train_lst</span>[<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>, <span class="fl">2</span>)],
   <span class="no">data</span>$<span class="no">X_valid_lst</span>[<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>, <span class="fl">2</span>)],
-  <span class="no">data</span>$<span class="no">Y_valid_lst</span>[<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>, <span class="fl">2</span>)],
-  <span class="kw">alpha</span> <span class="kw">=</span> <span class="fl">0.5</span>,
-  <span class="kw">lambda_single_lst</span> <span class="kw">=</span> <span class="kw">NULL</span>,
-  <span class="kw">lambda_group_lst</span> <span class="kw">=</span> <span class="kw">NULL</span>,
-  <span class="kw">up.rate</span> <span class="kw">=</span> <span class="fl">10</span>,
-  <span class="kw">drop.rate</span> <span class="kw">=</span> <span class="fl">0.5</span>,
-  <span class="kw">cos.cut</span> <span class="kw">=</span> <span class="fl">0.1</span>)
-<span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span>(<span class="no">int.fit.results</span>)</pre></div>
+  <span class="no">data</span>$<span class="no">Y_valid_lst</span>[<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">1</span>, <span class="fl">2</span>)])
+<span class="no">int.fit.results</span></pre></div>
 </div>
 </div>
   </div>
