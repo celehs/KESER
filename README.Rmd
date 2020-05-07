@@ -34,8 +34,8 @@ data <- readRDS(url(file, "rb"))
 str(data)
 ```
 
-```{r, eval=FALSE}
-loc.fit.RPDR <- loc.feature.selection(
+```{r}
+loc.fit.RPDR <- KESER:::loc.feature.selection(
   data$X_full_lst[[1]], 
   data$Y_full_lst[[1]],
   data$X_train_lst[[1]], 
@@ -47,10 +47,11 @@ loc.fit.RPDR <- loc.feature.selection(
   up_rate = 10, 
   drop_rate = 0.5, 
   cos_cut = 0.1)
+str(loc.fit.RPDR)
 ```
 
-```{r, eval=FALSE}
-loc.fit.VA <- loc.feature.selection(
+```{r}
+loc.fit.VA <- KESER:::loc.feature.selection(
   data$X_full_lst[[2]], 
   data$Y_full_lst[[2]],
   data$X_train_lst[[2]], 
@@ -62,10 +63,11 @@ loc.fit.VA <- loc.feature.selection(
   up_rate = 10, 
   drop_rate = 0.5, 
   cos_cut = 0.1)
+str(loc.fit.VA)
 ```
 
 ```{r, eval=FALSE}
-int.fit.results <- int.feature.selection(
+int.fit.results <- KESER:::int.feature.selection(
   data$X_full_lst[c(1, 2)], 
   data$Y_full_lst[c(1, 2)], 
   data$X_train_lst[c(1, 2)],
@@ -78,4 +80,5 @@ int.fit.results <- int.feature.selection(
   up.rate = 10, 
   drop.rate = 0.5, 
   cos.cut = 0.1)
+str(int.fit.results)
 ```

@@ -22,13 +22,11 @@ Install development version from GitHub.
 remotes::install_github("celehs/KESER")
 ```
 
-Load the package into R.
+Load the package into
+R.
 
 ``` r
 library(KESER)
-library(MASS)
-library(glmnet)
-library(gglasso)
 ```
 
 ## Example
@@ -111,7 +109,7 @@ str(data)
     ##   ..$ : num [1:5400] -0.707 -0.707 -0.716 -0.157 -0.215 ...
 
 ``` r
-loc.fit.RPDR <- loc.feature.selection(
+loc.fit.RPDR <- KESER:::loc.feature.selection(
   data$X_full_lst[[1]], 
   data$Y_full_lst[[1]],
   data$X_train_lst[[1]], 
@@ -123,10 +121,16 @@ loc.fit.RPDR <- loc.feature.selection(
   up_rate = 10, 
   drop_rate = 0.5, 
   cos_cut = 0.1)
+str(loc.fit.RPDR)
 ```
 
+    ## List of 2
+    ##  $ min.lambda: num 9.53e-05
+    ##  $ min.beta  :'data.frame':  312 obs. of  1 variable:
+    ##   ..$ beta_loc: num [1:312] 0 0.0169 0.0159 0.136 0 ...
+
 ``` r
-loc.fit.VA <- loc.feature.selection(
+loc.fit.VA <- KESER:::loc.feature.selection(
   data$X_full_lst[[2]], 
   data$Y_full_lst[[2]],
   data$X_train_lst[[2]], 
@@ -138,10 +142,16 @@ loc.fit.VA <- loc.feature.selection(
   up_rate = 10, 
   drop_rate = 0.5, 
   cos_cut = 0.1)
+str(loc.fit.VA)
 ```
 
+    ## List of 2
+    ##  $ min.lambda: num 0.000125
+    ##  $ min.beta  :'data.frame':  469 obs. of  1 variable:
+    ##   ..$ beta_loc: num [1:469] 0.0119 0 0 0 0 ...
+
 ``` r
-int.fit.results <- int.feature.selection(
+int.fit.results <- KESER:::int.feature.selection(
   data$X_full_lst[c(1, 2)], 
   data$Y_full_lst[c(1, 2)], 
   data$X_train_lst[c(1, 2)],
@@ -154,4 +164,5 @@ int.fit.results <- int.feature.selection(
   up.rate = 10, 
   drop.rate = 0.5, 
   cos.cut = 0.1)
+str(int.fit.results)
 ```

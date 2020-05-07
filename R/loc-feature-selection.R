@@ -25,14 +25,14 @@ Lasso_select_drop <- function(X, Y, X_valid, Y_valid, X_all, Y_all, lambda_lst,
   for (l in 1:length(lambda_lst)) {
     lambda <- fit_result$lambda[l]
     fit_coef <- as.vector(fit_result$beta[,l])
-    print(length(which(fit_coef != 0)))
+    # print(length(which(fit_coef != 0)))
     mse <- mean((Y_valid - as.matrix(X_valid) %*% fit_coef)^2)
     if (mse < min.mse){
       min.lambda <- lambda
       min.mse <- mse
       min.coef <- fit_coef
     }
-    print(mse)
+    # print(mse)
   }
   
   fit_result_all <- glmnet::glmnet(X_all, Y_all, lambda = min.lambda, intercept = F,
