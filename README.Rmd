@@ -55,14 +55,3 @@ loc.fit.VA <- KESER:::loc.feature.selection(
   data$Y_valid_lst[[2]])
 loc.fit.VA
 ```
-
-```{r, eval=FALSE}
-int.fit.results <- KESER:::int.feature.selection(
-  data$X_full_lst[c(1, 2)], 
-  data$Y_full_lst[c(1, 2)], 
-  data$X_train_lst[c(1, 2)],
-  data$Y_train_lst[c(1, 2)], 
-  data$X_valid_lst[c(1, 2)], 
-  data$Y_valid_lst[c(1, 2)])
-int.fit.results
-```
