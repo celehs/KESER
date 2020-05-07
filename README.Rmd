@@ -22,11 +22,8 @@ remotes::install_github("celehs/KESER")
 
 Load the package into R.
 
-```{r, eval=FALSE}
+```{r}
 library(KESER)
-library(MASS)
-library(glmnet)
-library(gglasso)
 ```
 
 ## Example
