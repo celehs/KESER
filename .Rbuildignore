@@ -1,6 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 
-embed
-paper
+demo
+rdata
 README.*
