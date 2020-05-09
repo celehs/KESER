@@ -17,16 +17,20 @@ data <- readRDS(url(file, "rb"))
 # str(data)
 ```
 
+Research Patient Data Registry(RPDR) of Partners Healthcare (PHS) 
+
 ```{r}
-system.time(loc.fit.RPDR <- KESER:::loc.feature.selection(
+system.time(loc.fit.PHS <- KESER:::loc.feature.selection(
   data$X_full_lst[[1]], 
   data$Y_full_lst[[1]],
   data$X_train_lst[[1]], 
   data$Y_train_lst[[1]], 
   data$X_valid_lst[[1]], 
   data$Y_valid_lst[[1]]))
-loc.fit.RPDR
+loc.fit.PHS
 ```
+
+Corporate Data Warehouse (CDW) of Veteran Affairs (VA)
 
 ```{r}
 system.time(loc.fit.VA <- KESER:::loc.feature.selection(
