@@ -55,10 +55,10 @@ loc.feature.selection <- function(
   X_train <- X_train[, local_use_set]
   X_valid <- X_valid[, local_use_set]
   ################ up-sample and dropout ################
-  drop_m_full <- drop_fun(X_full, Y_full, drop_rate = drop_rate, up_rate = up_rate)
+  drop_m_full  <- drop_fun(X_full,  Y_full,  drop_rate = drop_rate, up_rate = up_rate)
   drop_m_train <- drop_fun(X_train, Y_train, drop_rate = drop_rate, up_rate = up_rate)
-  X_full <- drop_m_full$X
-  Y_full <- drop_m_full$Y
+  X_full  <- drop_m_full$X
+  Y_full  <- drop_m_full$Y
   X_train <- drop_m_train$X
   Y_train <- drop_m_train$Y
   ################ Specify lambda_lst if it is NULL ################
@@ -73,8 +73,14 @@ loc.feature.selection <- function(
   }
   ################ Run CV-lasso ################
   fit.local <- lasso_select_drop(
-    X_train, Y_train, X_valid, Y_valid, X_full, Y_full,
-    lambda_lst = lambda_lst, alpha = alpha)
+    X_train, 
+    Y_train, 
+    X_valid, 
+    Y_valid, 
+    X_full, 
+    Y_full,
+    lambda_lst = lambda_lst, 
+    alpha = alpha)
   beta_loc <- fit.local$min.coef
   beta_loc <- as.data.frame(beta_loc)
   rownames(beta_loc) <- colnames(X_full)
