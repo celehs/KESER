@@ -82,7 +82,8 @@ loc.feature.selection <- function(
     lambda_lst = lambda_lst, 
     alpha = alpha)
   beta_loc <- fit.local$min.coef
-  beta_loc <- as.data.frame(beta_loc)
-  rownames(beta_loc) <- colnames(X_full)
+  # beta_loc <- as.data.frame(beta_loc)
+  # rownames(beta_loc) <- colnames(X_full)
+  names(beta_loc) <- colnames(X_full)
   list(min.lambda = fit.local$min.lambda, min.beta = beta_loc)
 }
