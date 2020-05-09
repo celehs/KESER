@@ -80,817 +80,376 @@
 
     
     
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span>(<span class="no">loc.fit.RPDR</span> <span class="kw">&lt;-</span> <span class="kw pkg">KESER</span><span class="kw ns">:::</span><span class="fu">loc.feature.selection</span>(
+<p>Research Patient Data Registry(RPDR) of Partners Healthcare (PHS)</p>
+<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span>(<span class="no">loc.fit.PHS</span> <span class="kw">&lt;-</span> <span class="kw pkg">KESER</span><span class="kw ns">:::</span><span class="fu">loc.feature.selection</span>(
   <span class="no">data</span>$<span class="no">X_full_lst</span><span class="kw">[[</span><span class="fl">1</span>]],
   <span class="no">data</span>$<span class="no">Y_full_lst</span><span class="kw">[[</span><span class="fl">1</span>]],
   <span class="no">data</span>$<span class="no">X_train_lst</span><span class="kw">[[</span><span class="fl">1</span>]],
   <span class="no">data</span>$<span class="no">Y_train_lst</span><span class="kw">[[</span><span class="fl">1</span>]],
   <span class="no">data</span>$<span class="no">X_valid_lst</span><span class="kw">[[</span><span class="fl">1</span>]],
-  <span class="no">data</span>$<span class="no">Y_valid_lst</span><span class="kw">[[</span><span class="fl">1</span>]]))
-<span class="co">##    user  system elapsed </span>
-<span class="co">##  22.673   8.568  16.297</span>
-<span class="no">loc.fit.RPDR</span>
-<span class="co">## $min.lambda</span>
-<span class="co">## [1] 0.0001039838</span>
-<span class="co">## </span>
-<span class="co">## $min.beta</span>
-<span class="co">##                    beta_loc</span>
-<span class="co">## CCS:130        0.0044795660</span>
-<span class="co">## CCS:182        0.0000000000</span>
-<span class="co">## CCS:200        0.0205158969</span>
-<span class="co">## CCS:218        0.1229838396</span>
-<span class="co">## CCS:219        0.0000000000</span>
-<span class="co">## CCS:227        0.0116107562</span>
-<span class="co">## CCS:228        0.0136875121</span>
-<span class="co">## CCS:232        0.0234022957</span>
-<span class="co">## CCS:235        0.0000000000</span>
-<span class="co">## CCS:237        0.0150563376</span>
-<span class="co">## LOINC:10976-9  0.0000000000</span>
-<span class="co">## LOINC:10992-6  0.0096601297</span>
-<span class="co">## LOINC:10998-3  0.0019999000</span>
-<span class="co">## LOINC:11004-9  0.0000000000</span>
-<span class="co">## LOINC:12342-2  0.0000000000</span>
-<span class="co">## LOINC:12375-2  0.0075664215</span>
-<span class="co">## LOINC:12377-8  0.0045238068</span>
-<span class="co">## LOINC:13453-6  0.0095054083</span>
-<span class="co">## LOINC:13557-4  0.0129832207</span>
-<span class="co">## LOINC:13569-9  0.0025398631</span>
-<span class="co">## LOINC:13572-3  0.0050470107</span>
-<span class="co">## LOINC:13577-2  0.0207080166</span>
-<span class="co">## LOINC:13579-8  0.0143845294</span>
-<span class="co">## LOINC:13588-9  0.0255793448</span>
-<span class="co">## LOINC:13622-6  0.0000000000</span>
-<span class="co">## LOINC:14313-1  0.0034414147</span>
-<span class="co">## LOINC:14314-9  0.0253191053</span>
-<span class="co">## LOINC:14316-4  0.0000000000</span>
-<span class="co">## LOINC:14334-7  0.0000000000</span>
-<span class="co">## LOINC:14336-2  0.0000000000</span>
-<span class="co">## LOINC:14624-1  0.0064447361</span>
-<span class="co">## LOINC:16199-2  0.0179704656</span>
-<span class="co">## LOINC:16254-5  0.0137324895</span>
-<span class="co">## LOINC:16360-0  0.0193644064</span>
-<span class="co">## LOINC:16369-1  0.0052163490</span>
-<span class="co">## LOINC:17384-9  0.0022301367</span>
-<span class="co">## LOINC:17738-6  0.0051568792</span>
-<span class="co">## LOINC:17856-6  0.0039514766</span>
-<span class="co">## LOINC:19289-9  0.0191391933</span>
-<span class="co">## LOINC:19550-3  0.0000000000</span>
-<span class="co">## LOINC:19642-8  0.0268109674</span>
-<span class="co">## LOINC:2086-7   0.0000000000</span>
-<span class="co">## LOINC:2090-9   0.0000000000</span>
-<span class="co">## LOINC:2093-3   0.0000000000</span>
-<span class="co">## LOINC:2106-3   0.0200982681</span>
-<span class="co">## LOINC:2161-8   0.0000000000</span>
-<span class="co">## LOINC:2571-8   0.0000000000</span>
-<span class="co">## LOINC:28059-4  0.0000000000</span>
-<span class="co">## LOINC:2963-7   0.0068217937</span>
-<span class="co">## LOINC:3016-3   0.0060845877</span>
-<span class="co">## LOINC:3298-7   0.0000000000</span>
-<span class="co">## LOINC:33060-5  0.0095048213</span>
-<span class="co">## LOINC:3312-6   0.0000000000</span>
-<span class="co">## LOINC:3335-7   0.0534697448</span>
-<span class="co">## LOINC:3389-4   0.0000000000</span>
-<span class="co">## LOINC:3413-2   0.0072456321</span>
-<span class="co">## LOINC:3414-0   0.0000000000</span>
-<span class="co">## LOINC:3491-8   0.0697212728</span>
-<span class="co">## LOINC:3494-2   0.0000000000</span>
-<span class="co">## LOINC:3505-5   0.0000000000</span>
-<span class="co">## LOINC:3531-1   0.0697859765</span>
-<span class="co">## LOINC:3536-0   0.0775258909</span>
-<span class="co">## LOINC:35467-0  0.0175257050</span>
-<span class="co">## LOINC:3548-5   0.0088302082</span>
-<span class="co">## LOINC:35597-4  0.0000000000</span>
-<span class="co">## LOINC:35608-9  0.0000000000</span>
-<span class="co">## LOINC:35610-5  0.0132875374</span>
-<span class="co">## LOINC:35614-7  0.0131052010</span>
-<span class="co">## LOINC:35616-2  0.0000000000</span>
-<span class="co">## LOINC:35624-6  0.0029875861</span>
-<span class="co">## LOINC:35627-9  0.0114408676</span>
-<span class="co">## LOINC:35629-5  0.0166966592</span>
-<span class="co">## LOINC:35635-2  0.0036288621</span>
-<span class="co">## LOINC:3679-8   0.0000000000</span>
-<span class="co">## LOINC:3682-2   0.0000000000</span>
-<span class="co">## LOINC:3690-5   0.0000000000</span>
-<span class="co">## LOINC:3778-8   0.0000000000</span>
-<span class="co">## LOINC:3826-5   0.0000000000</span>
-<span class="co">## LOINC:4073-3   0.0000000000</span>
-<span class="co">## LOINC:55349-5  0.0333504784</span>
-<span class="co">## LOINC:57300-6  0.0000000000</span>
-<span class="co">## LOINC:57301-4  0.0000000000</span>
-<span class="co">## LOINC:57304-8  0.0000000000</span>
-<span class="co">## LOINC:59593-4  0.0000000000</span>
-<span class="co">## LOINC:72377-5  0.0000000000</span>
-<span class="co">## LOINC:72378-3  0.0031417701</span>
-<span class="co">## LOINC:72380-9  0.0000000000</span>
-<span class="co">## LOINC:72381-7  0.0000000000</span>
-<span class="co">## LOINC:72385-8  0.0122958621</span>
-<span class="co">## LOINC:72388-2  0.0000000000</span>
-<span class="co">## LOINC:72610-9  0.0116111476</span>
-<span class="co">## LOINC:72733-9  0.0000000000</span>
-<span class="co">## LOINC:72735-4  0.0000000000</span>
-<span class="co">## LOINC:72737-0  0.0000000000</span>
-<span class="co">## LOINC:72746-1  0.0116989199</span>
-<span class="co">## LOINC:72750-3  0.0000000000</span>
-<span class="co">## LOINC:72752-9  0.0000000000</span>
-<span class="co">## LOINC:72753-7  0.0000000000</span>
-<span class="co">## LOINC:72755-2  0.0019051845</span>
-<span class="co">## LOINC:72758-6  0.0000000000</span>
-<span class="co">## LOINC:72762-8  0.0000000000</span>
-<span class="co">## LOINC:72766-9  0.0117406171</span>
-<span class="co">## LOINC:9627-1   0.0894348401</span>
-<span class="co">## LOINC:9830-1   0.0000000000</span>
-<span class="co">## LOINC:X7003-7  0.0000000000</span>
-<span class="co">## LOINC:X7004-5  0.0000000000</span>
-<span class="co">## LOINC:X7005-2  0.0105207759</span>
-<span class="co">## LOINC:X7006-0  0.0000000000</span>
-<span class="co">## LOINC:X7008-6  0.0020637882</span>
-<span class="co">## LOINC:X7011-0  0.0000000000</span>
-<span class="co">## LOINC:X7013-6  0.0000000000</span>
-<span class="co">## PheCode:070.3  0.0000000000</span>
-<span class="co">## PheCode:216.1  0.0192332125</span>
-<span class="co">## PheCode:244.4  0.0072404970</span>
-<span class="co">## PheCode:260.7  0.0501925977</span>
-<span class="co">## PheCode:261.2  0.0069250852</span>
-<span class="co">## PheCode:261.4  0.0012693855</span>
-<span class="co">## PheCode:272.1  0.0041797224</span>
-<span class="co">## PheCode:278.1  0.0370628519</span>
-<span class="co">## PheCode:278.4  0.0000000000</span>
-<span class="co">## PheCode:290.1  0.0182824114</span>
-<span class="co">## PheCode:290.3  0.0036728086</span>
-<span class="co">## PheCode:291.1  0.0017156247</span>
-<span class="co">## PheCode:291.4  0.0106419293</span>
-<span class="co">## PheCode:292.2  0.0102634513</span>
-<span class="co">## PheCode:292.3  0.0054629567</span>
-<span class="co">## PheCode:292.6  0.0000000000</span>
-<span class="co">## PheCode:295.1  0.0000000000</span>
-<span class="co">## PheCode:295.2  0.0000000000</span>
-<span class="co">## PheCode:295.3  0.0117178013</span>
-<span class="co">## PheCode:296.1  0.0036034330</span>
-<span class="co">## PheCode:297.1  0.0383426724</span>
-<span class="co">## PheCode:297.2  0.0258760138</span>
-<span class="co">## PheCode:300.1  0.1069580077</span>
-<span class="co">## PheCode:300.3  0.0170099967</span>
-<span class="co">## PheCode:300.4  0.0014436436</span>
-<span class="co">## PheCode:300.8  0.0106298780</span>
-<span class="co">## PheCode:300.9  0.0256920006</span>
-<span class="co">## PheCode:301.1  0.0369277012</span>
-<span class="co">## PheCode:301.2  0.0242017796</span>
-<span class="co">## PheCode:302.1  0.0234867186</span>
-<span class="co">## PheCode:303.1  0.0266258353</span>
-<span class="co">## PheCode:303.3  0.0176237215</span>
-<span class="co">## PheCode:303.4  0.0025785607</span>
-<span class="co">## PheCode:304    0.0000000000</span>
-<span class="co">## PheCode:305.2  0.0282486929</span>
-<span class="co">## PheCode:306.1  0.0297803782</span>
-<span class="co">## PheCode:312.3  0.0132789158</span>
-<span class="co">## PheCode:313.1  0.0022578342</span>
-<span class="co">## PheCode:313.2  0.0131300392</span>
-<span class="co">## PheCode:313.3  0.0000000000</span>
-<span class="co">## PheCode:315.1  0.0155048268</span>
-<span class="co">## PheCode:315.2  0.0127662364</span>
-<span class="co">## PheCode:317.1  0.0233815924</span>
-<span class="co">## PheCode:318    0.0288867453</span>
-<span class="co">## PheCode:327.1  0.0075312826</span>
-<span class="co">## PheCode:327.3  0.0221072246</span>
-<span class="co">## PheCode:327.4  0.0074597893</span>
-<span class="co">## PheCode:327.5  0.0254312725</span>
-<span class="co">## PheCode:327.6  0.0164395504</span>
-<span class="co">## PheCode:327.7  0.0000000000</span>
-<span class="co">## PheCode:333.3  0.0185203477</span>
-<span class="co">## PheCode:338.2  0.0350425273</span>
-<span class="co">## PheCode:339    0.0002419948</span>
-<span class="co">## PheCode:347    0.0301708738</span>
-<span class="co">## PheCode:355.1  0.0055630597</span>
-<span class="co">## PheCode:386.9  0.0055238221</span>
-<span class="co">## PheCode:401.1  0.0000000000</span>
-<span class="co">## PheCode:530.1  0.0349055583</span>
-<span class="co">## PheCode:564.1  0.0000000000</span>
-<span class="co">## PheCode:599.4  0.0056581019</span>
-<span class="co">## PheCode:612.1  0.0320948745</span>
-<span class="co">## PheCode:614.5  0.0047615339</span>
-<span class="co">## PheCode:626.1  0.0099340906</span>
-<span class="co">## PheCode:626.4  0.0430024661</span>
-<span class="co">## PheCode:706.1  0.0000000000</span>
-<span class="co">## PheCode:726.1  0.0060791959</span>
-<span class="co">## PheCode:729.1  0.0165733361</span>
-<span class="co">## PheCode:740.3  0.0000000000</span>
-<span class="co">## PheCode:745    0.0453752143</span>
-<span class="co">## PheCode:760    0.0166406144</span>
-<span class="co">## PheCode:761    0.0006467421</span>
-<span class="co">## PheCode:764    0.0000000000</span>
-<span class="co">## PheCode:770    0.0029504810</span>
-<span class="co">## PheCode:941    0.0029136571</span>
-<span class="co">## PheCode:965.3  0.0840896715</span>
-<span class="co">## PheCode:966    0.0067679472</span>
-<span class="co">## PheCode:969    0.0106623108</span>
-<span class="co">## PheCode:971    0.0705499426</span>
-<span class="co">## PheCode:972.6  0.0425149620</span>
-<span class="co">## PheCode:981    0.0517019651</span>
-<span class="co">## PheCode:989    0.0415356678</span>
-<span class="co">## RXNORM:10154   0.0043331785</span>
-<span class="co">## RXNORM:1040028 0.0115592373</span>
-<span class="co">## RXNORM:10454   0.0000000000</span>
-<span class="co">## RXNORM:10502   0.0664965464</span>
-<span class="co">## RXNORM:10582   0.0101003873</span>
-<span class="co">## RXNORM:10689   0.0023811134</span>
-<span class="co">## RXNORM:106928  0.0153803627</span>
-<span class="co">## RXNORM:10734   0.0544120759</span>
-<span class="co">## RXNORM:10737   0.0170251161</span>
-<span class="co">## RXNORM:10759   0.0102108912</span>
-<span class="co">## RXNORM:10800   0.0176525085</span>
-<span class="co">## RXNORM:10814   0.0000000000</span>
-<span class="co">## RXNORM:1086769 0.0674300437</span>
-<span class="co">## RXNORM:11118   0.0000000000</span>
-<span class="co">## RXNORM:115698  0.0000000000</span>
-<span class="co">## RXNORM:1307404 0.0173319176</span>
-<span class="co">## RXNORM:141366  0.0337792314</span>
-<span class="co">## RXNORM:1424    0.0000000000</span>
-<span class="co">## RXNORM:1455099 0.0909420027</span>
-<span class="co">## RXNORM:14584   0.0356624314</span>
-<span class="co">## RXNORM:15996   0.0144542253</span>
-<span class="co">## RXNORM:1819    0.0000000000</span>
-<span class="co">## RXNORM:1827    0.0000000000</span>
-<span class="co">## RXNORM:187832  0.0000000000</span>
-<span class="co">## RXNORM:214130  0.0000000000</span>
-<span class="co">## RXNORM:214153  0.0000000000</span>
-<span class="co">## RXNORM:214558  0.0110691141</span>
-<span class="co">## RXNORM:214559  0.0000000000</span>
-<span class="co">## RXNORM:215830  0.0000000000</span>
-<span class="co">## RXNORM:21949   0.0000000000</span>
-<span class="co">## RXNORM:2353    0.0000000000</span>
-<span class="co">## RXNORM:2356    0.0000000000</span>
-<span class="co">## RXNORM:236782  0.0077440682</span>
-<span class="co">## RXNORM:2418    0.0000000000</span>
-<span class="co">## RXNORM:253146  0.0063620159</span>
-<span class="co">## RXNORM:25480   0.0369961854</span>
-<span class="co">## RXNORM:2556    0.0104719531</span>
-<span class="co">## RXNORM:2597    0.0269175128</span>
-<span class="co">## RXNORM:2598    0.0370795447</span>
-<span class="co">## RXNORM:2599    0.0000000000</span>
-<span class="co">## RXNORM:2626    0.0096821509</span>
-<span class="co">## RXNORM:28439   0.0000000000</span>
-<span class="co">## RXNORM:29046   0.0078887752</span>
-<span class="co">## RXNORM:30125   0.0182613896</span>
-<span class="co">## RXNORM:31565   0.0387699914</span>
-<span class="co">## RXNORM:31765   0.0000000000</span>
-<span class="co">## RXNORM:321988  0.0156179240</span>
-<span class="co">## RXNORM:3247    0.0133104291</span>
-<span class="co">## RXNORM:32624   0.0000000000</span>
-<span class="co">## RXNORM:3288    0.0275430272</span>
-<span class="co">## RXNORM:32937   0.0000000000</span>
-<span class="co">## RXNORM:352364  0.0248041312</span>
-<span class="co">## RXNORM:352372  0.0228886011</span>
-<span class="co">## RXNORM:352377  0.0166048165</span>
-<span class="co">## RXNORM:3554    0.0486396141</span>
-<span class="co">## RXNORM:35636   0.0000000000</span>
-<span class="co">## RXNORM:36108   0.0099164974</span>
-<span class="co">## RXNORM:3638    0.0000000000</span>
-<span class="co">## RXNORM:36437   0.0083026474</span>
-<span class="co">## RXNORM:37418   0.0000000000</span>
-<span class="co">## RXNORM:38400   0.0018294884</span>
-<span class="co">## RXNORM:38404   0.0050195430</span>
-<span class="co">## RXNORM:384410  0.0064892916</span>
-<span class="co">## RXNORM:392556  0.0454788529</span>
-<span class="co">## RXNORM:39786   0.0163483904</span>
-<span class="co">## RXNORM:39993   0.0000000000</span>
-<span class="co">## RXNORM:40114   0.0000000000</span>
-<span class="co">## RXNORM:4018    0.0105304756</span>
-<span class="co">## RXNORM:407884  0.0397763619</span>
-<span class="co">## RXNORM:41126   0.0123892663</span>
-<span class="co">## RXNORM:4141    0.0092230161</span>
-<span class="co">## RXNORM:42347   0.0131485529</span>
-<span class="co">## RXNORM:42355   0.0097077491</span>
-<span class="co">## RXNORM:4257    0.0471492021</span>
-<span class="co">## RXNORM:435     0.0000000000</span>
-<span class="co">## RXNORM:4493    0.0039475387</span>
-<span class="co">## RXNORM:461016  0.0049050644</span>
-<span class="co">## RXNORM:46241   0.0085672845</span>
-<span class="co">## RXNORM:4637    0.0302465026</span>
-<span class="co">## RXNORM:466584  0.0020903255</span>
-<span class="co">## RXNORM:51272   0.0062506814</span>
-<span class="co">## RXNORM:5553    0.0000000000</span>
-<span class="co">## RXNORM:5640    0.0106532831</span>
-<span class="co">## RXNORM:5691    0.0133508733</span>
-<span class="co">## RXNORM:57258   0.0000000000</span>
-<span class="co">## RXNORM:588250  0.0617456018</span>
-<span class="co">## RXNORM:596     0.0000000000</span>
-<span class="co">## RXNORM:61381   0.0000000000</span>
-<span class="co">## RXNORM:641465  0.0302525020</span>
-<span class="co">## RXNORM:6448    0.0000000000</span>
-<span class="co">## RXNORM:6470    0.0314374138</span>
-<span class="co">## RXNORM:6475    0.0289177841</span>
-<span class="co">## RXNORM:6711    0.0000000000</span>
-<span class="co">## RXNORM:6719    0.0000000000</span>
-<span class="co">## RXNORM:679314  0.0000000000</span>
-<span class="co">## RXNORM:6847    0.0429637319</span>
-<span class="co">## RXNORM:689842  0.0308275941</span>
-<span class="co">## RXNORM:6901    0.0090697121</span>
-<span class="co">## RXNORM:700810  0.0099239619</span>
-<span class="co">## RXNORM:704     0.0144951188</span>
-<span class="co">## RXNORM:7243    0.0153173542</span>
-<span class="co">## RXNORM:725     0.0014383191</span>
-<span class="co">## RXNORM:7258    0.0000000000</span>
-<span class="co">## RXNORM:72625   0.0093447116</span>
-<span class="co">## RXNORM:734064  0.0288893799</span>
-<span class="co">## RXNORM:7407    0.0000000000</span>
-<span class="co">## RXNORM:74667   0.0136839799</span>
-<span class="co">## RXNORM:7531    0.0028857707</span>
-<span class="co">## RXNORM:7646    0.0000000000</span>
-<span class="co">## RXNORM:7716    0.0178462174</span>
-<span class="co">## RXNORM:784649  0.0583100725</span>
-<span class="co">## RXNORM:8076    0.0000000000</span>
-<span class="co">## RXNORM:8124    0.0724964206</span>
-<span class="co">## RXNORM:82819   0.0101296692</span>
-<span class="co">## RXNORM:840781  0.0054921123</span>
-<span class="co">## RXNORM:8629    0.0000000000</span>
-<span class="co">## RXNORM:8787    0.0000000000</span>
-<span class="co">## RXNORM:89013   0.0107692648</span>
-<span class="co">## RXNORM:89905   0.0000000000</span>
-<span class="co">## RXNORM:9639    0.0608260604</span></pre></body></html></div>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span>(<span class="no">loc.fit.VA</span> <span class="kw">&lt;-</span> <span class="kw pkg">KESER</span><span class="kw ns">:::</span><span class="fu">loc.feature.selection</span>(
+  <span class="no">data</span>$<span class="no">Y_valid_lst</span><span class="kw">[[</span><span class="fl">1</span>]]))</pre></body></html></div>
+<pre><code>##    user  system elapsed 
+##  21.635   8.058  15.235</code></pre>
+<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="no">loc.fit.PHS</span></pre></body></html></div>
+<pre><code>## $min.lambda
+## [1] 0.0001144152
+## 
+## $min.beta
+##        CCS:130        CCS:182        CCS:200        CCS:218        CCS:219        CCS:227 
+##   0.0170061460   0.0122176545   0.0273076447   0.1254435659   0.0000000000   0.0000000000 
+##        CCS:228        CCS:232        CCS:235        CCS:237  LOINC:10976-9  LOINC:10992-6 
+##   0.0244462301   0.0308407611   0.0021514803   0.0311780427   0.0122524805   0.0046328871 
+##  LOINC:10998-3  LOINC:11004-9  LOINC:12342-2  LOINC:12375-2  LOINC:12377-8  LOINC:13453-6 
+##   0.0000000000   0.0031663945   0.0000000000   0.0042495771   0.0119474831   0.0020464175 
+##  LOINC:13557-4  LOINC:13569-9  LOINC:13572-3  LOINC:13577-2  LOINC:13579-8  LOINC:13588-9 
+##   0.0017508223   0.0027688593   0.0000000000   0.0240235768   0.0015423234   0.0182475095 
+##  LOINC:13622-6  LOINC:14313-1  LOINC:14314-9  LOINC:14316-4  LOINC:14334-7  LOINC:14336-2 
+##   0.0000000000   0.0000000000   0.0091382986   0.0259602462   0.0000000000   0.0000000000 
+##  LOINC:14624-1  LOINC:16199-2  LOINC:16254-5  LOINC:16360-0  LOINC:16369-1  LOINC:17384-9 
+##   0.0051168849   0.0142625198   0.0000000000   0.0183941776   0.0000000000   0.0273407840 
+##  LOINC:17738-6  LOINC:17856-6  LOINC:19289-9  LOINC:19550-3  LOINC:19642-8   LOINC:2086-7 
+##   0.0154072702   0.0000000000   0.0072526549   0.0000000000   0.0140280884   0.0038681156 
+##   LOINC:2090-9   LOINC:2093-3   LOINC:2106-3   LOINC:2161-8   LOINC:2571-8  LOINC:28059-4 
+##   0.0000000000   0.0000000000   0.0069724347   0.0000000000   0.0000000000   0.0000000000 
+##   LOINC:2963-7   LOINC:3016-3   LOINC:3298-7  LOINC:33060-5   LOINC:3312-6   LOINC:3335-7 
+##   0.0000000000   0.0158876563   0.0000000000   0.0000000000   0.0084608031   0.0540105403 
+##   LOINC:3389-4   LOINC:3413-2   LOINC:3414-0   LOINC:3491-8   LOINC:3494-2   LOINC:3505-5 
+##   0.0000000000   0.0038436518   0.0147150903   0.0761632874   0.0000000000   0.0053758513 
+##   LOINC:3531-1   LOINC:3536-0  LOINC:35467-0   LOINC:3548-5  LOINC:35597-4  LOINC:35608-9 
+##   0.0680264126   0.0864923714   0.0078847221   0.0054255081   0.0000000000   0.0000000000 
+##  LOINC:35610-5  LOINC:35614-7  LOINC:35616-2  LOINC:35624-6  LOINC:35627-9  LOINC:35629-5 
+##   0.0068929371   0.0124120738   0.0000000000   0.0071319275   0.0151550522   0.0099159918 
+##  LOINC:35635-2   LOINC:3679-8   LOINC:3682-2   LOINC:3690-5   LOINC:3778-8   LOINC:3826-5 
+##   0.0000000000   0.0042586477   0.0071681723   0.0000000000   0.0000000000   0.0047250275 
+##   LOINC:4073-3  LOINC:55349-5  LOINC:57300-6  LOINC:57301-4  LOINC:57304-8  LOINC:59593-4 
+##   0.0000000000   0.0386755640   0.0000000000   0.0000000000   0.0000000000   0.0000000000 
+##  LOINC:72377-5  LOINC:72378-3  LOINC:72380-9  LOINC:72381-7  LOINC:72385-8  LOINC:72388-2 
+##   0.0000000000   0.0092892532   0.0000000000   0.0000000000   0.0262095447   0.0000000000 
+##  LOINC:72610-9  LOINC:72733-9  LOINC:72735-4  LOINC:72737-0  LOINC:72746-1  LOINC:72750-3 
+##   0.0047793918   0.0000000000   0.0000000000   0.0000000000   0.0047105716   0.0000000000 
+##  LOINC:72752-9  LOINC:72753-7  LOINC:72755-2  LOINC:72758-6  LOINC:72762-8  LOINC:72766-9 
+##   0.0000000000   0.0000000000   0.0051057170   0.0000000000   0.0000000000   0.0048032900 
+##   LOINC:9627-1   LOINC:9830-1  LOINC:X7003-7  LOINC:X7004-5  LOINC:X7005-2  LOINC:X7006-0 
+##   0.0916099050   0.0000000000   0.0000000000   0.0001138692   0.0086972617   0.0153128321 
+##  LOINC:X7008-6  LOINC:X7011-0  LOINC:X7013-6  PheCode:070.3  PheCode:216.1  PheCode:244.4 
+##   0.0167157932   0.0089306322   0.0066472595   0.0000000000   0.0153346180   0.0144051287 
+##  PheCode:260.7  PheCode:261.2  PheCode:261.4  PheCode:272.1  PheCode:278.1  PheCode:278.4 
+##   0.0630872732   0.0006111804   0.0064821255   0.0234334175   0.0317973635   0.0062008944 
+##  PheCode:290.1  PheCode:290.3  PheCode:291.1  PheCode:291.4  PheCode:292.2  PheCode:292.3 
+##   0.0112974868   0.0110973572   0.0086545262   0.0058080574   0.0165242083   0.0062977433 
+##  PheCode:292.6  PheCode:295.1  PheCode:295.2  PheCode:295.3  PheCode:296.1  PheCode:297.1 
+##   0.0000000000   0.0000000000   0.0000000000   0.0000000000   0.0057965835   0.0168020438 
+##  PheCode:297.2  PheCode:300.1  PheCode:300.3  PheCode:300.4  PheCode:300.8  PheCode:300.9 
+##   0.0349627472   0.1342809227   0.0179156503   0.0138790667   0.0030822305   0.0110155116 
+##  PheCode:301.1  PheCode:301.2  PheCode:302.1  PheCode:303.1  PheCode:303.3  PheCode:303.4 
+##   0.0419661476   0.0311675023   0.0065027685   0.0290048100   0.0160486263   0.0093873632 
+##    PheCode:304  PheCode:305.2  PheCode:306.1  PheCode:312.3  PheCode:313.1  PheCode:313.2 
+##   0.0181800286   0.0195430338   0.0233968979   0.0093797716   0.0170965045   0.0122422748 
+##  PheCode:313.3  PheCode:315.1  PheCode:315.2  PheCode:317.1    PheCode:318  PheCode:327.1 
+##   0.0000000000   0.0116907100   0.0177298188   0.0285220759   0.0091468241   0.0096169884 
+##  PheCode:327.3  PheCode:327.4  PheCode:327.5  PheCode:327.6  PheCode:327.7  PheCode:333.3 
+##   0.0000000000   0.0250949037   0.0205426246   0.0245768567   0.0000000000   0.0199207520 
+##  PheCode:338.2    PheCode:339    PheCode:347  PheCode:355.1  PheCode:386.9  PheCode:401.1 
+##   0.0124956925   0.0097834747   0.0346110693   0.0000000000   0.0000000000   0.0126746437 
+##  PheCode:530.1  PheCode:564.1  PheCode:599.4  PheCode:612.1  PheCode:614.5  PheCode:626.1 
+##   0.0368372289   0.0000000000   0.0167385272   0.0248914361   0.0197054072   0.0036855121 
+##  PheCode:626.4  PheCode:706.1  PheCode:726.1  PheCode:729.1  PheCode:740.3    PheCode:745 
+##   0.0406096235   0.0218322998   0.0000000000   0.0163018073   0.0000000000   0.0596035358 
+##    PheCode:760    PheCode:761    PheCode:764    PheCode:770    PheCode:941  PheCode:965.3 
+##   0.0043087575   0.0000000000   0.0041128868   0.0000000000   0.0050596519   0.0802120422 
+##    PheCode:966    PheCode:969    PheCode:971  PheCode:972.6    PheCode:981    PheCode:989 
+##   0.0103671561   0.0115475125   0.0601294070   0.0353167481   0.0437466332   0.0421040208 
+##   RXNORM:10154 RXNORM:1040028   RXNORM:10454   RXNORM:10502   RXNORM:10582   RXNORM:10689 
+##   0.0000000000   0.0053042134   0.0000000000   0.0549190751   0.0108345694   0.0000000000 
+##  RXNORM:106928   RXNORM:10734   RXNORM:10737   RXNORM:10759   RXNORM:10800   RXNORM:10814 
+##   0.0171477055   0.0591430059   0.0075681425   0.0021971562   0.0150692051   0.0097054758 
+## RXNORM:1086769   RXNORM:11118  RXNORM:115698 RXNORM:1307404  RXNORM:141366    RXNORM:1424 
+##   0.0741461867   0.0000000000   0.0000000000   0.0112944377   0.0311651226   0.0000000000 
+## RXNORM:1455099   RXNORM:14584   RXNORM:15996    RXNORM:1819    RXNORM:1827  RXNORM:187832 
+##   0.1092021731   0.0181720625   0.0000000000   0.0000000000   0.0000000000   0.0009062686 
+##  RXNORM:214130  RXNORM:214153  RXNORM:214558  RXNORM:214559  RXNORM:215830   RXNORM:21949 
+##   0.0127783463   0.0000000000   0.0000000000   0.0207760288   0.0085603495   0.0000000000 
+##    RXNORM:2353    RXNORM:2356  RXNORM:236782    RXNORM:2418  RXNORM:253146   RXNORM:25480 
+##   0.0000000000   0.0000000000   0.0000000000   0.0303103014   0.0000000000   0.0249109993 
+##    RXNORM:2556    RXNORM:2597    RXNORM:2598    RXNORM:2599    RXNORM:2626   RXNORM:28439 
+##   0.0000000000   0.0272527207   0.0226356809   0.0000000000   0.0000000000   0.0225415779 
+##   RXNORM:29046   RXNORM:30125   RXNORM:31565   RXNORM:31765  RXNORM:321988    RXNORM:3247 
+##   0.0000000000   0.0179879885   0.0382116781   0.0000000000   0.0154370676   0.0180444006 
+##   RXNORM:32624    RXNORM:3288   RXNORM:32937  RXNORM:352364  RXNORM:352372  RXNORM:352377 
+##   0.0000000000   0.0188350487   0.0000000000   0.0000000000   0.0133277697   0.0173078658 
+##    RXNORM:3554   RXNORM:35636   RXNORM:36108    RXNORM:3638   RXNORM:36437   RXNORM:37418 
+##   0.0416944771   0.0000000000   0.0175937978   0.0089351885   0.0154108957   0.0000000000 
+##   RXNORM:38400   RXNORM:38404  RXNORM:384410  RXNORM:392556   RXNORM:39786   RXNORM:39993 
+##   0.0025483367   0.0000000000   0.0000000000   0.0338051166   0.0252643100   0.0000000000 
+##   RXNORM:40114    RXNORM:4018  RXNORM:407884   RXNORM:41126    RXNORM:4141   RXNORM:42347 
+##   0.0044176507   0.0044688425   0.0468566543   0.0060851421   0.0053570915   0.0240895100 
+##   RXNORM:42355    RXNORM:4257     RXNORM:435    RXNORM:4493  RXNORM:461016   RXNORM:46241 
+##   0.0084341953   0.0357632883   0.0000000000   0.0000000000   0.0000000000   0.0000000000 
+##    RXNORM:4637  RXNORM:466584   RXNORM:51272    RXNORM:5553    RXNORM:5640    RXNORM:5691 
+##   0.0214584024   0.0077242404   0.0323735049   0.0020038782   0.0220514118   0.0065109919 
+##   RXNORM:57258  RXNORM:588250     RXNORM:596   RXNORM:61381  RXNORM:641465    RXNORM:6448 
+##   0.0000000000   0.0548198984   0.0000000000   0.0000000000   0.0242212726   0.0000000000 
+##    RXNORM:6470    RXNORM:6475    RXNORM:6711    RXNORM:6719  RXNORM:679314    RXNORM:6847 
+##   0.0159441906   0.0224878310   0.0000000000   0.0000000000   0.0000000000   0.0534298362 
+##  RXNORM:689842    RXNORM:6901  RXNORM:700810     RXNORM:704    RXNORM:7243     RXNORM:725 
+##   0.0226643083   0.0002973196   0.0112201808   0.0076645539   0.0000000000   0.0001542580 
+##    RXNORM:7258   RXNORM:72625  RXNORM:734064    RXNORM:7407   RXNORM:74667    RXNORM:7531 
+##   0.0000000000   0.0000000000   0.0274157832   0.0000000000   0.0112424768   0.0078391735 
+##    RXNORM:7646    RXNORM:7716  RXNORM:784649    RXNORM:8076    RXNORM:8124   RXNORM:82819 
+##   0.0000000000   0.0190320750   0.0547631477   0.0000000000   0.0735310265   0.0001586699 
+##  RXNORM:840781    RXNORM:8629    RXNORM:8787   RXNORM:89013   RXNORM:89905    RXNORM:9639 
+##   0.0111378690   0.0000000000   0.0000000000   0.0160051961   0.0082501222   0.0532377416</code></pre>
+<p>Corporate Data Warehouse (CDW) of Veteran Affairs (VA)</p>
+<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span>(<span class="no">loc.fit.VA</span> <span class="kw">&lt;-</span> <span class="kw pkg">KESER</span><span class="kw ns">:::</span><span class="fu">loc.feature.selection</span>(
   <span class="no">data</span>$<span class="no">X_full_lst</span><span class="kw">[[</span><span class="fl">2</span>]],
   <span class="no">data</span>$<span class="no">Y_full_lst</span><span class="kw">[[</span><span class="fl">2</span>]],
   <span class="no">data</span>$<span class="no">X_train_lst</span><span class="kw">[[</span><span class="fl">2</span>]],
   <span class="no">data</span>$<span class="no">Y_train_lst</span><span class="kw">[[</span><span class="fl">2</span>]],
   <span class="no">data</span>$<span class="no">X_valid_lst</span><span class="kw">[[</span><span class="fl">2</span>]],
-  <span class="no">data</span>$<span class="no">Y_valid_lst</span><span class="kw">[[</span><span class="fl">2</span>]]))
-<span class="co">##    user  system elapsed </span>
-<span class="co">##  56.355  19.336  41.197</span>
-<span class="no">loc.fit.VA</span>
-<span class="co">## $min.lambda</span>
-<span class="co">## [1] 0.0001443398</span>
-<span class="co">## </span>
-<span class="co">## $min.beta</span>
-<span class="co">##                            beta_loc</span>
-<span class="co">## CCS:130                0.0063152227</span>
-<span class="co">## CCS:131                0.0000000000</span>
-<span class="co">## CCS:156                0.0000000000</span>
-<span class="co">## CCS:163                0.0000000000</span>
-<span class="co">## CCS:182                0.0009381448</span>
-<span class="co">## CCS:198                0.0000000000</span>
-<span class="co">## CCS:206                0.0134747659</span>
-<span class="co">## CCS:213                0.0000000000</span>
-<span class="co">## CCS:215                0.0000000000</span>
-<span class="co">## CCS:218                0.0569175848</span>
-<span class="co">## CCS:219                0.0241873866</span>
-<span class="co">## CCS:220                0.0000000000</span>
-<span class="co">## CCS:226                0.0000000000</span>
-<span class="co">## CCS:227                0.0195729573</span>
-<span class="co">## CCS:228                0.0000000000</span>
-<span class="co">## CCS:233                0.0000000000</span>
-<span class="co">## CCS:234                0.0064368164</span>
-<span class="co">## CCS:235                0.0040520885</span>
-<span class="co">## CCS:237                0.0281318000</span>
-<span class="co">## LOINC:10998-3          0.0089015274</span>
-<span class="co">## LOINC:12382-8          0.0000000000</span>
-<span class="co">## LOINC:16201-6          0.0000000000</span>
-<span class="co">## LOINC:16228-9          0.0000000000</span>
-<span class="co">## LOINC:16249-5          0.0000000000</span>
-<span class="co">## LOINC:18282-4          0.0066986407</span>
-<span class="co">## LOINC:19080-1          0.0000000000</span>
-<span class="co">## LOINC:19141-1          0.0000000000</span>
-<span class="co">## LOINC:19312-8          0.0005415196</span>
-<span class="co">## LOINC:19328-4          0.0000000000</span>
-<span class="co">## LOINC:19388-8          0.0000000000</span>
-<span class="co">## LOINC:19483-7          0.0000000000</span>
-<span class="co">## LOINC:19659-2          0.0012631850</span>
-<span class="co">## LOINC:20507-0          0.0000000000</span>
-<span class="co">## LOINC:2106-3           0.0116957750</span>
-<span class="co">## LOINC:2110-5           0.0032394959</span>
-<span class="co">## LOINC:21441-1          0.0000000000</span>
-<span class="co">## LOINC:24111-7          0.0000000000</span>
-<span class="co">## LOINC:3016-3           0.0000000000</span>
-<span class="co">## LOINC:30167-1          0.0000000000</span>
-<span class="co">## LOINC:3349-8           0.0134259748</span>
-<span class="co">## LOINC:3390-2           0.0150857809</span>
-<span class="co">## LOINC:3397-7           0.0119660658</span>
-<span class="co">## LOINC:3414-0           0.0000000000</span>
-<span class="co">## LOINC:3436-3           0.0023500740</span>
-<span class="co">## LOINC:3507-1           0.0000000000</span>
-<span class="co">## LOINC:3725-9           0.0000000000</span>
-<span class="co">## LOINC:3773-9           0.0000000000</span>
-<span class="co">## LOINC:3879-4           0.0082800209</span>
-<span class="co">## LOINC:43304-5          0.0165340742</span>
-<span class="co">## LOINC:47000-5          0.0000000000</span>
-<span class="co">## LOINC:48345-3          0.0000000000</span>
-<span class="co">## LOINC:5643-2           0.0000000000</span>
-<span class="co">## LOINC:5644-0           0.0035732486</span>
-<span class="co">## LOINC:5645-7           0.0098857935</span>
-<span class="co">## LOINC:56888-1          0.0000000000</span>
-<span class="co">## LOINC:58375-7          0.0000000000</span>
-<span class="co">## LOINC:58424-3          0.0000000000</span>
-<span class="co">## LOINC:60676-4          0.0000000000</span>
-<span class="co">## LOINC:6349-5           0.0000000000</span>
-<span class="co">## LOINC:6410-5           0.0000000000</span>
-<span class="co">## LOINC:6515-1           0.0000000000</span>
-<span class="co">## LOINC:698-1            0.0000000000</span>
-<span class="co">## LOINC:82306-2          0.0000000000</span>
-<span class="co">## Other lab:1000000049   0.0000000000</span>
-<span class="co">## Other lab:1000000388   0.0000000000</span>
-<span class="co">## Other lab:1000000417   0.0000000000</span>
-<span class="co">## Other lab:1000001688   0.0000000000</span>
-<span class="co">## Other lab:1000001695   0.0000000000</span>
-<span class="co">## Other lab:1000001744   0.0000000000</span>
-<span class="co">## Other lab:1000001992   0.0000000000</span>
-<span class="co">## Other lab:1000018437   0.0000000000</span>
-<span class="co">## Other lab:1000019158   0.0069116674</span>
-<span class="co">## Other lab:1000019243   0.0000000000</span>
-<span class="co">## Other lab:1000025222   0.0056662872</span>
-<span class="co">## Other lab:1000036461   0.0000000000</span>
-<span class="co">## Other lab:1000038032   0.0000000000</span>
-<span class="co">## Other lab:1000041034   0.0000000000</span>
-<span class="co">## Other lab:1000046222   0.0000000000</span>
-<span class="co">## Other lab:1000046538   0.0000000000</span>
-<span class="co">## Other lab:1000047671   0.0000000000</span>
-<span class="co">## Other lab:1000048582   0.0039692486</span>
-<span class="co">## Other lab:1000049900   0.0000000000</span>
-<span class="co">## Other lab:1000056092   0.0000000000</span>
-<span class="co">## Other lab:1000058214   0.0000000000</span>
-<span class="co">## Other lab:1000065473   0.0000000000</span>
-<span class="co">## Other lab:1000072482   0.0000000000</span>
-<span class="co">## Other lab:1000073068   0.0000000000</span>
-<span class="co">## Other lab:1000073438   0.0000000000</span>
-<span class="co">## Other lab:1000074737   0.0000000000</span>
-<span class="co">## Other lab:1000078272   0.0000000000</span>
-<span class="co">## Other lab:1000079548   0.0000000000</span>
-<span class="co">## Other lab:1000080207   0.0000000000</span>
-<span class="co">## Other lab:1000080999   0.0000000000</span>
-<span class="co">## Other lab:1000082178   0.0000000000</span>
-<span class="co">## Other lab:1000082797   0.0000000000</span>
-<span class="co">## Other lab:1000083088   0.0000000000</span>
-<span class="co">## Other lab:1000084062   0.0024891810</span>
-<span class="co">## Other lab:1000085773   0.0000000000</span>
-<span class="co">## Other lab:1000085866   0.0004547392</span>
-<span class="co">## Other lab:1000088563   0.0019988070</span>
-<span class="co">## Other lab:1000088684   0.0000000000</span>
-<span class="co">## Other lab:1000091075   0.0000000000</span>
-<span class="co">## Other lab:1000091818   0.0000000000</span>
-<span class="co">## Other lab:1000092853   0.0013477653</span>
-<span class="co">## Other lab:1000093146   0.0008615561</span>
-<span class="co">## Other lab:1000093307   0.0001247810</span>
-<span class="co">## Other lab:1000097490   0.0083259187</span>
-<span class="co">## Other lab:1000097905   0.0031683242</span>
-<span class="co">## Other lab:1000100487   0.0000000000</span>
-<span class="co">## Other lab:1000105807   0.0135309771</span>
-<span class="co">## Other lab:1000110086   0.0020851560</span>
-<span class="co">## Other lab:1000113359   0.0000000000</span>
-<span class="co">## Other lab:1000113370   0.0000000000</span>
-<span class="co">## Other lab:1000113374   0.0000000000</span>
-<span class="co">## Other lab:1000123632   0.0000000000</span>
-<span class="co">## Other lab:1000123683   0.0001780664</span>
-<span class="co">## Other lab:1000125738   0.0022475039</span>
-<span class="co">## Other lab:1000127464   0.0000000000</span>
-<span class="co">## Other lab:1000130132   0.0000000000</span>
-<span class="co">## Other lab:1000138393   0.0000000000</span>
-<span class="co">## Other lab:1200001045   0.0000000000</span>
-<span class="co">## Other lab:1200003709   0.0000000000</span>
-<span class="co">## Other lab:1200005063   0.0000000000</span>
-<span class="co">## Other lab:1200009278   0.0000000000</span>
-<span class="co">## Other lab:1200009804   0.0000000000</span>
-<span class="co">## Other lab:1200012810   0.0000000000</span>
-<span class="co">## Other lab:1200017939   0.0000000000</span>
-<span class="co">## Other lab:1200019634   0.0000000000</span>
-<span class="co">## Other lab:1200020374   0.0000000000</span>
-<span class="co">## Other lab:1200020589   0.0000000000</span>
-<span class="co">## Other lab:1200026959   0.0000000000</span>
-<span class="co">## Other lab:1200027224   0.0000000000</span>
-<span class="co">## Other lab:1200030359   0.0000000000</span>
-<span class="co">## Other lab:1200037040   0.0000000000</span>
-<span class="co">## Other lab:1200041052   0.0000000000</span>
-<span class="co">## Other lab:1200043285   0.0000000000</span>
-<span class="co">## Other lab:1200049397   0.0000000000</span>
-<span class="co">## Other lab:1200056521   0.0000000000</span>
-<span class="co">## Other lab:1200062404   0.0017214147</span>
-<span class="co">## Other lab:1200063830   0.0000000000</span>
-<span class="co">## Other lab:1200067462   0.0000000000</span>
-<span class="co">## Other lab:1200071543   0.0013338140</span>
-<span class="co">## Other lab:1200074538   0.0000000000</span>
-<span class="co">## Other lab:1200077607   0.0000000000</span>
-<span class="co">## Other lab:1200092797   0.0000000000</span>
-<span class="co">## Other lab:1200097367   0.0000000000</span>
-<span class="co">## Other lab:1200098095   0.0000000000</span>
-<span class="co">## Other lab:1200098375   0.0000000000</span>
-<span class="co">## Other lab:1200100409   0.0000000000</span>
-<span class="co">## Other lab:1200108410   0.0000000000</span>
-<span class="co">## Other lab:1200109766   0.0000000000</span>
-<span class="co">## Other lab:1200109768   0.0000000000</span>
-<span class="co">## Other lab:1200111243   0.0005554103</span>
-<span class="co">## Other lab:1200111254   0.0005546761</span>
-<span class="co">## Other lab:1200111256   0.0005513201</span>
-<span class="co">## Other lab:1200115145   0.0000000000</span>
-<span class="co">## Other lab:1200118041   0.0000000000</span>
-<span class="co">## Other lab:1200118042   0.0000000000</span>
-<span class="co">## Other lab:1200118043   0.0000000000</span>
-<span class="co">## Other lab:1200118044   0.0000000000</span>
-<span class="co">## Other lab:1200119549   0.0000000000</span>
-<span class="co">## Other lab:1200122176   0.0000000000</span>
-<span class="co">## Other lab:1200123413   0.0000000000</span>
-<span class="co">## Other lab:1200124637   0.0000000000</span>
-<span class="co">## Other lab:1200128620   0.0000000000</span>
-<span class="co">## Other lab:1200131781   0.0000000000</span>
-<span class="co">## Other lab:1200132179   0.0000000000</span>
-<span class="co">## Other lab:1200132244   0.0000000000</span>
-<span class="co">## Other lab:1200132245   0.0000000000</span>
-<span class="co">## Other lab:1200136134   0.0006315313</span>
-<span class="co">## Other lab:1200136135   0.0005916566</span>
-<span class="co">## Other lab:1200136136   0.0005470306</span>
-<span class="co">## Other lab:1200138535   0.0004725301</span>
-<span class="co">## Other lab:1200138536   0.0004098093</span>
-<span class="co">## Other lab:1200138537   0.0003785389</span>
-<span class="co">## Other lab:1200138538   0.0003883919</span>
-<span class="co">## Other lab:1200138539   0.0004396074</span>
-<span class="co">## Other lab:1200138540   0.0005252821</span>
-<span class="co">## Other lab:1200138541   0.0006579858</span>
-<span class="co">## Other lab:1200138542   0.0007785806</span>
-<span class="co">## Other lab:1200138543   0.0007398079</span>
-<span class="co">## Other lab:1200138544   0.0010180194</span>
-<span class="co">## Other lab:1200138545   0.0010962524</span>
-<span class="co">## Other lab:1200138546   0.0011731389</span>
-<span class="co">## Other lab:1200138547   0.0007716912</span>
-<span class="co">## Other lab:1200138548   0.0008262466</span>
-<span class="co">## Other lab:1200138549   0.0008360013</span>
-<span class="co">## Other lab:1200138550   0.0025879430</span>
-<span class="co">## Other lab:1200138551   0.0026211991</span>
-<span class="co">## Other lab:1200138552   0.0026330700</span>
-<span class="co">## Other lab:1200138553   0.0008547432</span>
-<span class="co">## Other lab:1200138555   0.0008246624</span>
-<span class="co">## Other lab:1200138556   0.0007890876</span>
-<span class="co">## Other lab:1200138557   0.0011394985</span>
-<span class="co">## Other lab:1200138558   0.0010548203</span>
-<span class="co">## Other lab:1200138559   0.0010005588</span>
-<span class="co">## Other lab:1200138560   0.0010996854</span>
-<span class="co">## Other lab:1200138561   0.0024361451</span>
-<span class="co">## Other lab:1200138562   0.0024646027</span>
-<span class="co">## Other lab:1200138563   0.0024796146</span>
-<span class="co">## Other lab:1200138564   0.0024759132</span>
-<span class="co">## Other lab:1200138565   0.0024648158</span>
-<span class="co">## Other lab:1200138566   0.0024561152</span>
-<span class="co">## Other lab:1200138567   0.0024567824</span>
-<span class="co">## Other lab:1200138568   0.0009799433</span>
-<span class="co">## Other lab:1200138569   0.0008870298</span>
-<span class="co">## Other lab:1200138570   0.0008126459</span>
-<span class="co">## Other lab:1200138665   0.0008778925</span>
-<span class="co">## Other lab:1200138666   0.0008296671</span>
-<span class="co">## Other lab:1200139018   0.0000000000</span>
-<span class="co">## Other lab:1200139019   0.0000000000</span>
-<span class="co">## Other lab:1200139020   0.0000000000</span>
-<span class="co">## Other lab:1200139037   0.0000000000</span>
-<span class="co">## Other lab:1200139038   0.0000000000</span>
-<span class="co">## Other lab:1200139039   0.0000000000</span>
-<span class="co">## Other lab:1200139040   0.0000000000</span>
-<span class="co">## Other lab:1200139041   0.0000000000</span>
-<span class="co">## Other lab:1200139583   0.0000000000</span>
-<span class="co">## Other lab:1200139584   0.0000000000</span>
-<span class="co">## Other lab:1200139673   0.0000000000</span>
-<span class="co">## Other lab:1200140509   0.0003795909</span>
-<span class="co">## Other lab:1200140510   0.0003295588</span>
-<span class="co">## Other lab:1200140511   0.0003023258</span>
-<span class="co">## Other lab:1200140512   0.0002984650</span>
-<span class="co">## Other lab:1200140513   0.0003108273</span>
-<span class="co">## Other lab:1200140514   0.0003308854</span>
-<span class="co">## Other lab:1200140515   0.0003515044</span>
-<span class="co">## Other lab:1200140517   0.0003659663</span>
-<span class="co">## Other lab:1200140518   0.0003719687</span>
-<span class="co">## Other lab:1200141194   0.0022020745</span>
-<span class="co">## Other lab:1400002921   0.0000000000</span>
-<span class="co">## Other lab:1400019640   0.0000000000</span>
-<span class="co">## Other lab:1400034601   0.0000000000</span>
-<span class="co">## Other lab:1400036647   0.0000000000</span>
-<span class="co">## Other lab:1400037633   0.0000000000</span>
-<span class="co">## Other lab:1400043521   0.0000000000</span>
-<span class="co">## Other lab:1400055391   0.0000000000</span>
-<span class="co">## Other lab:1400057084   0.0000000000</span>
-<span class="co">## Other lab:1400057639   0.0000000000</span>
-<span class="co">## Other lab:1400064377   0.0000000000</span>
-<span class="co">## Other lab:1400067813   0.0000000000</span>
-<span class="co">## Other lab:1400069118   0.0000000000</span>
-<span class="co">## Other lab:1400071829   0.0000000000</span>
-<span class="co">## Other lab:1400078944   0.0000000000</span>
-<span class="co">## Other lab:1400564654   0.0000000000</span>
-<span class="co">## Other lab:1400570592   0.0005975098</span>
-<span class="co">## Other lab:1400575908   0.0000000000</span>
-<span class="co">## Other lab:1400575945   0.0000000000</span>
-<span class="co">## Other lab:1400581237   0.0000000000</span>
-<span class="co">## Other lab:1400588543   0.0000000000</span>
-<span class="co">## Other lab:1400589589   0.0000000000</span>
-<span class="co">## Other lab:1400589590   0.0000000000</span>
-<span class="co">## Other lab:1400590353   0.0000000000</span>
-<span class="co">## Other lab:1400591060   0.0000000000</span>
-<span class="co">## Other lab:1400591078   0.0000000000</span>
-<span class="co">## Other lab:800010466    0.0000000000</span>
-<span class="co">## Other lab:800010497    0.0012414087</span>
-<span class="co">## Other lab:800010898    0.0014231672</span>
-<span class="co">## Other lab:800017435    0.0000000000</span>
-<span class="co">## Other lab:800023376    0.0000000000</span>
-<span class="co">## Other lab:800044440    0.0000000000</span>
-<span class="co">## Other lab:800048990    0.0000000000</span>
-<span class="co">## Other lab:800051837    0.0000000000</span>
-<span class="co">## Other lab:800058968    0.0000000000</span>
-<span class="co">## Other lab:800080170    0.0000000000</span>
-<span class="co">## Other lab:800086436    0.0000000000</span>
-<span class="co">## Other lab:800221984    0.0000000000</span>
-<span class="co">## Other lab:800224219    0.0000000000</span>
-<span class="co">## Other lab:800224995    0.0000000000</span>
-<span class="co">## Other lab:800230878    0.0044125224</span>
-<span class="co">## Other lab:800250413    0.0000000000</span>
-<span class="co">## PheCode:070.3          0.0000000000</span>
-<span class="co">## PheCode:1004           0.0000000000</span>
-<span class="co">## PheCode:1009           0.0000000000</span>
-<span class="co">## PheCode:1010.1         0.0000000000</span>
-<span class="co">## PheCode:1010.5         0.0000000000</span>
-<span class="co">## PheCode:1010.6         0.0048202741</span>
-<span class="co">## PheCode:1010.7         0.0269234191</span>
-<span class="co">## PheCode:1015           0.0000000000</span>
-<span class="co">## PheCode:180.3          0.0000000000</span>
-<span class="co">## PheCode:218.1          0.0014408408</span>
-<span class="co">## PheCode:218.2          0.0000000000</span>
-<span class="co">## PheCode:221            0.0000000000</span>
-<span class="co">## PheCode:256.4          0.0000000000</span>
-<span class="co">## PheCode:257.1          0.0000000000</span>
-<span class="co">## PheCode:261.4          0.0000000000</span>
-<span class="co">## PheCode:272.1          0.0000000000</span>
-<span class="co">## PheCode:278.1          0.0020445201</span>
-<span class="co">## PheCode:290.3          0.0000000000</span>
-<span class="co">## PheCode:291.1          0.0000000000</span>
-<span class="co">## PheCode:292.2          0.0000000000</span>
-<span class="co">## PheCode:292.3          0.0000000000</span>
-<span class="co">## PheCode:292.6          0.0000000000</span>
-<span class="co">## PheCode:295.1          0.0000000000</span>
-<span class="co">## PheCode:295.2          0.0054123909</span>
-<span class="co">## PheCode:295.3          0.0000000000</span>
-<span class="co">## PheCode:296.1          0.0271321464</span>
-<span class="co">## PheCode:297.1          0.0275382014</span>
-<span class="co">## PheCode:297.2          0.0149808938</span>
-<span class="co">## PheCode:300.1          0.0791714545</span>
-<span class="co">## PheCode:300.3          0.0265003610</span>
-<span class="co">## PheCode:300.4          0.0145087305</span>
-<span class="co">## PheCode:300.8          0.0000000000</span>
-<span class="co">## PheCode:300.9          0.0670696220</span>
-<span class="co">## PheCode:301.1          0.0051893392</span>
-<span class="co">## PheCode:301.2          0.0386415929</span>
-<span class="co">## PheCode:302.1          0.0000000000</span>
-<span class="co">## PheCode:303.1          0.0062242750</span>
-<span class="co">## PheCode:303.3          0.0000000000</span>
-<span class="co">## PheCode:303.4          0.0045813101</span>
-<span class="co">## PheCode:304            0.0218073977</span>
-<span class="co">## PheCode:305.2          0.0104740334</span>
-<span class="co">## PheCode:306.9          0.0000000000</span>
-<span class="co">## PheCode:312.3          0.0111965970</span>
-<span class="co">## PheCode:313.1          0.0233101271</span>
-<span class="co">## PheCode:313.2          0.0000000000</span>
-<span class="co">## PheCode:313.3          0.0028289066</span>
-<span class="co">## PheCode:315.1          0.0000000000</span>
-<span class="co">## PheCode:317.1          0.0233828352</span>
-<span class="co">## PheCode:318            0.0138494032</span>
-<span class="co">## PheCode:327.1          0.0000000000</span>
-<span class="co">## PheCode:327.3          0.0030843283</span>
-<span class="co">## PheCode:327.4          0.0184878589</span>
-<span class="co">## PheCode:327.5          0.0000000000</span>
-<span class="co">## PheCode:327.6          0.0000000000</span>
-<span class="co">## PheCode:327.7          0.0000000000</span>
-<span class="co">## PheCode:338.2          0.0000000000</span>
-<span class="co">## PheCode:339            0.0064664425</span>
-<span class="co">## PheCode:340.1          0.0000000000</span>
-<span class="co">## PheCode:347            0.0027137361</span>
-<span class="co">## PheCode:351            0.0000000000</span>
-<span class="co">## PheCode:355.1          0.0058570076</span>
-<span class="co">## PheCode:367.1          0.0000000000</span>
-<span class="co">## PheCode:367.4          0.0000000000</span>
-<span class="co">## PheCode:389.4          0.0000000000</span>
-<span class="co">## PheCode:401.1          0.0000000000</span>
-<span class="co">## PheCode:476            0.0013739524</span>
-<span class="co">## PheCode:521.1          0.0000000000</span>
-<span class="co">## PheCode:522.1          0.0000000000</span>
-<span class="co">## PheCode:523.3          0.0000000000</span>
-<span class="co">## PheCode:525.1          0.0000000000</span>
-<span class="co">## PheCode:526.4          0.0000000000</span>
-<span class="co">## PheCode:530.1          0.0024804609</span>
-<span class="co">## PheCode:564.1          0.0000000000</span>
-<span class="co">## PheCode:605            0.0000000000</span>
-<span class="co">## PheCode:610.1          0.0001596200</span>
-<span class="co">## PheCode:612.1          0.0000000000</span>
-<span class="co">## PheCode:614.5          0.0000000000</span>
-<span class="co">## PheCode:615            0.0000000000</span>
-<span class="co">## PheCode:620.1          0.0000000000</span>
-<span class="co">## PheCode:625.1          0.0000000000</span>
-<span class="co">## PheCode:626.1          0.0001165494</span>
-<span class="co">## PheCode:626.2          0.0000000000</span>
-<span class="co">## PheCode:626.4          0.0000000000</span>
-<span class="co">## PheCode:626.8          0.0000000000</span>
-<span class="co">## PheCode:627.2          0.0000000000</span>
-<span class="co">## PheCode:627.5          0.0000000000</span>
-<span class="co">## PheCode:634.3          0.0017221304</span>
-<span class="co">## PheCode:638            0.0014961262</span>
-<span class="co">## PheCode:704.2          0.0000000000</span>
-<span class="co">## PheCode:706.1          0.0000000000</span>
-<span class="co">## PheCode:721.1          0.0000000000</span>
-<span class="co">## PheCode:722.1          0.0000000000</span>
-<span class="co">## PheCode:722.6          0.0000000000</span>
-<span class="co">## PheCode:726.1          0.0000000000</span>
-<span class="co">## PheCode:728.7          0.0000000000</span>
-<span class="co">## PheCode:729.1          0.0026459554</span>
-<span class="co">## PheCode:740.1          0.0000000000</span>
-<span class="co">## PheCode:745            0.0270410133</span>
-<span class="co">## PheCode:760            0.0302884807</span>
-<span class="co">## PheCode:761            0.0000000000</span>
-<span class="co">## PheCode:763            0.0000000000</span>
-<span class="co">## PheCode:765            0.0000000000</span>
-<span class="co">## PheCode:769            0.0000000000</span>
-<span class="co">## PheCode:770            0.0016548353</span>
-<span class="co">## PheCode:773            0.0000000000</span>
-<span class="co">## PheCode:792.1          0.0002785691</span>
-<span class="co">## PheCode:817            0.0000000000</span>
-<span class="co">## PheCode:819            0.0000000000</span>
-<span class="co">## PheCode:969            0.0000000000</span>
-<span class="co">## PheCode:979            0.0048294051</span>
-<span class="co">## PheCode:981            0.0000000000</span>
-<span class="co">## RXNORM:1000104         0.0000000000</span>
-<span class="co">## RXNORM:10379           0.0000000000</span>
-<span class="co">## RXNORM:1040028         0.0000000000</span>
-<span class="co">## RXNORM:10454           0.0000000000</span>
-<span class="co">## RXNORM:10689           0.0000000000</span>
-<span class="co">## RXNORM:10734           0.0087903166</span>
-<span class="co">## RXNORM:10737           0.0000000000</span>
-<span class="co">## RXNORM:10814           0.0051751991</span>
-<span class="co">## RXNORM:10834           0.0133667237</span>
-<span class="co">## RXNORM:1086769         0.0051917347</span>
-<span class="co">## RXNORM:135775          0.0000000000</span>
-<span class="co">## RXNORM:136411          0.0017159941</span>
-<span class="co">## RXNORM:141366          0.0000000000</span>
-<span class="co">## RXNORM:1455099         0.0071358179</span>
-<span class="co">## RXNORM:1547099         0.0015108924</span>
-<span class="co">## RXNORM:1551467         0.0012943239</span>
-<span class="co">## RXNORM:1592257         0.0000000000</span>
-<span class="co">## RXNORM:1819            0.0000000000</span>
-<span class="co">## RXNORM:1827            0.0000000000</span>
-<span class="co">## RXNORM:20610           0.0000000000</span>
-<span class="co">## RXNORM:214130          0.0000000000</span>
-<span class="co">## RXNORM:214551          0.0033526939</span>
-<span class="co">## RXNORM:214558          0.0000000000</span>
-<span class="co">## RXNORM:214559          0.0000000000</span>
-<span class="co">## RXNORM:21949           0.0058259015</span>
-<span class="co">## RXNORM:228783          0.0076482728</span>
-<span class="co">## RXNORM:231049          0.0000000000</span>
-<span class="co">## RXNORM:235355          0.0000000000</span>
-<span class="co">## RXNORM:24605           0.0000000000</span>
-<span class="co">## RXNORM:253146          0.0000000000</span>
-<span class="co">## RXNORM:2596            0.0007267319</span>
-<span class="co">## RXNORM:2598            0.0000000000</span>
-<span class="co">## RXNORM:279645          0.0066327270</span>
-<span class="co">## RXNORM:28439           0.0000000000</span>
-<span class="co">## RXNORM:321988          0.0011451209</span>
-<span class="co">## RXNORM:324044          0.0000000000</span>
-<span class="co">## RXNORM:3288            0.0000000000</span>
-<span class="co">## RXNORM:3361            0.0000000000</span>
-<span class="co">## RXNORM:352364          0.0167929032</span>
-<span class="co">## RXNORM:352376          0.0000000000</span>
-<span class="co">## RXNORM:352377          0.0000000000</span>
-<span class="co">## RXNORM:3554            0.0160074754</span>
-<span class="co">## RXNORM:35617           0.0000000000</span>
-<span class="co">## RXNORM:3638            0.0000000000</span>
-<span class="co">## RXNORM:37075           0.0000000000</span>
-<span class="co">## RXNORM:37418           0.0155210936</span>
-<span class="co">## RXNORM:38400           0.0000000000</span>
-<span class="co">## RXNORM:38404           0.0058641824</span>
-<span class="co">## RXNORM:384410          0.0000000000</span>
-<span class="co">## RXNORM:39786           0.0045361534</span>
-<span class="co">## RXNORM:39993           0.0036474028</span>
-<span class="co">## RXNORM:4083            0.0000000000</span>
-<span class="co">## RXNORM:41493           0.0151735238</span>
-<span class="co">## RXNORM:42347           0.0067445770</span>
-<span class="co">## RXNORM:4493            0.0000000000</span>
-<span class="co">## RXNORM:461016          0.0000000000</span>
-<span class="co">## RXNORM:466584          0.0000000000</span>
-<span class="co">## RXNORM:51272           0.0000000000</span>
-<span class="co">## RXNORM:5553            0.0050761504</span>
-<span class="co">## RXNORM:5640            0.0168611078</span>
-<span class="co">## RXNORM:569             0.0030924698</span>
-<span class="co">## RXNORM:588003          0.0050047977</span>
-<span class="co">## RXNORM:588250          0.0000000000</span>
-<span class="co">## RXNORM:6373            0.0000000000</span>
-<span class="co">## RXNORM:6711            0.0000000000</span>
-<span class="co">## RXNORM:6845            0.0000000000</span>
-<span class="co">## RXNORM:6901            0.0000000000</span>
-<span class="co">## RXNORM:700810          0.0000000000</span>
-<span class="co">## RXNORM:7242            0.0000000000</span>
-<span class="co">## RXNORM:7243            0.0152904423</span>
-<span class="co">## RXNORM:7258            0.0049803977</span>
-<span class="co">## RXNORM:72625           0.0096273423</span>
-<span class="co">## RXNORM:734064          0.0026570201</span>
-<span class="co">## RXNORM:7407            0.0001674597</span>
-<span class="co">## RXNORM:7514            0.0000000000</span>
-<span class="co">## RXNORM:82819           0.0050160513</span>
-<span class="co">## RXNORM:840781          0.0000000000</span>
-<span class="co">## RXNORM:8629            0.0103366199</span>
-<span class="co">## RXNORM:88014           0.0000000000</span>
-<span class="co">## RXNORM:89013           0.0000000000</span>
-<span class="co">## RXNORM:9899            0.0104339196</span>
-<span class="co">## ShortName:A1C          0.0000000000</span>
-<span class="co">## ShortName:HCV - RNA VL 0.0000000000</span>
-<span class="co">## ShortName:HDLC         0.0000000000</span>
-<span class="co">## ShortName:LDLC         0.0000000000</span>
-<span class="co">## ShortName:TotChol      0.0000000000</span>
-<span class="co">## ShortName:Trig         0.0000000000</span></pre></body></html></div>
+  <span class="no">data</span>$<span class="no">Y_valid_lst</span><span class="kw">[[</span><span class="fl">2</span>]]))</pre></body></html></div>
+<pre><code>##    user  system elapsed 
+##  52.555  16.921  38.330</code></pre>
+<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="no">loc.fit.VA</span></pre></body></html></div>
+<pre><code>## $min.lambda
+## [1] 0.0001284555
+## 
+## $min.beta
+##                CCS:130                CCS:131                CCS:156                CCS:163 
+##           7.652984e-03           0.000000e+00           0.000000e+00           0.000000e+00 
+##                CCS:182                CCS:198                CCS:206                CCS:213 
+##           4.792008e-03           0.000000e+00           0.000000e+00           0.000000e+00 
+##                CCS:215                CCS:218                CCS:219                CCS:220 
+##           0.000000e+00           5.942402e-02           1.499986e-02           2.468279e-03 
+##                CCS:226                CCS:227                CCS:228                CCS:233 
+##           5.564429e-03           1.204744e-02           1.125017e-02           0.000000e+00 
+##                CCS:234                CCS:235                CCS:237          LOINC:10998-3 
+##           0.000000e+00           1.371256e-03           3.095601e-02           7.076565e-03 
+##          LOINC:12382-8          LOINC:16201-6          LOINC:16228-9          LOINC:16249-5 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##          LOINC:18282-4          LOINC:19080-1          LOINC:19141-1          LOINC:19312-8 
+##           1.147756e-02           2.551359e-03           0.000000e+00           0.000000e+00 
+##          LOINC:19328-4          LOINC:19388-8          LOINC:19483-7          LOINC:19659-2 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##          LOINC:20507-0           LOINC:2106-3           LOINC:2110-5          LOINC:21441-1 
+##           0.000000e+00           1.548179e-02           4.453214e-03           0.000000e+00 
+##          LOINC:24111-7           LOINC:3016-3          LOINC:30167-1           LOINC:3349-8 
+##           0.000000e+00           4.192696e-03           1.607337e-03           1.135168e-02 
+##           LOINC:3390-2           LOINC:3397-7           LOINC:3414-0           LOINC:3436-3 
+##           1.244276e-02           9.444858e-03           0.000000e+00           1.282814e-03 
+##           LOINC:3507-1           LOINC:3725-9           LOINC:3773-9           LOINC:3879-4 
+##           0.000000e+00           0.000000e+00           7.032387e-03           6.708849e-03 
+##          LOINC:43304-5          LOINC:47000-5          LOINC:48345-3           LOINC:5643-2 
+##           0.000000e+00           0.000000e+00           0.000000e+00           4.917013e-04 
+##           LOINC:5644-0           LOINC:5645-7          LOINC:56888-1          LOINC:58375-7 
+##           0.000000e+00           1.084173e-02           0.000000e+00           0.000000e+00 
+##          LOINC:58424-3          LOINC:60676-4           LOINC:6349-5           LOINC:6410-5 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##           LOINC:6515-1            LOINC:698-1          LOINC:82306-2   Other lab:1000000049 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##   Other lab:1000000388   Other lab:1000000417   Other lab:1000001688   Other lab:1000001695 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##   Other lab:1000001744   Other lab:1000001992   Other lab:1000018437   Other lab:1000019158 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##   Other lab:1000019243   Other lab:1000025222   Other lab:1000036461   Other lab:1000038032 
+##           0.000000e+00           7.467923e-03           0.000000e+00           0.000000e+00 
+##   Other lab:1000041034   Other lab:1000046222   Other lab:1000046538   Other lab:1000047671 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##   Other lab:1000048582   Other lab:1000049900   Other lab:1000056092   Other lab:1000058214 
+##           1.112989e-03           0.000000e+00           0.000000e+00           0.000000e+00 
+##   Other lab:1000065473   Other lab:1000072482   Other lab:1000073068   Other lab:1000073438 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##   Other lab:1000074737   Other lab:1000078272   Other lab:1000079548   Other lab:1000080207 
+##           0.000000e+00           1.634555e-03           0.000000e+00           0.000000e+00 
+##   Other lab:1000080999   Other lab:1000082178   Other lab:1000082797   Other lab:1000083088 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##   Other lab:1000084062   Other lab:1000085773   Other lab:1000085866   Other lab:1000088563 
+##           6.624206e-03           0.000000e+00           3.617037e-03           2.719565e-03 
+##   Other lab:1000088684   Other lab:1000091075   Other lab:1000091818   Other lab:1000092853 
+##           1.085829e-03           0.000000e+00           1.021955e-03           5.496698e-03 
+##   Other lab:1000093146   Other lab:1000093307   Other lab:1000097490   Other lab:1000097905 
+##           2.586466e-03           8.189570e-03           1.336786e-02           1.298068e-04 
+##   Other lab:1000100487   Other lab:1000105807   Other lab:1000110086   Other lab:1000113359 
+##           0.000000e+00           1.590353e-02           0.000000e+00           2.034404e-04 
+##   Other lab:1000113370   Other lab:1000113374   Other lab:1000123632   Other lab:1000123683 
+##           2.026424e-04           2.019896e-04           0.000000e+00           0.000000e+00 
+##   Other lab:1000125738   Other lab:1000127464   Other lab:1000130132   Other lab:1000138393 
+##           2.329920e-03           7.941674e-04           0.000000e+00           0.000000e+00 
+##   Other lab:1200001045   Other lab:1200003709   Other lab:1200005063   Other lab:1200009278 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##   Other lab:1200009804   Other lab:1200012810   Other lab:1200017939   Other lab:1200019634 
+##           0.000000e+00           0.000000e+00           0.000000e+00           3.257981e-03 
+##   Other lab:1200020374   Other lab:1200020589   Other lab:1200026959   Other lab:1200027224 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##   Other lab:1200030359   Other lab:1200037040   Other lab:1200041052   Other lab:1200043285 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##   Other lab:1200049397   Other lab:1200056521   Other lab:1200062404   Other lab:1200063830 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##   Other lab:1200067462   Other lab:1200071543   Other lab:1200074538   Other lab:1200077607 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##   Other lab:1200092797   Other lab:1200097367   Other lab:1200098095   Other lab:1200098375 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##   Other lab:1200100409   Other lab:1200108410   Other lab:1200109766   Other lab:1200109768 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##   Other lab:1200111243   Other lab:1200111254   Other lab:1200111256   Other lab:1200115145 
+##           1.823175e-03           1.823300e-03           1.823094e-03           0.000000e+00 
+##   Other lab:1200118041   Other lab:1200118042   Other lab:1200118043   Other lab:1200118044 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##   Other lab:1200119549   Other lab:1200122176   Other lab:1200123413   Other lab:1200124637 
+##           0.000000e+00           4.844496e-03           0.000000e+00           0.000000e+00 
+##   Other lab:1200128620   Other lab:1200131781   Other lab:1200132179   Other lab:1200132244 
+##           0.000000e+00           0.000000e+00           0.000000e+00           1.104881e-03 
+##   Other lab:1200132245   Other lab:1200136134   Other lab:1200136135   Other lab:1200136136 
+##           1.095606e-03           8.361916e-04           8.032442e-04           5.436530e-04 
+##   Other lab:1200138535   Other lab:1200138536   Other lab:1200138537   Other lab:1200138538 
+##           5.204979e-04           4.972882e-04           4.719960e-04           4.439226e-04 
+##   Other lab:1200138539   Other lab:1200138540   Other lab:1200138541   Other lab:1200138542 
+##           4.146074e-04           3.870879e-04           2.796649e-04           2.663687e-04 
+##   Other lab:1200138543   Other lab:1200138544   Other lab:1200138545   Other lab:1200138546 
+##           3.882295e-04           4.494013e-04           3.528002e-04           3.763274e-04 
+##   Other lab:1200138547   Other lab:1200138548   Other lab:1200138549   Other lab:1200138550 
+##           0.000000e+00           8.320317e-04           8.878212e-04           1.610977e-04 
+##   Other lab:1200138551   Other lab:1200138552   Other lab:1200138553   Other lab:1200138555 
+##           2.303961e-04           3.015884e-04           1.594702e-04           2.283793e-04 
+##   Other lab:1200138556   Other lab:1200138557   Other lab:1200138558   Other lab:1200138559 
+##           2.929999e-04           9.466058e-04           1.210020e-03           1.250306e-03 
+##   Other lab:1200138560   Other lab:1200138561   Other lab:1200138562   Other lab:1200138563 
+##           1.254047e-03           6.231032e-04           5.858604e-04           5.511109e-04 
+##   Other lab:1200138564   Other lab:1200138565   Other lab:1200138566   Other lab:1200138567 
+##           5.126573e-04           4.687340e-04           4.211633e-04           3.719729e-04 
+##   Other lab:1200138568   Other lab:1200138569   Other lab:1200138570   Other lab:1200138665 
+##           6.957377e-04           6.446661e-04           5.920451e-04           9.233839e-04 
+##   Other lab:1200138666   Other lab:1200139018   Other lab:1200139019   Other lab:1200139020 
+##           9.721885e-04           0.000000e+00           0.000000e+00           0.000000e+00 
+##   Other lab:1200139037   Other lab:1200139038   Other lab:1200139039   Other lab:1200139040 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##   Other lab:1200139041   Other lab:1200139583   Other lab:1200139584   Other lab:1200139673 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##   Other lab:1200140509   Other lab:1200140510   Other lab:1200140511   Other lab:1200140512 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##   Other lab:1200140513   Other lab:1200140514   Other lab:1200140515   Other lab:1200140517 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##   Other lab:1200140518   Other lab:1200141194   Other lab:1400002921   Other lab:1400019640 
+##           0.000000e+00           3.040341e-04           0.000000e+00           0.000000e+00 
+##   Other lab:1400034601   Other lab:1400036647   Other lab:1400037633   Other lab:1400043521 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##   Other lab:1400055391   Other lab:1400057084   Other lab:1400057639   Other lab:1400064377 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##   Other lab:1400067813   Other lab:1400069118   Other lab:1400071829   Other lab:1400078944 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##   Other lab:1400564654   Other lab:1400570592   Other lab:1400575908   Other lab:1400575945 
+##           0.000000e+00           1.606310e-03           0.000000e+00           0.000000e+00 
+##   Other lab:1400581237   Other lab:1400588543   Other lab:1400589589   Other lab:1400589590 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##   Other lab:1400590353   Other lab:1400591060   Other lab:1400591078    Other lab:800010466 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##    Other lab:800010497    Other lab:800010898    Other lab:800017435    Other lab:800023376 
+##           4.687160e-03           3.988413e-03           0.000000e+00           0.000000e+00 
+##    Other lab:800044440    Other lab:800048990    Other lab:800051837    Other lab:800058968 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##    Other lab:800080170    Other lab:800086436    Other lab:800221984    Other lab:800224219 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##    Other lab:800224995    Other lab:800230878    Other lab:800250413          PheCode:070.3 
+##           0.000000e+00           6.112526e-03           0.000000e+00           0.000000e+00 
+##           PheCode:1004           PheCode:1009         PheCode:1010.1         PheCode:1010.5 
+##           0.000000e+00           0.000000e+00           2.138327e-03           0.000000e+00 
+##         PheCode:1010.6         PheCode:1010.7           PheCode:1015          PheCode:180.3 
+##           0.000000e+00           2.607425e-02           0.000000e+00           4.715245e-04 
+##          PheCode:218.1          PheCode:218.2            PheCode:221          PheCode:256.4 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##          PheCode:257.1          PheCode:261.4          PheCode:272.1          PheCode:278.1 
+##           0.000000e+00           0.000000e+00           0.000000e+00           5.213445e-03 
+##          PheCode:290.3          PheCode:291.1          PheCode:292.2          PheCode:292.3 
+##           0.000000e+00           0.000000e+00           4.968900e-03           0.000000e+00 
+##          PheCode:292.6          PheCode:295.1          PheCode:295.2          PheCode:295.3 
+##           0.000000e+00           0.000000e+00           1.316963e-02           7.196514e-03 
+##          PheCode:296.1          PheCode:297.1          PheCode:297.2          PheCode:300.1 
+##           2.133458e-02           2.171458e-02           2.007055e-02           8.363734e-02 
+##          PheCode:300.3          PheCode:300.4          PheCode:300.8          PheCode:300.9 
+##           2.029336e-02           1.371764e-02           0.000000e+00           6.724985e-02 
+##          PheCode:301.1          PheCode:301.2          PheCode:302.1          PheCode:303.1 
+##           1.391609e-02           3.932622e-02           0.000000e+00           1.604028e-03 
+##          PheCode:303.3          PheCode:303.4            PheCode:304          PheCode:305.2 
+##           0.000000e+00           2.553669e-03           2.535333e-02           1.238662e-02 
+##          PheCode:306.9          PheCode:312.3          PheCode:313.1          PheCode:313.2 
+##           0.000000e+00           1.139868e-02           1.269782e-02           0.000000e+00 
+##          PheCode:313.3          PheCode:315.1          PheCode:317.1            PheCode:318 
+##           5.789939e-03           5.227076e-03           1.878744e-02           7.772511e-03 
+##          PheCode:327.1          PheCode:327.3          PheCode:327.4          PheCode:327.5 
+##           0.000000e+00           9.758888e-03           2.193269e-02           3.660660e-03 
+##          PheCode:327.6          PheCode:327.7          PheCode:338.2            PheCode:339 
+##           2.443443e-04           0.000000e+00           4.039054e-03           2.711053e-03 
+##          PheCode:340.1            PheCode:347            PheCode:351          PheCode:355.1 
+##           0.000000e+00           1.142062e-03           0.000000e+00           5.028459e-03 
+##          PheCode:367.1          PheCode:367.4          PheCode:389.4          PheCode:401.1 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##            PheCode:476          PheCode:521.1          PheCode:522.1          PheCode:523.3 
+##           0.000000e+00           8.540792e-03           0.000000e+00           0.000000e+00 
+##          PheCode:525.1          PheCode:526.4          PheCode:530.1          PheCode:564.1 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##            PheCode:605          PheCode:610.1          PheCode:612.1          PheCode:614.5 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##            PheCode:615          PheCode:620.1          PheCode:625.1          PheCode:626.1 
+##           0.000000e+00           0.000000e+00           0.000000e+00           5.287624e-03 
+##          PheCode:626.2          PheCode:626.4          PheCode:626.8          PheCode:627.2 
+##           0.000000e+00           4.105464e-03           0.000000e+00           0.000000e+00 
+##          PheCode:627.5          PheCode:634.3            PheCode:638          PheCode:704.2 
+##           0.000000e+00           2.880194e-03           1.303197e-03           0.000000e+00 
+##          PheCode:706.1          PheCode:721.1          PheCode:722.1          PheCode:722.6 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##          PheCode:726.1          PheCode:728.7          PheCode:729.1          PheCode:740.1 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##            PheCode:745            PheCode:760            PheCode:761            PheCode:763 
+##           2.238783e-02           2.725426e-02           2.720861e-04           0.000000e+00 
+##            PheCode:765            PheCode:769            PheCode:770            PheCode:773 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##          PheCode:792.1            PheCode:817            PheCode:819            PheCode:969 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##            PheCode:979            PheCode:981         RXNORM:1000104           RXNORM:10379 
+##           0.000000e+00           0.000000e+00           0.000000e+00           9.920085e-03 
+##         RXNORM:1040028           RXNORM:10454           RXNORM:10689           RXNORM:10734 
+##           0.000000e+00           0.000000e+00           0.000000e+00           8.776484e-03 
+##           RXNORM:10737           RXNORM:10814           RXNORM:10834         RXNORM:1086769 
+##           0.000000e+00           3.025662e-03           1.753612e-02           3.530203e-03 
+##          RXNORM:135775          RXNORM:136411          RXNORM:141366         RXNORM:1455099 
+##           0.000000e+00           8.629329e-03           1.479650e-03           7.268318e-03 
+##         RXNORM:1547099         RXNORM:1551467         RXNORM:1592257            RXNORM:1819 
+##           7.697787e-03           2.847842e-03           3.242485e-03           0.000000e+00 
+##            RXNORM:1827           RXNORM:20610          RXNORM:214130          RXNORM:214551 
+##           0.000000e+00           0.000000e+00           5.097621e-03           6.024967e-03 
+##          RXNORM:214558          RXNORM:214559           RXNORM:21949          RXNORM:228783 
+##           0.000000e+00           0.000000e+00           7.056413e-03           1.014327e-02 
+##          RXNORM:231049          RXNORM:235355           RXNORM:24605          RXNORM:253146 
+##           0.000000e+00           8.742899e-04           0.000000e+00           4.442815e-03 
+##            RXNORM:2596            RXNORM:2598          RXNORM:279645           RXNORM:28439 
+##           0.000000e+00           1.801990e-04           7.596419e-03           1.407390e-03 
+##          RXNORM:321988          RXNORM:324044            RXNORM:3288            RXNORM:3361 
+##           1.665115e-03           0.000000e+00           0.000000e+00           0.000000e+00 
+##          RXNORM:352364          RXNORM:352376          RXNORM:352377            RXNORM:3554 
+##           2.458188e-02           0.000000e+00           0.000000e+00           1.262814e-02 
+##           RXNORM:35617            RXNORM:3638           RXNORM:37075           RXNORM:37418 
+##           0.000000e+00           0.000000e+00           0.000000e+00           1.115697e-02 
+##           RXNORM:38400           RXNORM:38404          RXNORM:384410           RXNORM:39786 
+##           0.000000e+00           5.034543e-03           0.000000e+00           4.053155e-03 
+##           RXNORM:39993            RXNORM:4083           RXNORM:41493           RXNORM:42347 
+##           1.039046e-02           0.000000e+00           1.019407e-02           7.961925e-03 
+##            RXNORM:4493          RXNORM:461016          RXNORM:466584           RXNORM:51272 
+##           0.000000e+00           3.815483e-03           0.000000e+00           0.000000e+00 
+##            RXNORM:5553            RXNORM:5640             RXNORM:569          RXNORM:588003 
+##           8.862177e-03           1.797450e-02           1.862959e-03           7.816551e-03 
+##          RXNORM:588250            RXNORM:6373            RXNORM:6711            RXNORM:6845 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##            RXNORM:6901          RXNORM:700810            RXNORM:7242            RXNORM:7243 
+##           6.041366e-05           9.746620e-04           0.000000e+00           1.653918e-02 
+##            RXNORM:7258           RXNORM:72625          RXNORM:734064            RXNORM:7407 
+##           2.755611e-03           8.414151e-03           4.434699e-03           0.000000e+00 
+##            RXNORM:7514           RXNORM:82819          RXNORM:840781            RXNORM:8629 
+##           0.000000e+00           5.230860e-03           0.000000e+00           1.545760e-02 
+##           RXNORM:88014           RXNORM:89013            RXNORM:9899          ShortName:A1C 
+##           0.000000e+00           5.245271e-03           1.048402e-02           0.000000e+00 
+## ShortName:HCV - RNA VL         ShortName:HDLC         ShortName:LDLC      ShortName:TotChol 
+##           0.000000e+00           0.000000e+00           0.000000e+00           0.000000e+00 
+##         ShortName:Trig 
+##           0.000000e+00</code></pre>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -902,7 +461,7 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Chuan Hong, Molei Liu, Tianxi Cai.</p>
+  <p>Developed by Chuan Hong, Molei Liu, Tianxi Cai,  PARSE LTD.</p>
 </div>
 
 <div class="pkgdown">

@@ -8,7 +8,8 @@ vignette: >
 ---
 
 ```{r, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+# knitr::opts_chunk$set(collapse = TRUE)
+options(width = 100)
 ```
 
 ```{r, include=FALSE}

@@ -2,9 +2,10 @@ Package: KESER
 Title: Knowledge Extraction via Sparse Embedding Regression (KESER)
 Version: 0.1.0
 Authors@R: c(
-    person("Chuan", "Hong", role =  c("aut", "cre"), email = "Chuan_Hong@hms.harvard.edu"),
+    person("Chuan", "Hong", role = "aut"),
     person("Molei", "Liu", role = "aut"),
-    person("Tianxi", "Cai", role = "aut"))
+    person("Tianxi", "Cai", role = "aut"),
+    person(family = "PARSE LTD", role =  c("aut", "cre"), email = "software@parse-health.org"))
 Description: Implements learning algorithm that uses large scale code embeddings to facilitate effective feature selection and knowledge discovery with EHR data.
 URL: https://celehs.github.io/KESER, https://github.com/celehs/KESER
 License: GPL-3
