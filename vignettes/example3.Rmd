@@ -8,20 +8,21 @@ output: rmarkdown::html_vignette
 ---
 
 ```{r, include=FALSE}
-# knitr::opts_chunk$set(collapse = TRUE)
-options(width = 100)
+knitr::opts_chunk$set(eval = TRUE)
 ```
 
-```{r, include=FALSE}
-file <- "https://github.com/celehs/KESER/raw/master/rdata/depression.rds"
-data <- readRDS(url(file, "rb"))
-# str(data)
-```
-
-Integrative Feature Selection
+Load the depression data into R.
 
 ```{r}
-system.time(int.fit.results.fast <- KESER:::int.feature.selection.fast(
+file <- "https://github.com/celehs/KESER/raw/master/rdata/depression.rds"
+data <- readRDS(url(file, "rb"))
+```
+
+Integrative Feature Selection with Data from Two Sources
+
+```{r}
+library(KESER)
+system.time(int.fit.results.fast <- int.feature.selection.fast(
   data$X_full_lst[1:2], data$Y_full_lst[1:2], 
   data$X_train_lst[1:2], data$Y_train_lst[1:2], 
   data$X_valid_lst[1:2], data$Y_valid_lst[1:2],
