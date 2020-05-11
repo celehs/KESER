@@ -5,7 +5,8 @@ articles:
   data: data.html
   example1: example1.html
   example2: example2.html
-last_built: 2020-05-11T08:49Z
+  example3: example3.html
+last_built: 2020-05-11T12:37Z
 urls:
   reference: https://celehs.github.io/KESER//reference
   article: https://celehs.github.io/KESER//articles

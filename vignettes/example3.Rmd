@@ -1,0 +1,30 @@
+---
+title: "Example 3"
+vignette: >
+  %\VignetteIndexEntry{example3}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+output: rmarkdown::html_vignette
+---
+
+```{r, include=FALSE}
+# knitr::opts_chunk$set(collapse = TRUE)
+options(width = 100)
+```
+
+```{r, include=FALSE}
+file <- "https://github.com/celehs/KESER/raw/master/rdata/depression.rds"
+data <- readRDS(url(file, "rb"))
+# str(data)
+```
+
+Integrative Feature Selection
+
+```{r}
+system.time(int.fit.results.fast <- KESER:::int.feature.selection.fast(
+  data$X_full_lst[1:2], data$Y_full_lst[1:2], 
+  data$X_train_lst[1:2], data$Y_train_lst[1:2], 
+  data$X_valid_lst[1:2], data$Y_valid_lst[1:2],
+  lambda_lst = NULL, add.ridge = TRUE))
+int.fit.results.fast
+```
