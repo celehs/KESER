@@ -1,0 +1,31 @@
+---
+title: "Example 1"
+vignette: >
+  %\VignetteIndexEntry{example1}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+output: rmarkdown::html_vignette
+---
+
+```{r, include=FALSE}
+# knitr::opts_chunk$set(collapse = TRUE)
+options(width = 100)
+```
+
+```{r, include=FALSE}
+file <- "https://github.com/celehs/KESER/raw/master/rdata/depression.rds"
+data <- readRDS(url(file, "rb"))
+# str(data)
+```
+
+Research Patient Data Registry(RPDR) of Partners Healthcare (PHS) 
+
+```{r}
+system.time(loc.fit.RPDR <- KESER:::loc.feature.selection(
+  data$X_full_lst[[1]], data$Y_full_lst[[1]],
+  data$X_train_lst[[1]], data$Y_train_lst[[1]], 
+  data$X_valid_lst[[1]], data$Y_valid_lst[[1]],
+  alpha = 1, lambda_lst = NULL, up_rate = 10, 
+  drop_rate = 0.5, cos_cut = 0.1, add.ridge = TRUE))
+loc.fit.RPDR
+```
