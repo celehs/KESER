@@ -38,15 +38,25 @@ drop_fun <- function(X, Y, drop_rate = 0.5, up_rate = 10){
 
 # Fit local lasso with the validation set to tune
 
-Lasso_select_drop <- function(X, Y, X_valid, Y_valid, X_all, Y_all, lambda_lst,
-                              alpha = 0.5){
-  min.lambda <- NULL
-  min.coef <- NULL
-  min.mse <- Inf
+Lasso_select_drop <- function(X, Y, X_valid, Y_valid, X_all, Y_all, lambda_lst = NULL,
+                              alpha = 1){
+
+  ########################## Find scale of lambda ##########################
+  
+  if (is.null(lambda_lst)){
+    fit.cv <- cv.glmnet(X, Y, intercept = F, alpha = alpha, standardize = F)
+    lambda.min <- fit.cv$lambda.min
+    lambda_lst = c(1e-3 * (1:999), 1:1000) * lambda.min
+  }
+  ############################################################################
+  
   
   fit_result <- glmnet(X, Y, lambda = lambda_lst, intercept = F, alpha = alpha,
                        standardize = F)
   
+  min.lambda <- NULL
+  min.coef <- NULL
+  min.mse <- Inf
   for (l in 1:length(lambda_lst)) {
     lambda <- fit_result$lambda[l]
     fit_coef <- as.vector(fit_result$beta[,l])
@@ -73,7 +83,7 @@ Lasso_select_drop <- function(X, Y, X_valid, Y_valid, X_all, Y_all, lambda_lst,
 # Main function for local feature selection
 
 loc.feature.selection <- function(X_full, Y_full, X_train, Y_train, X_valid, Y_valid,
-                                  alpha = 0.5, lambda_lst = NULL, up_rate = 10, 
+                                  alpha = 1, lambda_lst = NULL, up_rate = 10, 
                                   drop_rate = 0.5, cos_cut = 0.1, add.ridge = T){
   ################ cut by cosine ################
   
@@ -102,10 +112,7 @@ loc.feature.selection <- function(X_full, Y_full, X_train, Y_train, X_valid, Y_v
   
   p1 <- length(X_full)
   n1 <- length(X_full)
-  if (is.null(lambda_lst)){
-    lambda_lst = 0.3 * c(c(1:400) * 0.0003, c(41:400) * 0.003, 
-                         c(41:1500) * 0.03) * sd(Y_train) * sqrt(log(p1) / n1)
-  }
+
   if (add.ridge == T){
     ridge.results <- add.ridge.fast(X_train, Y_train, X_valid, Y_valid, X_full, Y_full)
     Y_train <- ridge.results$Y_train
@@ -187,12 +194,6 @@ int.feature.selection.fast <- function(X_full_lst, Y_full_lst, X_train_lst,
   Y_train_all <- c(Y_train_lst[[1]], Y_train_lst[[2]])
   Y_valid_all <- c(Y_valid_lst[[1]], Y_valid_lst[[2]])
   
-  if (is.null(lambda_lst)){
-    lambda_lst <- c(1e-5 * c(20:500), 1e-4 * c(51:500), 1e-3 * c(51:500)) * 
-      (sd(Y_train_lst[[1]]) + sd(Y_train_lst[[2]])) * 
-      sqrt(log(ncol(X_train_all)) / nrow(X_train_all))
-  }
-  
   
   ############# Creat group index and penalty factor to fit for gglasso() #############
   
@@ -201,6 +202,18 @@ int.feature.selection.fast <- function(X_full_lst, Y_full_lst, X_train_lst,
   group_ind_vec[2 * c(1:(p_tot / 2))] <- group_ind_vec[2 * c(1:(p_tot / 2))] / 2
   pf_group <- rep(1, (p_tot / 2))
   pf_group[which(c(1:(p_tot / 2)) %in% common_indx)] <- 1 / sqrt(2)
+  
+  ########################## Find scale of lambda ##########################
+  
+  if (is.null(lambda_lst)){
+    fit.cv <- cv.gglasso(x = as.matrix(X_train_all), y = Y_train_all, group = group_ind_vec, 
+                         pf = pf_group, intercept = F)
+    lambda.min <- fit.cv$lambda.min
+    lambda_lst = c(1e-3 * (1:999), 1:1000) * lambda.min
+  }
+  
+  ############################################################################
+  
   fit_result <- gglasso(x = as.matrix(X_train_all), y = Y_train_all, group = group_ind_vec, 
                         lambda = lambda_lst, pf = pf_group, intercept = F)
   
