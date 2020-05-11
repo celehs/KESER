@@ -1,8 +1,12 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 
+archive
 docs
 pkgdown
 rdata
 
 README.*
+
+_vignettes
+
