@@ -28,6 +28,16 @@ Load the package into R.
 library(KESER)
 ```
 
+## Documentation
+
+- [Input Data for Local and Integrative Feature Selection](https://celehs.github.io/KESER/articles/data.html)
+
+- [Example 1: Local Feature Selection with Data from Partners Healthcare](https://celehs.github.io/KESER/articles/example1.html)
+
+- [Example 2: Local Feature Selection with Data from Veteran Affairs (VA)](https://celehs.github.io/KESER/articles/example2.html)
+
+- [Example 3: Integrative Feature Selection with Data from Two Sources](https://celehs.github.io/KESER/articles/example3.html)
+
 ## Reference
 
 - __Large Scale Code Embedding with Applications to Feature Selection and Knowledge Discovery in Electronic Health Records__. _Working Paper_. 
