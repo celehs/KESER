@@ -111,5 +111,5 @@ int.feature.selection.fast <- function(
   rownames(beta.tab) <- beta.tab$Row.names
   beta.tab$Row.names <- NULL
   colnames(beta.tab) <- c('Study_1', 'Study_2')
-  list(min.beta = beta.tab, min.lambda = min.lambda)
+  list(lambda = min.lambda, coefficients = beta.tab)
 }

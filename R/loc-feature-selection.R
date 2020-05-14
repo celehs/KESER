@@ -47,5 +47,5 @@ loc.feature.selection <- function(
     X_train, Y_train, X_valid, Y_valid, X_full, Y_full, lambda_lst = lambda_lst, alpha = alpha)
   beta_loc <- as.data.frame(fit.local$min.coef)
   rownames(beta_loc) <- colnames(X_full)
-  list(min.lambda = fit.local$min.lambda, min.beta = beta_loc)
+  list(lambda = fit.local$min.lambda, coefficients = beta_loc)
 }
