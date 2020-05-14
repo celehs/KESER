@@ -1,7 +1,7 @@
 ---
-title: "Example 1"
+title: "Single Site"
 vignette: >
-  %\VignetteIndexEntry{example1}
+  %\VignetteIndexEntry{single}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 output: rmarkdown::html_vignette
@@ -18,7 +18,7 @@ file <- "https://github.com/celehs/KESER/raw/master/rdata/depression.rds"
 data <- readRDS(url(file, "rb"))
 ```
 
-Local Feature Selection with Data from Partners Healthcare 
+Feature Selection with Embeddings from Partners Healthcare 
 
 ```{r}
 library(KESER)
@@ -29,4 +29,17 @@ system.time(loc.fit.RPDR <- loc.feature.selection(
   alpha = 1, lambda_lst = NULL, up_rate = 10, 
   drop_rate = 0.5, cos_cut = 0.1, add.ridge = TRUE))
 loc.fit.RPDR
+```
+
+Feature Selection with Embeddings from Veteran Affairs (VA)
+
+```{r}
+library(KESER)
+system.time(loc.fit.VA <- loc.feature.selection(
+  data$X_full_lst[[2]], data$Y_full_lst[[2]],
+  data$X_train_lst[[2]], data$Y_train_lst[[2]], 
+  data$X_valid_lst[[2]], data$Y_valid_lst[[2]],
+  alpha = 1, lambda_lst = NULL, up_rate = 10, 
+  drop_rate = 0.5, cos_cut = 0.1, add.ridge = TRUE))
+loc.fit.VA
 ```

@@ -1,7 +1,7 @@
 ---
-title: "Example 3"
+title: "Multiple Sites"
 vignette: >
-  %\VignetteIndexEntry{example3}
+  %\VignetteIndexEntry{multiple}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 output: rmarkdown::html_vignette
@@ -18,7 +18,7 @@ file <- "https://github.com/celehs/KESER/raw/master/rdata/depression.rds"
 data <- readRDS(url(file, "rb"))
 ```
 
-Integrative Feature Selection with Data from Two Sources
+Integrative Feature Selection with Embeddings from Two Sites
 
 ```{r}
 library(KESER)

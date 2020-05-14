@@ -9,10 +9,7 @@ navbar:
   left:
     - text: "Home"
       href: index.html      
-    - text: "Example 1"
-      href: articles/example1.html        
-    - text: "Example 2"
-      href: articles/example2.html      
-    - text: "Example 3"
-      href: articles/example3.html            
-
+    - text: "Single Site"
+      href: articles/single.html        
+    - text: "Multiple Sites"
+      href: articles/multiple.html   
