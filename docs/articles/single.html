@@ -92,24 +92,24 @@
   <span class="kw">alpha</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">lambda_lst</span> <span class="kw">=</span> <span class="kw">NULL</span>, <span class="kw">up_rate</span> <span class="kw">=</span> <span class="fl">10</span>,
   <span class="kw">drop_rate</span> <span class="kw">=</span> <span class="fl">0.5</span>, <span class="kw">cos_cut</span> <span class="kw">=</span> <span class="fl">0.1</span>, <span class="kw">add.ridge</span> <span class="kw">=</span> <span class="fl">TRUE</span>))</pre></body></html></div>
 <pre><code>##    user  system elapsed 
-## 106.724  14.980  96.004</code></pre>
+## 116.019  20.361 102.267</code></pre>
 <div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">loc.fit.RPDR</span></pre></body></html></div>
 <pre><code>## $lambda
-## [1] 1.23476e-05
+## [1] 5.649638e-06
 ## 
 ## $results
 ##              name        coef
-##   1:      CCS:130 0.012366709
-##   2:      CCS:182 0.025680016
-##   3:      CCS:200 0.008668069
-##   4:      CCS:218 0.121212003
-##   5:      CCS:219 0.004603615
+##   1:      CCS:130 0.016754044
+##   2:      CCS:182 0.019252606
+##   3:      CCS:200 0.007857237
+##   4:      CCS:218 0.120365308
+##   5:      CCS:219 0.008929489
 ##  ---                         
-## 308:  RXNORM:8629 0.024545522
+## 308:  RXNORM:8629 0.007877825
 ## 309:  RXNORM:8787 0.000000000
-## 310: RXNORM:89013 0.008292862
+## 310: RXNORM:89013 0.003980310
 ## 311: RXNORM:89905 0.000000000
-## 312:  RXNORM:9639 0.054552335</code></pre>
+## 312:  RXNORM:9639 0.060033508</code></pre>
 <p>Feature Selection with Embeddings from Veteran Affairs (VA)</p>
 <div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">KESER</span>)
 <span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span>(<span class="no">loc.fit.VA</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/loc.feature.selection.html">loc.feature.selection</a></span>(
@@ -119,18 +119,18 @@
   <span class="kw">alpha</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">lambda_lst</span> <span class="kw">=</span> <span class="kw">NULL</span>, <span class="kw">up_rate</span> <span class="kw">=</span> <span class="fl">10</span>,
   <span class="kw">drop_rate</span> <span class="kw">=</span> <span class="fl">0.5</span>, <span class="kw">cos_cut</span> <span class="kw">=</span> <span class="fl">0.1</span>, <span class="kw">add.ridge</span> <span class="kw">=</span> <span class="fl">TRUE</span>))</pre></body></html></div>
 <pre><code>##    user  system elapsed 
-## 302.597  28.597 277.738</code></pre>
+## 329.183  36.805 299.560</code></pre>
 <div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="no">loc.fit.VA</span></pre></body></html></div>
 <pre><code>## $lambda
-## [1] 7.2271e-05
+## [1] 5.371906e-05
 ## 
 ## $results
 ##                        name       coef
-##   1:                CCS:130 0.01188047
+##   1:                CCS:130 0.01462463
 ##   2:                CCS:131 0.00000000
 ##   3:                CCS:156 0.00000000
 ##   4:                CCS:163 0.00000000
-##   5:                CCS:182 0.00000000
+##   5:                CCS:182 0.01067271
 ##  ---                                  
 ## 465: ShortName:HCV - RNA VL 0.00000000
 ## 466:         ShortName:HDLC 0.00000000
@@ -148,7 +148,7 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Molei Liu, Chuan Hong, Ming Yang, Tianxi Cai,  PARSE LTD.</p>
+  <p>Developed by Molei Liu, Chuan Hong, Tianxi Cai,  PARSE LTD.</p>
 </div>
 
 <div class="pkgdown">
