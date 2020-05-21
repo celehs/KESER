@@ -27,5 +27,5 @@ system.time(int.fit.results <- int.feature.selection(
   data$X_train_lst[1:2], data$Y_train_lst[1:2], 
   data$X_valid_lst[1:2], data$Y_valid_lst[1:2],
   lambda_lst = NULL, add.ridge = TRUE))
-int.fit.results$coef
+int.fit.results
 ```

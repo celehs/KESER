@@ -108,9 +108,7 @@ int.feature.selection <- function(
     rownames(beta_lst[[m]]) <- colnames(X_full_lst[[m]])
   }
   beta.tab <- merge(beta_lst[[1]], beta_lst[[2]], by = 'row.names', all = TRUE)
-  # rownames(beta.tab) <- beta.tab$Row.names
-  # beta.tab$Row.names <- NULL
-  colnames(beta.tab) <- c('Study_1', 'Study_2')
+  colnames(beta.tab) <- c('name', 'coef1', 'coef2')
   list(lambda = min.lambda, 
-       coefficients = data.table::data.table(beta.tab))
+       results = data.table::data.table(beta.tab))
 }
