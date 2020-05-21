@@ -9,6 +9,8 @@ navbar:
   left:
     - text: "Home"
       href: index.html      
+    - text: "Embeddings"
+      href: https://code.ornl.gov/mvp-champion/research-support/cooccurrence-matrix      
     - text: "Single Site"
       href: articles/single.html        
     - text: "Multiple Sites"

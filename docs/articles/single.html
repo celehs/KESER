@@ -41,6 +41,9 @@
   <a href="../index.html">Home</a>
 </li>
 <li>
+  <a href="https://code.ornl.gov/mvp-champion/research-support/cooccurrence-matrix">Embeddings</a>
+</li>
+<li>
   <a href="../articles/single.html">Single Site</a>
 </li>
 <li>
@@ -89,24 +92,24 @@
   <span class="kw">alpha</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">lambda_lst</span> <span class="kw">=</span> <span class="kw">NULL</span>, <span class="kw">up_rate</span> <span class="kw">=</span> <span class="fl">10</span>,
   <span class="kw">drop_rate</span> <span class="kw">=</span> <span class="fl">0.5</span>, <span class="kw">cos_cut</span> <span class="kw">=</span> <span class="fl">0.1</span>, <span class="kw">add.ridge</span> <span class="kw">=</span> <span class="fl">TRUE</span>))</pre></body></html></div>
 <pre><code>##    user  system elapsed 
-## 107.166  15.898  95.921</code></pre>
+## 106.724  14.980  96.004</code></pre>
 <div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">loc.fit.RPDR</span></pre></body></html></div>
 <pre><code>## $lambda
-## [1] 2.01875e-05
+## [1] 1.23476e-05
 ## 
 ## $results
-##              name         coef
-##   1:      CCS:130 0.0096765991
-##   2:      CCS:182 0.0080139039
-##   3:      CCS:200 0.0207024646
-##   4:      CCS:218 0.1349918688
-##   5:      CCS:219 0.0000000000
-##  ---                          
-## 308:  RXNORM:8629 0.0007026296
-## 309:  RXNORM:8787 0.0000000000
-## 310: RXNORM:89013 0.0000000000
-## 311: RXNORM:89905 0.0005040247
-## 312:  RXNORM:9639 0.0568413021</code></pre>
+##              name        coef
+##   1:      CCS:130 0.012366709
+##   2:      CCS:182 0.025680016
+##   3:      CCS:200 0.008668069
+##   4:      CCS:218 0.121212003
+##   5:      CCS:219 0.004603615
+##  ---                         
+## 308:  RXNORM:8629 0.024545522
+## 309:  RXNORM:8787 0.000000000
+## 310: RXNORM:89013 0.008292862
+## 311: RXNORM:89905 0.000000000
+## 312:  RXNORM:9639 0.054552335</code></pre>
 <p>Feature Selection with Embeddings from Veteran Affairs (VA)</p>
 <div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">KESER</span>)
 <span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span>(<span class="no">loc.fit.VA</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/loc.feature.selection.html">loc.feature.selection</a></span>(
@@ -116,24 +119,24 @@
   <span class="kw">alpha</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">lambda_lst</span> <span class="kw">=</span> <span class="kw">NULL</span>, <span class="kw">up_rate</span> <span class="kw">=</span> <span class="fl">10</span>,
   <span class="kw">drop_rate</span> <span class="kw">=</span> <span class="fl">0.5</span>, <span class="kw">cos_cut</span> <span class="kw">=</span> <span class="fl">0.1</span>, <span class="kw">add.ridge</span> <span class="kw">=</span> <span class="fl">TRUE</span>))</pre></body></html></div>
 <pre><code>##    user  system elapsed 
-## 317.319  34.633 290.242</code></pre>
+## 302.597  28.597 277.738</code></pre>
 <div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="no">loc.fit.VA</span></pre></body></html></div>
 <pre><code>## $lambda
-## [1] 7.141102e-05
+## [1] 7.2271e-05
 ## 
 ## $results
-##                        name        coef
-##   1:                CCS:130 0.002084991
-##   2:                CCS:131 0.000000000
-##   3:                CCS:156 0.000000000
-##   4:                CCS:163 0.000000000
-##   5:                CCS:182 0.010632596
-##  ---                                   
-## 465: ShortName:HCV - RNA VL 0.000000000
-## 466:         ShortName:HDLC 0.000000000
-## 467:         ShortName:LDLC 0.000000000
-## 468:      ShortName:TotChol 0.000000000
-## 469:         ShortName:Trig 0.000000000</code></pre>
+##                        name       coef
+##   1:                CCS:130 0.01188047
+##   2:                CCS:131 0.00000000
+##   3:                CCS:156 0.00000000
+##   4:                CCS:163 0.00000000
+##   5:                CCS:182 0.00000000
+##  ---                                  
+## 465: ShortName:HCV - RNA VL 0.00000000
+## 466:         ShortName:HDLC 0.00000000
+## 467:         ShortName:LDLC 0.00000000
+## 468:      ShortName:TotChol 0.00000000
+## 469:         ShortName:Trig 0.00000000</code></pre>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

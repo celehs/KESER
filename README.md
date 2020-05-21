@@ -24,9 +24,13 @@ library(KESER)
 
 ## Documentation
 
+- [Efficient Calculation of Coocurrence and Embeddings](https://code.ornl.gov/mvp-champion/research-support/cooccurrence-matrix)
+
 - [Local Feature Selection with Embeddings from a Single Site](https://celehs.github.io/KESER/articles/single.html)
 
 - [Integrative Feature Selection with Embeddings from Two Sites](https://celehs.github.io/KESER/articles/multiple.html)
+
+- Network and Interactive Visualization (Coming Soon)
 
 ## References
 
