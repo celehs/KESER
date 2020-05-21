@@ -22,10 +22,10 @@ Integrative Feature Selection with Embeddings from Two Sites
 
 ```{r}
 library(KESER)
-system.time(int.fit.results.fast <- int.feature.selection.fast(
+system.time(int.fit.results <- int.feature.selection(
   data$X_full_lst[1:2], data$Y_full_lst[1:2], 
   data$X_train_lst[1:2], data$Y_train_lst[1:2], 
   data$X_valid_lst[1:2], data$Y_valid_lst[1:2],
   lambda_lst = NULL, add.ridge = TRUE))
-int.fit.results.fast
+int.fit.results$coef
 ```

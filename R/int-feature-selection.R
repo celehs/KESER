@@ -8,7 +8,7 @@
 #' @param lambda_lst ...
 #' @param add.ridge ...
 #' @export
-int.feature.selection.fast <- function(
+int.feature.selection <- function(
   X_full_lst, Y_full_lst, X_train_lst, Y_train_lst, X_valid_lst, Y_valid_lst,
   lambda_lst = NULL, add.ridge = TRUE) {
   ################# Drop-out #################
@@ -108,8 +108,9 @@ int.feature.selection.fast <- function(
     rownames(beta_lst[[m]]) <- colnames(X_full_lst[[m]])
   }
   beta.tab <- merge(beta_lst[[1]], beta_lst[[2]], by = 'row.names', all = TRUE)
-  rownames(beta.tab) <- beta.tab$Row.names
-  beta.tab$Row.names <- NULL
+  # rownames(beta.tab) <- beta.tab$Row.names
+  # beta.tab$Row.names <- NULL
   colnames(beta.tab) <- c('Study_1', 'Study_2')
-  list(lambda = min.lambda, coefficients = beta.tab)
+  list(lambda = min.lambda, 
+       coefficients = data.table::data.table(beta.tab))
 }

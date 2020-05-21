@@ -45,7 +45,7 @@ loc.feature.selection <- function(
   ################ Run CV-lasso ################
   fit.local <- Lasso_select_drop(
     X_train, Y_train, X_valid, Y_valid, X_full, Y_full, lambda_lst = lambda_lst, alpha = alpha)
-  beta_loc <- as.data.frame(fit.local$min.coef)
-  rownames(beta_loc) <- colnames(X_full)
-  list(lambda = fit.local$min.lambda, coefficients = beta_loc)
+  beta_loc <- data.frame(name = colnames(X_full), coef = fit.local$min.coef)
+  list(lambda = fit.local$min.lambda, 
+       results = data.table::data.table(beta_loc))
 }
