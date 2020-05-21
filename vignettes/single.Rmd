@@ -28,7 +28,7 @@ system.time(loc.fit.RPDR <- loc.feature.selection(
   data$X_valid_lst[[1]], data$Y_valid_lst[[1]],
   alpha = 1, lambda_lst = NULL, up_rate = 10, 
   drop_rate = 0.5, cos_cut = 0.1, add.ridge = TRUE))
-loc.fit.RPDR$coef
+loc.fit.RPDR
 ```
 
 Feature Selection with Embeddings from Veteran Affairs (VA)
@@ -41,5 +41,5 @@ system.time(loc.fit.VA <- loc.feature.selection(
   data$X_valid_lst[[2]], data$Y_valid_lst[[2]],
   alpha = 1, lambda_lst = NULL, up_rate = 10, 
   drop_rate = 0.5, cos_cut = 0.1, add.ridge = TRUE))
-loc.fit.VA$coef
+loc.fit.VA
 ```
