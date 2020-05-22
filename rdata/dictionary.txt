@@ -1,0 +1,16 @@
+     name                                                      description
+1   CCS:1                                     Incision and excision of CNS
+2  CCS:10                               Thyroidectomy, partial or complete
+3 CCS:100             Endoscopy and endoscopic biopsy of the urinary tract
+4 CCS:101 Transurethral excision, drainage, or removal urinary obstruction
+5 CCS:102                                         Ureteral catheterization
+6 CCS:103                                       Nephrotomy and nephrostomy
+                      name          description
+14767   ShortName:Troponin   ShortName:Troponin
+14768 ShortName:Troponin I ShortName:Troponin I
+14769 ShortName:Troponin T ShortName:Troponin T
+14770       ShortName:TSAT       ShortName:TSAT
+14771  ShortName:Uric Acid  ShortName:Uric Acid
+14772        ShortName:WBC        ShortName:WBC
+   user  system elapsed 
+  0.708   0.402   0.398 

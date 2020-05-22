@@ -11,17 +11,22 @@ output: rmarkdown::html_vignette
 knitr::opts_chunk$set(eval = TRUE)
 ```
 
+```{r}
+library(KESER)
+library(wordcloud)
+```
+
 Load the depression data into R.
 
 ```{r}
-file <- "https://github.com/celehs/KESER/raw/master/rdata/depression.rds"
-data <- readRDS(url(file, "rb"))
+dir <- "https://github.com/celehs/KESER/raw/master/rdata/"
+data <- readRDS(url(paste0(dir, "depression.rds"), "rb"))
+dict <- readRDS(url(paste0(dir, "dictionary.rds"), "rb"))
 ```
 
 Feature Selection with Embeddings from Partners Healthcare 
 
 ```{r}
-library(KESER)
 system.time(loc.fit.RPDR <- loc.feature.selection(
   data$X_full_lst[[1]], data$Y_full_lst[[1]],
   data$X_train_lst[[1]], data$Y_train_lst[[1]], 
