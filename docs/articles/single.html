@@ -80,63 +80,98 @@
 
     
     
+<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">KESER</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">wordcloud</span>)</pre></body></html></div>
+<pre><code>## Loading required package: RColorBrewer</code></pre>
 <p>Load the depression data into R.</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="no">file</span> <span class="kw">&lt;-</span> <span class="st">"https://github.com/celehs/KESER/raw/master/rdata/depression.rds"</span>
-<span class="no">data</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/connections.html">url</a></span>(<span class="no">file</span>, <span class="st">"rb"</span>))</pre></body></html></div>
+<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="no">dir</span> <span class="kw">&lt;-</span> <span class="st">"https://github.com/celehs/KESER/raw/master/rdata/"</span>
+<span class="no">data</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/connections.html">url</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="no">dir</span>, <span class="st">"depression.rds"</span>), <span class="st">"rb"</span>))
+<span class="no">dict</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/connections.html">url</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="no">dir</span>, <span class="st">"dictionary.rds"</span>), <span class="st">"rb"</span>))</pre></body></html></div>
 <p>Feature Selection with Embeddings from Partners Healthcare</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">KESER</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span>(<span class="no">loc.fit.RPDR</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/loc.feature.selection.html">loc.feature.selection</a></span>(
+<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span>(<span class="no">loc.fit.RPDR</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/loc.feature.selection.html">loc.feature.selection</a></span>(
   <span class="no">data</span>$<span class="no">X_full_lst</span><span class="kw">[[</span><span class="fl">1</span>]], <span class="no">data</span>$<span class="no">Y_full_lst</span><span class="kw">[[</span><span class="fl">1</span>]],
   <span class="no">data</span>$<span class="no">X_train_lst</span><span class="kw">[[</span><span class="fl">1</span>]], <span class="no">data</span>$<span class="no">Y_train_lst</span><span class="kw">[[</span><span class="fl">1</span>]],
   <span class="no">data</span>$<span class="no">X_valid_lst</span><span class="kw">[[</span><span class="fl">1</span>]], <span class="no">data</span>$<span class="no">Y_valid_lst</span><span class="kw">[[</span><span class="fl">1</span>]],
   <span class="kw">alpha</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">lambda_lst</span> <span class="kw">=</span> <span class="kw">NULL</span>, <span class="kw">up_rate</span> <span class="kw">=</span> <span class="fl">10</span>,
   <span class="kw">drop_rate</span> <span class="kw">=</span> <span class="fl">0.5</span>, <span class="kw">cos_cut</span> <span class="kw">=</span> <span class="fl">0.1</span>, <span class="kw">add.ridge</span> <span class="kw">=</span> <span class="fl">TRUE</span>))</pre></body></html></div>
 <pre><code>##    user  system elapsed 
-## 116.019  20.361 102.267</code></pre>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">loc.fit.RPDR</span></pre></body></html></div>
-<pre><code>## $lambda
-## [1] 5.649638e-06
-## 
-## $results
-##              name        coef
-##   1:      CCS:130 0.016754044
-##   2:      CCS:182 0.019252606
-##   3:      CCS:200 0.007857237
-##   4:      CCS:218 0.120365308
-##   5:      CCS:219 0.008929489
-##  ---                         
-## 308:  RXNORM:8629 0.007877825
-## 309:  RXNORM:8787 0.000000000
-## 310: RXNORM:89013 0.003980310
-## 311: RXNORM:89905 0.000000000
-## 312:  RXNORM:9639 0.060033508</code></pre>
+## 109.847  16.833  98.572</code></pre>
+<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="no">results.RPDR</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span>(<span class="no">loc.fit.RPDR</span>$<span class="no">results</span>, <span class="no">dict</span>, <span class="kw">all.x</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
+<span class="no">results.RPDR</span></pre></body></html></div>
+<pre><code>##              name        coef                                          description
+##   1:      CCS:130 0.000000000           Other diagnostic procedures, female organs
+##   2:      CCS:182 0.013853775                                          Mammography
+##   3:      CCS:200 0.029451578             Nonoperative urinary system measurements
+##   4:      CCS:218 0.128414891 Psychological and psychiatric evaluation and therapy
+##   5:      CCS:219 0.003974169       Alcohol and drug rehabilitation/detoxification
+##  ---                                                                              
+## 308:  RXNORM:8629 0.013874670                                             prazosin
+## 309:  RXNORM:8787 0.000000000                                          propranolol
+## 310: RXNORM:89013 0.000000000                                         aripiprazole
+## 311: RXNORM:89905 0.000000000                                        multivitamins
+## 312:  RXNORM:9639 0.056428741                                           selegiline</code></pre>
+<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="fl">1234</span>)
+<span class="fu"><a href="https://rdrr.io/pkg/wordcloud/man/wordcloud.html">wordcloud</a></span>(<span class="kw">words</span> <span class="kw">=</span> <span class="no">results.RPDR</span>$<span class="no">description</span>,
+          <span class="kw">freq</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span>(<span class="no">results.RPDR</span>$<span class="no">coef</span>) * <span class="fl">100</span>),
+          <span class="kw">random.order</span> <span class="kw">=</span> <span class="fl">FALSE</span>,
+          <span class="kw">colors</span> <span class="kw">=</span> <span class="fu">brewer.pal</span>(<span class="fl">8</span>, <span class="st">"Dark2"</span>),
+          <span class="co"># scale = c(4, 0.2),</span>
+          <span class="kw">rot.per</span> <span class="kw">=</span> <span class="fl">0</span>)</pre></body></html></div>
+<pre><code>## Warning in wordcloud(words = results.RPDR$description, freq = round(as.numeric(results.RPDR$coef)
+## * : Psychological and psychiatric evaluation and therapy could not be fit on page. It will not be
+## plotted.</code></pre>
+<pre><code>## Warning in wordcloud(words = results.RPDR$description, freq = round(as.numeric(results.RPDR$coef)
+## * : Salicylates causing adverse effects in therapeutic use could not be fit on page. It will not be
+## plotted.</code></pre>
+<p><img src="single_files/figure-html/unnamed-chunk-5-1.png" width="1152"></p>
 <p>Feature Selection with Embeddings from Veteran Affairs (VA)</p>
-<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">KESER</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span>(<span class="no">loc.fit.VA</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/loc.feature.selection.html">loc.feature.selection</a></span>(
+<div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/system.time.html">system.time</a></span>(<span class="no">loc.fit.VA</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/loc.feature.selection.html">loc.feature.selection</a></span>(
   <span class="no">data</span>$<span class="no">X_full_lst</span><span class="kw">[[</span><span class="fl">2</span>]], <span class="no">data</span>$<span class="no">Y_full_lst</span><span class="kw">[[</span><span class="fl">2</span>]],
   <span class="no">data</span>$<span class="no">X_train_lst</span><span class="kw">[[</span><span class="fl">2</span>]], <span class="no">data</span>$<span class="no">Y_train_lst</span><span class="kw">[[</span><span class="fl">2</span>]],
   <span class="no">data</span>$<span class="no">X_valid_lst</span><span class="kw">[[</span><span class="fl">2</span>]], <span class="no">data</span>$<span class="no">Y_valid_lst</span><span class="kw">[[</span><span class="fl">2</span>]],
   <span class="kw">alpha</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">lambda_lst</span> <span class="kw">=</span> <span class="kw">NULL</span>, <span class="kw">up_rate</span> <span class="kw">=</span> <span class="fl">10</span>,
   <span class="kw">drop_rate</span> <span class="kw">=</span> <span class="fl">0.5</span>, <span class="kw">cos_cut</span> <span class="kw">=</span> <span class="fl">0.1</span>, <span class="kw">add.ridge</span> <span class="kw">=</span> <span class="fl">TRUE</span>))</pre></body></html></div>
 <pre><code>##    user  system elapsed 
-## 329.183  36.805 299.560</code></pre>
-<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="no">loc.fit.VA</span></pre></body></html></div>
-<pre><code>## $lambda
-## [1] 5.371906e-05
-## 
-## $results
-##                        name       coef
-##   1:                CCS:130 0.01462463
+## 314.037  33.523 286.888</code></pre>
+<div class="sourceCode" id="cb13"><html><body><pre class="r"><span class="no">results.VA</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span>(<span class="no">loc.fit.VA</span>$<span class="no">results</span>, <span class="no">dict</span>, <span class="kw">all.x</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
+<span class="no">results.VA</span></pre></body></html></div>
+<pre><code>##                        name       coef
+##   1:                CCS:130 0.01337469
 ##   2:                CCS:131 0.00000000
 ##   3:                CCS:156 0.00000000
 ##   4:                CCS:163 0.00000000
-##   5:                CCS:182 0.01067271
+##   5:                CCS:182 0.00000000
 ##  ---                                  
 ## 465: ShortName:HCV - RNA VL 0.00000000
 ## 466:         ShortName:HDLC 0.00000000
 ## 467:         ShortName:LDLC 0.00000000
 ## 468:      ShortName:TotChol 0.00000000
-## 469:         ShortName:Trig 0.00000000</code></pre>
+## 469:         ShortName:Trig 0.00000000
+##                                                                        description
+##   1:                                    Other diagnostic procedures, female organs
+##   2:                            Other non-OR therapeutic procedures, female organs
+##   3: Injections and aspirations of muscles, tendons, bursa, joints and soft tissue
+##   4:                 Other non-OR therapeutic procedures on musculoskeletal system
+##   5:                                                                   Mammography
+##  ---                                                                              
+## 465:                                                        ShortName:HCV - RNA VL
+## 466:                                                                ShortName:HDLC
+## 467:                                                                ShortName:LDLC
+## 468:                                                             ShortName:TotChol
+## 469:                                                                ShortName:Trig</code></pre>
+<div class="sourceCode" id="cb15"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="fl">1234</span>)
+<span class="fu"><a href="https://rdrr.io/pkg/wordcloud/man/wordcloud.html">wordcloud</a></span>(<span class="kw">words</span> <span class="kw">=</span> <span class="no">results.VA</span>$<span class="no">description</span>,
+          <span class="kw">freq</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span>(<span class="no">results.VA</span>$<span class="no">coef</span>) * <span class="fl">100</span>),
+          <span class="kw">random.order</span> <span class="kw">=</span> <span class="fl">FALSE</span>,
+          <span class="kw">colors</span> <span class="kw">=</span> <span class="fu">brewer.pal</span>(<span class="fl">8</span>, <span class="st">"Dark2"</span>),
+          <span class="co"># scale = c(4, 0.2),</span>
+          <span class="kw">rot.per</span> <span class="kw">=</span> <span class="fl">0</span>)</pre></body></html></div>
+<pre><code>## Warning in wordcloud(words = results.VA$description, freq = round(as.numeric(results.VA$coef) * :
+## Posttraumatic stress disorder could not be fit on page. It will not be plotted.</code></pre>
+<pre><code>## Warning in wordcloud(words = results.VA$description, freq = round(as.numeric(results.VA$coef)
+## * : Psychological and psychiatric evaluation and therapy could not be fit on page. It will not be
+## plotted.</code></pre>
+<p><img src="single_files/figure-html/unnamed-chunk-7-1.png" width="1152"></p>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

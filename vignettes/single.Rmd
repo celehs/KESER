@@ -9,6 +9,7 @@ output: rmarkdown::html_vignette
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(eval = TRUE)
+options(width = 100)
 ```
 
 ```{r}
@@ -33,18 +34,39 @@ system.time(loc.fit.RPDR <- loc.feature.selection(
   data$X_valid_lst[[1]], data$Y_valid_lst[[1]],
   alpha = 1, lambda_lst = NULL, up_rate = 10, 
   drop_rate = 0.5, cos_cut = 0.1, add.ridge = TRUE))
-loc.fit.RPDR
+results.RPDR <- merge(loc.fit.RPDR$results, dict, all.x = TRUE)
+results.RPDR
+```
+
+```{r, fig.width=12, fig.height=10}
+set.seed(1234)
+wordcloud(words = results.RPDR$description,
+          freq = round(as.numeric(results.RPDR$coef) * 100),
+          random.order = FALSE,
+          colors = brewer.pal(8, "Dark2"),
+          # scale = c(4, 0.2),
+          rot.per = 0)
 ```
 
 Feature Selection with Embeddings from Veteran Affairs (VA)
 
 ```{r}
-library(KESER)
 system.time(loc.fit.VA <- loc.feature.selection(
   data$X_full_lst[[2]], data$Y_full_lst[[2]],
   data$X_train_lst[[2]], data$Y_train_lst[[2]], 
   data$X_valid_lst[[2]], data$Y_valid_lst[[2]],
   alpha = 1, lambda_lst = NULL, up_rate = 10, 
   drop_rate = 0.5, cos_cut = 0.1, add.ridge = TRUE))
-loc.fit.VA
+results.VA <- merge(loc.fit.VA$results, dict, all.x = TRUE)
+results.VA
+```
+
+```{r, fig.width=12, fig.height=6}
+set.seed(1234)
+wordcloud(words = results.VA$description,
+          freq = round(as.numeric(results.VA$coef) * 100),
+          random.order = FALSE,
+          colors = brewer.pal(8, "Dark2"),
+          # scale = c(4, 0.2),
+          rot.per = 0)
 ```
