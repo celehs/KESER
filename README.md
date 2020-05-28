@@ -7,6 +7,8 @@ The increasing availability of Electronic Health Record (EHR) systems has create
 
 This packages implements the Knowledge Extraction via Sparse Embedding Regression (KESER) algorithm from our working paper, which is currently available upon request. We provide functions to use large scale code embeddings to facilitate effective feature selection and knowledge discovery with EHR data. A main advantage of the proposed embedding-based method over the existing feature selection algorithms is that it can be performed based on only summary data that can be shared across research groups.
 
+<img src="https://github.com/celehs/KESER/raw/master/flowchart/flowchart.png" width="500" />
+
 ## Installation
 
 Install development version from GitHub.
@@ -24,7 +26,7 @@ library(KESER)
 
 ## Documentation
 
-- [Efficient Calculation of Coocurrence and Embeddings](https://code.ornl.gov/mvp-champion/research-support/cooccurrence-matrix)
+- Efficient Calculation of Coocurrence and Embeddings 
 
 - [Local Feature Selection with Embeddings from a Single Site](https://celehs.github.io/KESER/articles/single.html)
 
