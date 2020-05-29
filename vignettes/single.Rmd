@@ -28,6 +28,7 @@ dict <- readRDS(url(paste0(dir, "dictionary.rds"), "rb"))
 Feature Selection with Embeddings from Partners Healthcare 
 
 ```{r}
+set.seed(123)
 system.time(loc.fit.RPDR <- loc.feature.selection(
   data$X_full_lst[[1]], data$Y_full_lst[[1]],
   data$X_train_lst[[1]], data$Y_train_lst[[1]], 
@@ -39,7 +40,6 @@ results.RPDR
 ```
 
 ```{r, fig.width=12, fig.height=10}
-set.seed(1234)
 wordcloud(words = results.RPDR$description,
           freq = round(as.numeric(results.RPDR$coef) * 100),
           random.order = FALSE,
@@ -51,6 +51,7 @@ wordcloud(words = results.RPDR$description,
 Feature Selection with Embeddings from Veteran Affairs (VA)
 
 ```{r}
+set.seed(123)
 system.time(loc.fit.VA <- loc.feature.selection(
   data$X_full_lst[[2]], data$Y_full_lst[[2]],
   data$X_train_lst[[2]], data$Y_train_lst[[2]], 
@@ -62,7 +63,6 @@ results.VA
 ```
 
 ```{r, fig.width=12, fig.height=6}
-set.seed(1234)
 wordcloud(words = results.VA$description,
           freq = round(as.numeric(results.VA$coef) * 100),
           random.order = FALSE,
