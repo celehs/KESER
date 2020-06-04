@@ -17,30 +17,36 @@ embeddings to facilitate effective feature selection and knowledge
 discovery with EHR data. A main advantage of the proposed
 embedding-based method over the existing feature selection algorithms is
 that it can be performed based on only summary data that can be shared
-across research
-groups.
+across research groups (see below for the
+workflow).
 
 <img src="https://github.com/celehs/KESER/raw/master/img/workflow.png" width="800" />
 
 ## Getting Started
 
-Install development version from GitHub.
+Install the `KESER` package from GitHub and then load it into R.
 
 ``` r
 # install.packages("remotes")
 remotes::install_github("celehs/KESER")
-```
-
-Load the package into R.
-
-``` r
 library(KESER)
 ```
+
+Load the clinical embeddings for the `depression` data example. One can
+follow the instructions
+[HERE](https://github.com/rusheniii/LargeScaleClinicalEmbedding) to
+derive clinical embeddings from code-code coocurrence matrix.
 
 ``` r
 dir <- "https://github.com/celehs/KESER/raw/master/rdata/"
 data <- readRDS(url(paste0(dir, "depression.rds"), "rb"))
 ```
+
+To perform [feature
+selection](https://celehs.github.io/KESER/articles/feature-selection.html),
+the input data should be a list that consists of 6 elements:
+`X_full_lst`, `Y_full_lst`, `X_train_lst`, `Y_train_lst`, `X_valid_lst`,
+`Y_valid_lst`.
 
 ``` r
 str(data)
@@ -83,6 +89,10 @@ str(data)
     ##  $ Y_valid_lst:List of 2
     ##   ..$ : num [1:3700] -1.36 3.17e-01 -8.34e-02 2.64e-16 3.40e-01 ...
     ##   ..$ : num [1:5400] -0.707 -0.707 -0.716 -0.157 -0.215 ...
+
+We also provide an interactive user interface (link coming some) to
+visualize knowledge network from our KESER
+algorithm.
 
 <img src="https://github.com/celehs/KESER/raw/master/img/interface.png" width="800" />
 
