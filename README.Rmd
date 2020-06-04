@@ -1,0 +1,42 @@
+---
+title: "Knowledge Extraction via Sparse Embedding Regression (KESER)"
+output: github_document
+---
+
+## Overview
+
+The increasing availability of Electronic Health Record (EHR) systems has created enormous potential for translational research. While the huge amount of information in EHR can be used in clinical informatics tasks, data mining for EHR data with complex structure is challenging. Traditional data mining approaches require domain knowledge to select relevant codes, which hampers the efficiency for translational research.
+
+This packages implements the Knowledge Extraction via Sparse Embedding Regression (KESER) algorithm from our working paper, which is currently available upon request. We provide functions to use large scale code embeddings to facilitate effective feature selection and knowledge discovery with EHR data. A main advantage of the proposed embedding-based method over the existing feature selection algorithms is that it can be performed based on only summary data that can be shared across research groups.
+
+<img src="https://github.com/celehs/KESER/raw/master/img/workflow.png" width="800" />
+
+## Getting Started
+
+Install development version from GitHub.
+
+```{r, eval=FALSE}
+# install.packages("remotes")
+remotes::install_github("celehs/KESER")
+```
+
+Load the package into R.
+
+```{r}
+library(KESER)
+```
+
+```{r}
+dir <- "https://github.com/celehs/KESER/raw/master/rdata/"
+data <- readRDS(url(paste0(dir, "depression.rds"), "rb"))
+```
+
+```{r}
+str(data)
+```
+
+<img src="https://github.com/celehs/KESER/raw/master/img/interface.png" width="800" />
+
+## References
+
+- __Large Scale Code Embedding with Applications to Feature Selection and Knowledge Discovery in Electronic Health Records__. _Working Paper_. 

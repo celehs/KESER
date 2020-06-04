@@ -10,8 +10,6 @@ navbar:
     - text: "Home"
       href: index.html      
     - text: "Embeddings"
-      href: https://code.ornl.gov/mvp-champion/research-support/cooccurrence-matrix      
-    - text: "Single Site"
-      href: articles/single.html        
-    - text: "Multiple Sites"
-      href: articles/multiple.html   
+      href: https://github.com/rusheniii/LargeScaleClinicalEmbedding      
+    - text: "Feature Selection"
+      href: articles/feature-selection.html        

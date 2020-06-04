@@ -1,0 +1,72 @@
+---
+title: "Feature Selection"
+vignette: >
+  %\VignetteIndexEntry{single}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+output: rmarkdown::html_vignette
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(eval = TRUE)
+options(width = 100)
+```
+
+```{r}
+library(KESER)
+library(wordcloud)
+```
+
+Load the depression data into R.
+
+```{r}
+dir <- "https://github.com/celehs/KESER/raw/master/rdata/"
+data <- readRDS(url(paste0(dir, "depression.rds"), "rb"))
+dict <- readRDS(url(paste0(dir, "dictionary.rds"), "rb"))
+```
+
+Feature Selection with Embeddings from Partners Healthcare 
+
+```{r}
+set.seed(123)
+system.time(loc.fit.RPDR <- loc.feature.selection(
+  data$X_full_lst[[1]], data$Y_full_lst[[1]],
+  data$X_train_lst[[1]], data$Y_train_lst[[1]], 
+  data$X_valid_lst[[1]], data$Y_valid_lst[[1]],
+  alpha = 1, lambda_lst = NULL, up_rate = 10, 
+  drop_rate = 0.5, cos_cut = 0.1, add.ridge = TRUE))
+results.RPDR <- merge(loc.fit.RPDR$results, dict, all.x = TRUE)
+results.RPDR
+```
+
+```{r, fig.width=12, fig.height=10}
+wordcloud(words = results.RPDR$description,
+          freq = round(as.numeric(results.RPDR$coef) * 100),
+          random.order = FALSE,
+          colors = brewer.pal(8, "Dark2"),
+          # scale = c(4, 0.2),
+          rot.per = 0)
+```
+
+Feature Selection with Embeddings from Veteran Affairs (VA)
+
+```{r}
+set.seed(123)
+system.time(loc.fit.VA <- loc.feature.selection(
+  data$X_full_lst[[2]], data$Y_full_lst[[2]],
+  data$X_train_lst[[2]], data$Y_train_lst[[2]], 
+  data$X_valid_lst[[2]], data$Y_valid_lst[[2]],
+  alpha = 1, lambda_lst = NULL, up_rate = 10, 
+  drop_rate = 0.5, cos_cut = 0.1, add.ridge = TRUE))
+results.VA <- merge(loc.fit.VA$results, dict, all.x = TRUE)
+results.VA
+```
+
+```{r, fig.width=12, fig.height=6}
+wordcloud(words = results.VA$description,
+          freq = round(as.numeric(results.VA$coef) * 100),
+          random.order = FALSE,
+          colors = brewer.pal(8, "Dark2"),
+          # scale = c(4, 0.2),
+          rot.per = 0)
+```

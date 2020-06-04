@@ -41,13 +41,10 @@
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="https://code.ornl.gov/mvp-champion/research-support/cooccurrence-matrix">Embeddings</a>
+  <a href="https://github.com/rusheniii/LargeScaleClinicalEmbedding">Embeddings</a>
 </li>
 <li>
-  <a href="articles/single.html">Single Site</a>
-</li>
-<li>
-  <a href="articles/multiple.html">Multiple Sites</a>
+  <a href="articles/feature-selection.html">Feature Selection</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -77,26 +74,57 @@
 <a href="#overview" class="anchor"></a>Overview</h2>
 <p>The increasing availability of Electronic Health Record (EHR) systems has created enormous potential for translational research. While the huge amount of information in EHR can be used in clinical informatics tasks, data mining for EHR data with complex structure is challenging. Traditional data mining approaches require domain knowledge to select relevant codes, which hampers the efficiency for translational research.</p>
 <p>This packages implements the Knowledge Extraction via Sparse Embedding Regression (KESER) algorithm from our working paper, which is currently available upon request. We provide functions to use large scale code embeddings to facilitate effective feature selection and knowledge discovery with EHR data. A main advantage of the proposed embedding-based method over the existing feature selection algorithms is that it can be performed based on only summary data that can be shared across research groups.</p>
-<p><img src="https://github.com/celehs/KESER/raw/master/flowchart/flowchart.png" width="500"></p>
+<p><img src="https://github.com/celehs/KESER/raw/master/img/workflow.png" width="800"></p>
 </div>
-<div id="installation" class="section level2">
+<div id="getting-started" class="section level2">
 <h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<a href="#getting-started" class="anchor"></a>Getting Started</h2>
 <p>Install development version from GitHub.</p>
 <div class="sourceCode" id="cb1"><pre class="r"><span class="co"># install.packages("remotes")</span>
-<span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"celehs/KESER"</span>)</pre></div>
+<span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">"celehs/KESER"</span>)</pre></div>
 <p>Load the package into R.</p>
 <div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">KESER</span>)</pre></div>
-</div>
-<div id="documentation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#documentation" class="anchor"></a>Documentation</h2>
-<ul>
-<li><p>Efficient Calculation of Coocurrence and Embeddings</p></li>
-<li><p><a href="https://celehs.github.io/KESER/articles/single.html">Local Feature Selection with Embeddings from a Single Site</a></p></li>
-<li><p><a href="https://celehs.github.io/KESER/articles/multiple.html">Integrative Feature Selection with Embeddings from Two Sites</a></p></li>
-<li><p>Network and Interactive Visualization (Coming Soon)</p></li>
-</ul>
+<div class="sourceCode" id="cb3"><pre class="r"><span class="no">dir</span> <span class="kw">&lt;-</span> <span class="st">"https://github.com/celehs/KESER/raw/master/rdata/"</span>
+<span class="no">data</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/connections.html">url</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="no">dir</span>, <span class="st">"depression.rds"</span>), <span class="st">"rb"</span>))</pre></div>
+<div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span>(<span class="no">data</span>)</pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co">## List of 6</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">##  $ X_full_lst :List of 2</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">##   ..$ : num [1:3700, 1:387] -1.426 0.191 0.403 -0.141 -0.572 ...</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">##   .. ..- attr(*, "dimnames")=List of 2</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">##   .. .. ..$ : NULL</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">##   .. .. ..$ : chr [1:387] "CCS:130" "CCS:131" "CCS:156" "CCS:163" ...</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">##   ..$ : num [1:5400, 1:552] -1.055 -0.919 0.183 -0.657 -0.427 ...</span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">##   .. ..- attr(*, "dimnames")=List of 2</span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">##   .. .. ..$ : NULL</span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">##   .. .. ..$ : chr [1:552] "CCS:130" "CCS:131" "CCS:156" "CCS:163" ...</span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">##  $ Y_full_lst :List of 2</span></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">##   ..$ : num [1:3700] -1.298 0.097 -0.41 -0.118 -0.228 ...</span></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">##   ..$ : num [1:5400] -0.698 -0.702 -0.7 -0.259 -0.126 ...</span></a>
+<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">##  $ X_train_lst:List of 2</span></a>
+<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">##   ..$ : num [1:3700, 1:387] 1.23 -3.84e-01 -8.46e-02 1.28e-15 4.63e-01 ...</span></a>
+<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="co">##   .. ..- attr(*, "dimnames")=List of 2</span></a>
+<a class="sourceLine" id="cb5-17" data-line-number="17"><span class="co">##   .. .. ..$ : NULL</span></a>
+<a class="sourceLine" id="cb5-18" data-line-number="18"><span class="co">##   .. .. ..$ : chr [1:387] "CCS:130" "CCS:131" "CCS:156" "CCS:163" ...</span></a>
+<a class="sourceLine" id="cb5-19" data-line-number="19"><span class="co">##   ..$ : num [1:5400, 1:552] -0.4631 -0.0193 0.461 -0.1689 0.2052 ...</span></a>
+<a class="sourceLine" id="cb5-20" data-line-number="20"><span class="co">##   .. ..- attr(*, "dimnames")=List of 2</span></a>
+<a class="sourceLine" id="cb5-21" data-line-number="21"><span class="co">##   .. .. ..$ : NULL</span></a>
+<a class="sourceLine" id="cb5-22" data-line-number="22"><span class="co">##   .. .. ..$ : chr [1:552] "CCS:130" "CCS:131" "CCS:156" "CCS:163" ...</span></a>
+<a class="sourceLine" id="cb5-23" data-line-number="23"><span class="co">##  $ Y_train_lst:List of 2</span></a>
+<a class="sourceLine" id="cb5-24" data-line-number="24"><span class="co">##   ..$ : num [1:3700] 1.36 2.85e-01 -6.31e-02 -7.11e-16 9.94e-01 ...</span></a>
+<a class="sourceLine" id="cb5-25" data-line-number="25"><span class="co">##   ..$ : num [1:5400] -0.8208 -0.6993 0.7399 0.4333 0.0566 ...</span></a>
+<a class="sourceLine" id="cb5-26" data-line-number="26"><span class="co">##  $ X_valid_lst:List of 2</span></a>
+<a class="sourceLine" id="cb5-27" data-line-number="27"><span class="co">##   ..$ : num [1:3700, 1:387] -1.32 -4.20e-01 -5.76e-02 -1.07e-15 8.26e-01 ...</span></a>
+<a class="sourceLine" id="cb5-28" data-line-number="28"><span class="co">##   .. ..- attr(*, "dimnames")=List of 2</span></a>
+<a class="sourceLine" id="cb5-29" data-line-number="29"><span class="co">##   .. .. ..$ : NULL</span></a>
+<a class="sourceLine" id="cb5-30" data-line-number="30"><span class="co">##   .. .. ..$ : chr [1:387] "CCS:130" "CCS:131" "CCS:156" "CCS:163" ...</span></a>
+<a class="sourceLine" id="cb5-31" data-line-number="31"><span class="co">##   ..$ : num [1:5400, 1:552] -1.051 -0.901 0.101 -0.688 -0.45 ...</span></a>
+<a class="sourceLine" id="cb5-32" data-line-number="32"><span class="co">##   .. ..- attr(*, "dimnames")=List of 2</span></a>
+<a class="sourceLine" id="cb5-33" data-line-number="33"><span class="co">##   .. .. ..$ : NULL</span></a>
+<a class="sourceLine" id="cb5-34" data-line-number="34"><span class="co">##   .. .. ..$ : chr [1:552] "CCS:130" "CCS:131" "CCS:156" "CCS:163" ...</span></a>
+<a class="sourceLine" id="cb5-35" data-line-number="35"><span class="co">##  $ Y_valid_lst:List of 2</span></a>
+<a class="sourceLine" id="cb5-36" data-line-number="36"><span class="co">##   ..$ : num [1:3700] -1.36 3.17e-01 -8.34e-02 2.64e-16 3.40e-01 ...</span></a>
+<a class="sourceLine" id="cb5-37" data-line-number="37"><span class="co">##   ..$ : num [1:5400] -0.707 -0.707 -0.716 -0.157 -0.215 ...</span></a></code></pre></div>
+<p><img src="https://github.com/celehs/KESER/raw/master/img/interface.png" width="800"></p>
 </div>
 <div id="references" class="section level2">
 <h2 class="hasAnchor">
