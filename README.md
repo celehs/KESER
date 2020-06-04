@@ -90,7 +90,7 @@ str(data)
     ##   ..$ : num [1:3700] -1.36 3.17e-01 -8.34e-02 2.64e-16 3.40e-01 ...
     ##   ..$ : num [1:5400] -0.707 -0.707 -0.716 -0.157 -0.215 ...
 
-We also provide an interactive user interface (link coming some) to
+We also provide an interactive user interface (link coming soon) to
 visualize knowledge network from our KESER
 algorithm.
 
