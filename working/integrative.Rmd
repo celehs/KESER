@@ -1,0 +1,58 @@
+---
+output: html_document
+---
+
+```{r}
+# remotes::install_github("celehs/KESER")
+library(KESER)
+```
+
+```{r}
+file <- "https://github.com/celehs/KESER/raw/master/rdata/depression.rds"
+data <- readRDS(url(file, "rb"))
+```
+
+```{r}
+system.time(up_rate_1 <- int.feature.selection(
+  data$X_full_lst, data$Y_full_lst, 
+  data$X_train_lst, data$Y_train_lst, 
+  data$X_valid_lst, data$Y_valid_lst,
+  lambda_lst = NULL, add.ridge = TRUE))
+up_rate_1
+```
+
+```{r}
+system.time(up_rate_2 <- int.feature.selection(
+  data$X_full_lst, data$Y_full_lst, 
+  data$X_train_lst, data$Y_train_lst, 
+  data$X_valid_lst, data$Y_valid_lst,
+  lambda_lst = NULL, add.ridge = TRUE, up_rate = 2))
+up_rate_2
+```
+
+```{r}
+system.time(up_rate_4 <- int.feature.selection(
+  data$X_full_lst, data$Y_full_lst, 
+  data$X_train_lst, data$Y_train_lst, 
+  data$X_valid_lst, data$Y_valid_lst,
+  lambda_lst = NULL, add.ridge = TRUE, up_rate = 4))
+up_rate_4
+```
+
+```{r}
+system.time(up_rate_8 <- int.feature.selection(
+  data$X_full_lst, data$Y_full_lst, 
+  data$X_train_lst, data$Y_train_lst, 
+  data$X_valid_lst, data$Y_valid_lst,
+  lambda_lst = NULL, add.ridge = TRUE, up_rate = 8))
+up_rate_8
+```
+
+```{r}
+out <- list(
+  up_rate_1 = up_rate_1, 
+  up_rate_2 = up_rate_2,
+  up_rate_4 = up_rate_4,
+  up_rate_8 = up_rate_8)
+saveRDS(out, "integrative.rds")
+```

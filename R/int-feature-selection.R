@@ -7,20 +7,24 @@
 #' @param Y_valid_lst ...
 #' @param lambda_lst ...
 #' @param add.ridge ...
+#' @param drop_rate ...
+#' @param up_rate ...
 #' @export
 int.feature.selection <- function(
   X_full_lst, Y_full_lst, X_train_lst, Y_train_lst, X_valid_lst, Y_valid_lst,
-  lambda_lst = NULL, add.ridge = TRUE) {
+  lambda_lst = NULL, add.ridge = TRUE, drop_rate = 0.5, up_rate = NULL) {
   ################# Drop-out #################
   n1_valid <- length(X_valid_lst[[1]][, 1])
   n2_valid <- length(X_valid_lst[[2]][, 1])
-  for (m in 1:2) {
-    drop_m_full <- drop_fun(X_full_lst[[m]], Y_full_lst[[m]], drop_rate = 0.5, up_rate = 10)
-    drop_m_train <- drop_fun(X_train_lst[[m]], Y_train_lst[[m]], drop_rate = 0.5, up_rate = 10)
-    X_full_lst[[m]] <- drop_m_full$X
-    Y_full_lst[[m]] <- drop_m_full$Y
-    X_train_lst[[m]] <- drop_m_train$X
-    Y_train_lst[[m]] <- drop_m_train$Y
+  if (!is.null(up_rate)) {
+    for (m in 1:2) {
+      drop_m_full <- drop_fun(X_full_lst[[m]], Y_full_lst[[m]], drop_rate = drop_rate, up_rate = up_rate)
+      drop_m_train <- drop_fun(X_train_lst[[m]], Y_train_lst[[m]], drop_rate = drop_rate, up_rate = up_rate)
+      X_full_lst[[m]] <- drop_m_full$X
+      Y_full_lst[[m]] <- drop_m_full$Y
+      X_train_lst[[m]] <- drop_m_train$X
+      Y_train_lst[[m]] <- drop_m_train$Y
+    }    
   }
   p1 <- length(X_full_lst[[1]][1, ])
   p2 <- length(X_full_lst[[2]][1, ])
