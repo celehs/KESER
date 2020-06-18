@@ -1,0 +1,42 @@
+---
+title: "results"
+output: html_document
+---
+
+```{r}
+library(data.table)
+library(wordcloud)
+```
+
+```{r}
+dir <- "https://github.com/celehs/KESER/raw/master/rdata/"
+dict <- readRDS(url(paste0(dir, "dictionary.rds"), "rb"))
+```
+
+```{r}
+up1 <- merge(dict, fread("up_rate_1.csv"), all.y = TRUE)
+up2 <- merge(dict, fread("up_rate_2.csv"), all.y = TRUE)
+up4 <- merge(dict, fread("up_rate_4.csv"), all.y = TRUE)
+up8 <- merge(dict, fread("up_rate_8.csv"), all.y = TRUE)
+```
+
+```{r}
+up1.coef <- up1[, 3:4]
+up2.coef <- up2[, 3:4]
+up4.coef <- up4[, 3:4]
+up8.coef <- up8[, 3:4]
+names(up1.coef) <- paste0("up1.", names(up1)[3:4])
+names(up2.coef) <- paste0("up2.", names(up2)[3:4])
+names(up4.coef) <- paste0("up4.", names(up4)[3:4])
+names(up8.coef) <- paste0("up8.", names(up8)[3:4])
+```
+
+```{r}
+DF <- cbind(up1[, 1:2], 
+      up1.coef,
+      up2.coef,
+      up4.coef,
+      up8.coef)
+fwrite(DF, "results.csv")
+```
+
