@@ -5,6 +5,7 @@ output: html_document
 ```{r}
 # remotes::install_github("celehs/KESER")
 library(KESER)
+library(data.table)
 ```
 
 ```{r}
@@ -18,6 +19,7 @@ system.time(up_rate_1 <- int.feature.selection(
   data$X_train_lst, data$Y_train_lst, 
   data$X_valid_lst, data$Y_valid_lst,
   lambda_lst = NULL, add.ridge = TRUE))
+fwrite(up_rate_1$results, "up_rate_1.csv")
 up_rate_1
 ```
 
@@ -27,6 +29,7 @@ system.time(up_rate_2 <- int.feature.selection(
   data$X_train_lst, data$Y_train_lst, 
   data$X_valid_lst, data$Y_valid_lst,
   lambda_lst = NULL, add.ridge = TRUE, up_rate = 2))
+fwrite(up_rate_2$results, "up_rate_2.csv")
 up_rate_2
 ```
 
@@ -36,6 +39,7 @@ system.time(up_rate_4 <- int.feature.selection(
   data$X_train_lst, data$Y_train_lst, 
   data$X_valid_lst, data$Y_valid_lst,
   lambda_lst = NULL, add.ridge = TRUE, up_rate = 4))
+fwrite(up_rate_4$results, "up_rate_4.csv")
 up_rate_4
 ```
 
@@ -45,14 +49,6 @@ system.time(up_rate_8 <- int.feature.selection(
   data$X_train_lst, data$Y_train_lst, 
   data$X_valid_lst, data$Y_valid_lst,
   lambda_lst = NULL, add.ridge = TRUE, up_rate = 8))
+fwrite(up_rate_8$results, "up_rate_8.csv")
 up_rate_8
-```
-
-```{r}
-out <- list(
-  up_rate_1 = up_rate_1, 
-  up_rate_2 = up_rate_2,
-  up_rate_4 = up_rate_4,
-  up_rate_8 = up_rate_8)
-saveRDS(out, "integrative.rds")
 ```
