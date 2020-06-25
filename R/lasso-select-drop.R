@@ -6,7 +6,8 @@ Lasso_select_drop <- function(
     fit.cv <- glmnet::cv.glmnet(
       X, Y, intercept = FALSE, standardize = FALSE, alpha = alpha)
     lambda.min <- fit.cv$lambda.min
-    lambda_lst = c(1e-3 * (1:999), 1:1000) * lambda.min
+    lambda_lst <- exp(seq(log(1e-3 * lambda.min),
+                          log(1e3 * lambda.min), length.out = 300))
   }
   ############################################################################
   fit_result <- glmnet::glmnet(
