@@ -14,7 +14,7 @@
 #' @export
 loc.feature.selection <- function(
   X_full, Y_full, X_train, Y_train, X_valid, Y_valid,
-  alpha = 1, lambda_lst = NULL, up_rate = 10, 
+  alpha = 1, lambda_lst = NULL, up_rate = 3, 
   drop_rate = 0.5, cos_cut = 0.1, add.ridge = TRUE) {
   ################ cut by cosine ################
   cos_lst <- unlist(lapply(c(1:ncol(X_full)), function(j) {
