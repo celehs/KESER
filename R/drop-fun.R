@@ -1,5 +1,5 @@
 # Dropout and up-sample
-drop_fun <- function(X, Y, drop_rate = 0.5, up_rate = 2) {
+drop_fun <- function(X, Y, drop_rate = 0.5, up_rate = 3) {
   boot_ind <- sample(1:nrow(X), up_rate * nrow(X), replace = TRUE)
   Y_new <- Y[boot_ind]
   X_new <- X[boot_ind, ]
