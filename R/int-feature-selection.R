@@ -12,7 +12,7 @@
 #' @export
 int.feature.selection <- function(
   X_full_lst, Y_full_lst, X_train_lst, Y_train_lst, X_valid_lst, Y_valid_lst,
-  lambda_lst = NULL, add.ridge = TRUE, drop_rate = 0.5, up_rate = NULL) {
+  lambda_lst = NULL, add.ridge = TRUE, drop_rate = 0.5, up_rate = 3) {
   ################# Drop-out #################
   n1_valid <- length(X_valid_lst[[1]][, 1])
   n2_valid <- length(X_valid_lst[[2]][, 1])
