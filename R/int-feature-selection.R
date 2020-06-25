@@ -76,7 +76,8 @@ int.feature.selection <- function(
       x = as.matrix(X_train_all), y = Y_train_all, group = group_ind_vec, 
       pf = pf_group, intercept = FALSE)
     lambda.min <- fit.cv$lambda.min
-    lambda_lst = c(1e-3 * (1:999), 1:1000) * lambda.min
+    lambda_lst <- exp(seq(log(1e-3 * lambda.min),
+                          log(1e3 * lambda.min), length.out = 300))
   }
   ############################################################################
   fit_result <- gglasso::gglasso(
