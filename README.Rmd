@@ -34,10 +34,6 @@ To perform [feature selection](https://celehs.github.io/KESER/articles/feature-s
 str(data)
 ```
 
-We also provide an interactive user interface (link coming soon) to visualize knowledge network from our KESER algorithm. 
-
-<img src="https://github.com/celehs/KESER/raw/master/img/interface.png" width="800" />
-
 ## References
 
 - __Large Scale Code Embedding with Applications to Feature Selection and Knowledge Discovery in Electronic Health Records__. _Working Paper_. 

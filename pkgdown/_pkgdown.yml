@@ -13,3 +13,5 @@ navbar:
       href: https://github.com/rusheniii/LargeScaleClinicalEmbedding      
     - text: "Feature Selection"
       href: articles/feature-selection.html        
+    - text: "Network Visualization"
+      href: articles/network-visualization.html

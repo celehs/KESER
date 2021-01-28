@@ -1,7 +1,7 @@
 ---
 title: "Feature Selection"
 vignette: >
-  %\VignetteIndexEntry{single}
+  %\VignetteIndexEntry{Feature Selection}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 output: rmarkdown::html_vignette
@@ -70,3 +70,8 @@ wordcloud(words = results.VA$description,
           # scale = c(4, 0.2),
           rot.per = 0)
 ```
+
+```{r}
+proc.time()
+```
+
