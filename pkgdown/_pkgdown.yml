@@ -2,12 +2,12 @@ url: https://celehs.github.io/KESER/
 
 template:
   params:
-    bootswatch: spacelab
+    bootswatch: cosmo
 
 navbar:
   type: inverse
   left:
-    - text: "Home"
+    - icon: "fa-home"
       href: index.html      
     - text: "Embeddings"
       href: https://github.com/rusheniii/LargeScaleClinicalEmbedding      
@@ -15,3 +15,6 @@ navbar:
       href: articles/feature-selection.html        
     - text: "Network Visualization"
       href: articles/network-visualization.html
+  right:
+    - text: "CELEHS Software"
+      href: https://celehs.github.io

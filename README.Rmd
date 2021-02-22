@@ -36,4 +36,4 @@ str(data)
 
 ## References
 
-- __Large Scale Code Embedding with Applications to Feature Selection and Knowledge Discovery in Electronic Health Records__. _Working Paper_. 
+- Large Scale Code Embedding with Applications to Feature Selection and Knowledge Discovery in Electronic Health Records. _Working Paper_. 

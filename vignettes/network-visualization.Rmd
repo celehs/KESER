@@ -7,6 +7,6 @@ vignette: >
 output: rmarkdown::html_vignette
 ---
 
-We provide an interactive user interface (link [HERE](https://xinxiong.shinyapps.io/shiny/)) to visualize knowledge network from our KESER algorithm. 
+We provide an interactive user interface (link [HERE](http://app.parse-health.org/network/)) to visualize knowledge network from our KESER algorithm. 
 
 <img src="https://raw.githubusercontent.com/celehs/KESER/master/img/network.PNG" width="800" />
