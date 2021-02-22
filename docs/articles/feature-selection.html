@@ -73,7 +73,7 @@
       <h1 data-toc-skip>Feature Selection</h1>
             
       
-      
+      <small class="dont-index">Source: <a href="https://github.com/celehs/KESER/blob/master/vignettes/feature-selection.Rmd"><code>vignettes/feature-selection.Rmd</code></a></small>
       <div class="hidden name"><code>feature-selection.Rmd</code></div>
 
     </div>
@@ -81,7 +81,7 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://celehs.github.io/KESER">KESER</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://celehs.github.io/KESER/">KESER</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://blog.fellstat.com/?cat=11">wordcloud</a></span><span class="op">)</span></pre></div>
 <pre><code>## Loading required package: RColorBrewer</code></pre>
 <p>Load the depression data into R.</p>
@@ -99,7 +99,7 @@
   alpha <span class="op">=</span> <span class="fl">1</span>, lambda_lst <span class="op">=</span> <span class="cn">NULL</span>, up_rate <span class="op">=</span> <span class="fl">10</span>, 
   drop_rate <span class="op">=</span> <span class="fl">0.5</span>, cos_cut <span class="op">=</span> <span class="fl">0.1</span>, add.ridge <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></pre></div>
 <pre><code>##    user  system elapsed 
-##  78.251   2.671  81.211</code></pre>
+##  91.737   3.634  96.839</code></pre>
 <div class="sourceCode" id="cb6"><pre class="downlit">
 <span class="va">results.RPDR</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span><span class="va">loc.fit.RPDR</span><span class="op">$</span><span class="va">results</span>, <span class="va">dict</span>, all.x <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="va">results.RPDR</span></pre></div>
@@ -139,7 +139,7 @@
   alpha <span class="op">=</span> <span class="fl">1</span>, lambda_lst <span class="op">=</span> <span class="cn">NULL</span>, up_rate <span class="op">=</span> <span class="fl">10</span>, 
   drop_rate <span class="op">=</span> <span class="fl">0.5</span>, cos_cut <span class="op">=</span> <span class="fl">0.1</span>, add.ridge <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></pre></div>
 <pre><code>##    user  system elapsed 
-## 241.686   5.249 247.263</code></pre>
+## 241.673   5.981 247.803</code></pre>
 <div class="sourceCode" id="cb13"><pre class="downlit">
 <span class="va">results.VA</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span><span class="va">loc.fit.VA</span><span class="op">$</span><span class="va">results</span>, <span class="va">dict</span>, all.x <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="va">results.VA</span></pre></div>
@@ -187,7 +187,7 @@
 <div class="sourceCode" id="cb20"><pre class="downlit">
 <span class="fu"><a href="https://rdrr.io/r/base/proc.time.html">proc.time</a></span><span class="op">(</span><span class="op">)</span></pre></div>
 <pre><code>##    user  system elapsed 
-## 323.545   8.304 335.393</code></pre>
+## 337.829   9.959 350.251</code></pre>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
