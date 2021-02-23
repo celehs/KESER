@@ -1,7 +1,10 @@
 ---
-title: "Knowledge Extraction via Sparse Embedding Regression (KESER)"
 output: github_document
 ---
+
+# KESER: Knowledge Extraction via Sparse Embedding Regression (KESER)
+
+[![CRAN](https://www.r-pkg.org/badges/version/KESER)](https://CRAN.R-project.org/package=KESER)
 
 ## Overview
 

@@ -1,5 +1,7 @@
-Knowledge Extraction via Sparse Embedding Regression (KESER)
-================
+
+# KESER: Knowledge Extraction via Sparse Embedding Regression (KESER)
+
+[![CRAN](https://www.r-pkg.org/badges/version/KESER)](https://CRAN.R-project.org/package=KESER)
 
 ## Overview
 
@@ -92,6 +94,6 @@ str(data)
 
 ## References
 
-  - **Large Scale Code Embedding with Applications to Feature Selection
-    and Knowledge Discovery in Electronic Health Records**. *Working
+  - Large Scale Code Embedding with Applications to Feature Selection
+    and Knowledge Discovery in Electronic Health Records. *Working
     Paper*.
